@@ -6,8 +6,8 @@ build:
     # http://devcenter.wercker.com/articles/languages/ruby.html
     steps:
         # Uncomment this to force RVM to use a specific Ruby version
-        # - rvm-use:
-        #       version: 2.1.0
+        - rvm-use:
+            version: 2.1.1
 
         # A step that executes `bundle install` command
         - bundle-install
@@ -25,3 +25,24 @@ build:
         - script:
            name: rspec
            code: bundle exec rspec
+
+        - rvm-use:
+           version: 2.1.0
+
+        # A step that executes `bundle install` command
+        - bundle-install
+
+        # A custom script step, name value is used in the UI
+        # and the code value contains the command that get executed
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+                echo "from location $(which ruby)"
+                echo -p "gem list: $(gem list)"
+
+        # Add more steps here:
+        - script:
+            name: rspec
+            code: bundle exec rspec
+
