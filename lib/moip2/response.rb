@@ -11,6 +11,10 @@ module Moip2
       (200..299).include? @resp.code.to_i
     end
 
+    def client_error?
+      (400..499).include? @resp.code.to_i
+    end
+
   end
 
 end

@@ -28,4 +28,20 @@ describe Moip2::Response do
 
   end
 
+  describe "#client_error?" do
+
+    let(:error_response) do
+      double("Error Response").tap do |error_response|
+        allow(error_response).to receive(:code).and_return(400)
+      end
+    end
+
+    let(:response) { described_class.new(error_response, {}) }
+
+    it "returns false when response code == 4xx" do
+      expect(response).to be_client_error
+    end
+
+  end
+
 end

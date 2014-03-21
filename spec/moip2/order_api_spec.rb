@@ -51,6 +51,28 @@ describe Moip2::OrderApi do
       end
     end
 
+    context "when validation error" do
+
+      let(:created_order) do
+        VCR.use_cassette("create_order_fail") do
+          order_api.create({})
+        end
+      end
+
+      it "returns an error" do
+        expect(created_order).to_not be_success
+        expect(created_order).to be_client_error
+      end
+
+      it "returns an error json" do
+        expect(created_order["errors"].size).to eq(3)
+        expect(created_order["errors"][0]["code"]).to_not be_nil
+        expect(created_order["errors"][0]["path"]).to_not be_nil
+        expect(created_order["errors"][0]["description"]).to_not be_nil
+      end
+
+    end
+
   end
 
 end

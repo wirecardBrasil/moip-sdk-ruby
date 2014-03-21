@@ -12,6 +12,8 @@ module Moip2
 
       if sandbox?
         self.class.base_uri "https://test.moip.com.br"
+      else
+        self.class.base_uri "https://api.moip.com.br"
       end
     end
 
@@ -23,9 +25,7 @@ module Moip2
       options = { body: convert_hash_keys_to(:camel_case, resource).to_json, basic_auth: basic_auth }
       resp = self.class.post path, options
 
-      if resp.success?
-        Response.new resp, convert_hash_keys_to(:snake_case, resp.parsed_response)
-      end
+      Response.new resp, convert_hash_keys_to(:snake_case, resp.parsed_response)
     end
 
     private
