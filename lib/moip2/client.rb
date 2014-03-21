@@ -5,7 +5,7 @@ module Moip2
 
     headers "Content-Type" => "application/json"
 
-    attr_reader :env, :credentials, :opts
+    attr_reader :env, :credentials
 
     def initialize(env = :sandbox, credentials = {}, opts = {})
       @env, @credentials, @opts = env, credentials, opts
@@ -21,14 +21,28 @@ module Moip2
       env == :sandbox
     end
 
+    def opts
+      @opts.merge(basic_auth: basic_auth)
+    end
+
     def post(path, resource)
-      options = { body: convert_hash_keys_to(:camel_case, resource).to_json, basic_auth: basic_auth }
+      options = opts.merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
       resp = self.class.post path, options
 
-      Response.new resp, convert_hash_keys_to(:snake_case, resp.parsed_response)
+      create_response resp
+    end
+
+    def get(path)
+      resp = self.class.get path, opts
+
+      create_response resp
     end
 
     private
+    def create_response(resp)
+      Response.new resp, convert_hash_keys_to(:snake_case, resp.parsed_response)
+    end
+
     def basic_auth
       { username: @credentials[:token], password: @credentials[:secret]}
     end

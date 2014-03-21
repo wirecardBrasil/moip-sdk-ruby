@@ -75,4 +75,18 @@ describe Moip2::OrderApi do
 
   end
 
+  describe "#show" do
+
+    let(:order) do
+      VCR.use_cassette("show_order") do
+        order_api.show("ORD-EQE16JGCM52O")
+      end
+    end
+
+    it "returns an order" do
+      expect(order["id"]).to eq("ORD-EQE16JGCM52O")
+    end
+
+  end
+
 end

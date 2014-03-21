@@ -16,6 +16,10 @@ module Moip2
       client.post(base_path, order)
     end
 
+    def show(id)
+      client.get("#{base_path}/#{id}")
+    end
+
   end
 
 end

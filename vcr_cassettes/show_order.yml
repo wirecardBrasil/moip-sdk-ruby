@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/orders/ORD-EQE16JGCM52O
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.5.2
+      Date:
+      - Fri, 21 Mar 2014 01:43:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1830'
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"ORD-EQE16JGCM52O","ownId":"sandbox_2_1395095603_1","amount":{"total":15000,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":5000,"addition":0,"discount":0,"items":10000}},"items":[{"product":"Pedido
+        2 de testes Sandbox - 1395095603","quantity":1,"price":10000}],"customer":{"id":"CUS-G2LOTWNNG04D","ownId":"sandbox_3_1395095603_1","fullname":"Jose
+        Silva","email":"josedasilva@email.com","phone":{},"birthDate":"1988-12-30","taxDocument":{"type":"CPF","number":"22222222222"},"addresses":[{"type":"BILLING","street":"Avenida
+        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
+        Paulo","state":"SP","country":"BRA","zipCode":"01234000"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-G2LOTWNNG04D"}}},"payments":[],"receivers":[{"moipAccount":{"id":"MPA-CULBBYHD11","login":"integracao@labs.moip.com.br","fullname":"Moip
+        SandBox"},"type":"PRIMARY","amount":{"total":15000,"currency":"BRL"}}],"events":[],"refunds":[],"entries":[],"status":"WAITING","createdAt":"2014-03-17T19:37:19-0300","_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-EQE16JGCM52O"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-EQE16JGCM52O"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-EQE16JGCM52O"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-EQE16JGCM52O"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-EQE16JGCM52O"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-EQE16JGCM52O"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-EQE16JGCM52O"}}}}'
+    http_version: 
+  recorded_at: Fri, 21 Mar 2014 01:43:44 GMT
+recorded_with: VCR 2.8.0
