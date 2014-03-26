@@ -45,4 +45,7 @@ module Moip2
 
   end
 
+  class NotFoundError < StandardError
+  end
+
 end

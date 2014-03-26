@@ -87,6 +87,20 @@ describe Moip2::OrderApi do
       expect(order["id"]).to eq("ORD-EQE16JGCM52O")
     end
 
+    context "when order not found" do
+
+      let(:order) do
+        VCR.use_cassette("show_order_not_found") do
+          order_api.show("ORD-INVALID")
+        end
+      end
+
+      it "raises a NotFound" do
+        expect { order }.to raise_error Moip2::NotFoundError
+      end
+
+    end
+
   end
 
 end

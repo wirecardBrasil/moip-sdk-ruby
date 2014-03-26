@@ -40,6 +40,8 @@ module Moip2
 
     private
     def create_response(resp)
+      raise NotFoundError, "Resource not found" if resp.code == 404
+
       Response.new resp, convert_hash_keys_to(:snake_case, resp.parsed_response)
     end
 
