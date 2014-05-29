@@ -10,6 +10,10 @@ describe Moip2::Response do
       expect(response["id"]).to eq("ORD-SOMETHING")
     end
 
+    it "delegates attribute to property accessor" do
+      expect(response.id).to eq("ORD-SOMETHING")
+    end
+
   end
 
   describe "#success?" do

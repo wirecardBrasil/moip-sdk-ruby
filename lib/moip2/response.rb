@@ -3,7 +3,7 @@ module Moip2
   class Response < SimpleDelegator
 
     def initialize(resp, json)
-      super(json)
+      super(OpenStruct.new(json))
       @resp = resp
     end
 
