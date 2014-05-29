@@ -1,6 +1,6 @@
 describe Moip2::OrderApi do
 
-  let(:order_api) {  described_class.new(Moip2::Client.new(:sandbox, token: "01010101010101010101010101010101", secret: "ABABABABABABABABABABABABABABABABABABABAB"))  }
+  let(:order_api) { described_class.new(sandbox_client)  }
 
   describe "#create" do
 
@@ -65,7 +65,7 @@ describe Moip2::OrderApi do
       end
 
       it "returns an error json" do
-        expect(created_order["errors"].size).to eq(3)
+        expect(created_order["errors"].size).to eq(2)
         expect(created_order["errors"][0]["code"]).to_not be_nil
         expect(created_order["errors"][0]["path"]).to_not be_nil
         expect(created_order["errors"][0]["description"]).to_not be_nil

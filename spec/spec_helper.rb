@@ -90,3 +90,12 @@ VCR.configure do |c|
   c.cassette_library_dir = 'vcr_cassettes'
   c.hook_into :webmock # or :fakeweb
 end
+
+# Helper methods
+def sandbox_auth
+  Moip2::Auth::Basic.new('01010101010101010101010101010101', 'ABABABABABABABABABABABABABABABABABABABAB')
+end
+
+def sandbox_client
+  Moip2::Client.new(:sandbox, sandbox_auth)
+end

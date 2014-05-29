@@ -21,11 +21,11 @@ http_interactions:
       Server:
       - nginx/1.5.2
       Date:
-      - Sun, 09 Mar 2014 19:59:57 GMT
+      - Thu, 29 May 2014 01:54:53 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '5452'
+      - '2121'
       Connection:
       - keep-alive
       Status:
@@ -36,54 +36,12 @@ http_interactions:
       - nosniff
     body:
       encoding: UTF-8
-      string: '{"id":"ORD-XD6R44XFCRUZ","ownId":"your_own_id_1","amount":{"total":100,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0,"items":100}},"items":[{"product":"Some
-        Product","quantity":1,"price":100}],"customer":{"id":"CUS-YS95T2WARXI3","ownId":"your_customer_own_id","fullname":"John
-        Doe","email":"john.doe@mailinator.com","phone":{},"taxDocument":{"type":"CPF","number":"22222222222"},"addresses":[{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"},{"type":"BILLING","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-YS95T2WARXI3"}}},"payments":[],"receivers":[{"moipAccount":{"id":"MPA-CULBBYHD11","login":"integracao@labs.moip.com.br","fullname":"Moip
-        SandBox"},"type":"PRIMARY","amount":{"total":100,"currency":"BRL"}}],"events":[],"refunds":[],"entries":[],"status":"WAITING","createdAt":"2014-03-09T16:59:57-0300","_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-XD6R44XFCRUZ"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-XD6R44XFCRUZ"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-XD6R44XFCRUZ"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-XD6R44XFCRUZ"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-XD6R44XFCRUZ"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-XD6R44XFCRUZ"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-XD6R44XFCRUZ"}}}}'
+      string: '{"id":"ORD-UEK2XGEXNWL9","ownId":"your_own_id_1","status":"CREATED","createdAt":"2014-05-28T22:54:53-0300","amount":{"total":100,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0,"items":100}},"items":[{"product":"Some
+        Product","detail":"","quantity":1,"price":100}],"addresses":[{"city":"Sao
+        Paulo","complement":"8","district":"Itaim","street":"Avenida Faria Lima","streetNumber":"2927","zipCode":"01234000","state":"SP","type":"BILLING","country":"BRA"}],"customer":{"id":"CUS-YS95T2WARXI3","ownId":"your_customer_own_id","fullname":"John
+        Doe","email":"john.doe@mailinator.com","phone":{"areaCode":"","countryCode":"55","number":""},"taxDocument":{"type":"CPF","number":"22222222222"},"addresses":[{"city":"Sao
+        Paulo","complement":"8","district":"Itaim","street":"Avenida Faria Lima","streetNumber":"2927","zipCode":"01234000","state":"SP","type":"BILLING","country":"BRA"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-YS95T2WARXI3"}}},"payments":[],"refunds":[],"entries":[],"events":[{"createdAt":"2014-05-28T22:54:53-0300","description":"","type":"ORDER.CREATED"}],"receivers":[{"moipAccount":{"fullname":"Moip
+        SandBox","login":"integracao@labs.moip.com.br","id":"MPA-CULBBYHD11"},"secondary":false,"amount":{"fees":0,"refunds":0,"total":100},"payerFee":false,"type":"PRIMARY"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-UEK2XGEXNWL9"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-UEK2XGEXNWL9"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-UEK2XGEXNWL9"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-UEK2XGEXNWL9"}}}}'
     http_version: 
-  recorded_at: Sun, 09 Mar 2014 19:59:58 GMT
+  recorded_at: Thu, 29 May 2014 01:54:54 GMT
 recorded_with: VCR 2.8.0

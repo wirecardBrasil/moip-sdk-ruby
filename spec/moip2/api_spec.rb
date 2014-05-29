@@ -1,6 +1,8 @@
 describe Moip2::Api do
 
-  let(:api) { described_class.new(:sandbox, token: "01010101010101010101010101010101", secret: "ABABABABABABABABABABABABABABABABABABABAB") }
+  let(:auth) { Moip2::Auth::Basic.new('', '') }
+  let(:client) { Moip2::Client.new(:sandbox, auth) }
+  let(:api) { described_class.new client }
 
   describe "#order" do
 

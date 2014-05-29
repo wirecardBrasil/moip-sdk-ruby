@@ -3,6 +3,8 @@ require "delegate"
 
 require "moip2/version"
 
+require "moip2/auth/basic"
+
 require "moip2/response"
 require "moip2/client"
 require "moip2/order_api"
@@ -23,11 +25,11 @@ module Moip2
       @env ||= :sandbox
     end
 
-    def credentials=(credentials)
+    def auth=(credentials)
       @credentials = credentials
     end
 
-    def credentials
+    def auth
       @credentials ||= {}
     end
 
@@ -39,8 +41,8 @@ module Moip2
       @opts ||= {}
     end
 
-    def api
-      Client.new(env, credentials)
+    def new
+      Api.new Client.new(env, auth)
     end
 
   end

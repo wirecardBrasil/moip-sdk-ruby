@@ -17,7 +17,7 @@ http_interactions:
       Server:
       - nginx/1.5.2
       Date:
-      - Wed, 26 Mar 2014 10:52:16 GMT
+      - Thu, 29 May 2014 01:54:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: UTF-8
       string: Not Found
     http_version: 
-  recorded_at: Wed, 26 Mar 2014 10:52:16 GMT
+  recorded_at: Thu, 29 May 2014 01:55:00 GMT
 recorded_with: VCR 2.8.0

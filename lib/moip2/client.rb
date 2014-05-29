@@ -3,12 +3,10 @@ module Moip2
   class Client
     include HTTParty
 
-    headers "Content-Type" => "application/json"
+    attr_reader :env, :auth
 
-    attr_reader :env, :credentials
-
-    def initialize(env = :sandbox, credentials = {}, opts = {})
-      @env, @credentials, @opts = env, credentials, opts
+    def initialize(env = :sandbox, auth = nil, opts = {})
+      @env, @auth, @opts = env, auth, opts
 
       if sandbox?
         self.class.base_uri "https://test.moip.com.br"
@@ -22,7 +20,13 @@ module Moip2
     end
 
     def opts
-      @opts.merge(basic_auth: basic_auth)
+      @opts.merge(
+        headers:
+          {
+            "Content-Type" => "application/json",
+            "Authorization" => auth.header
+          }
+      )
     end
 
     def post(path, resource)
@@ -46,7 +50,7 @@ module Moip2
     end
 
     def basic_auth
-      { username: @credentials[:token], password: @credentials[:secret]}
+      { username: @auth[:token], password: @auth[:secret]}
     end
 
     def convert_hash_keys_to(conversion, value)
