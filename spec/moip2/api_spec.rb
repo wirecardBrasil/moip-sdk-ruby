@@ -12,4 +12,10 @@ describe Moip2::Api do
 
   end
 
+  describe  "#payment" do
+    it "returns a PaymentApi" do
+      expect(api.payment).to be_a(Moip2::PaymentApi)
+    end
+  end
+
 end

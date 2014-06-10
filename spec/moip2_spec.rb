@@ -23,6 +23,18 @@ describe Moip2 do
       expect(moip).to be_a(Moip2::Api)
     end
 
+    context "when auth is not set" do
+
+      let(:moip) do
+        described_class.auth = nil
+        described_class.new
+      end
+
+      it "raises an error" do
+        expect { moip }.to raise_error
+      end
+    end
+
   end
 
 end

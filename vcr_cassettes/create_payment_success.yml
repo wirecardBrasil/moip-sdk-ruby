@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/orders/ORD-UEK2XGEXNWL9/payments
+    body:
+      encoding: UTF-8
+      string: '{"installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"expirationMonth":5,"expirationYear":18,"number":"4012001038443335","cvc":"123","holder":{"fullname":"Jose
+        Portador da Silva","birthdate":"1988-12-30","taxDocument":{"type":"CPF","number":"33333333333"},"phone":{"countryCode":"55","areaCode":"11","number":"66778899"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx/1.5.2
+      Date:
+      - Tue, 10 Jun 2014 00:36:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '725'
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-W3MNW718O3AI","status":"IN_ANALYSIS","amount":{"refunds":0,"fees":46,"liquid":54,"currency":"BRL","total":100},"installmentCount":1,"fundingInstrument":{"creditCard":{"first6":"401200","last4":"3335","brand":"VISA","id":"CRC-9M8TE96A8K71"},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":46}],"events":[{"createdAt":"2014-06-09T21:36:41-0300","type":"PAYMENT.IN_ANALYSIS"},{"createdAt":"2014-06-09T21:36:39-0300","type":"PAYMENT.CREATED"}],"_links":{"order":{"title":"ORD-UEK2XGEXNWL9","href":"https://test.moip.com.br/v2/orders/ORD-UEK2XGEXNWL9"},"self":{"href":"https://test.moip.com.br/v2/payments/PAY-W3MNW718O3AI"}},"updatedAt":"2014-06-09T21:36:41-0300","createdAt":"2014-06-09T21:36:39-0300"}'
+    http_version: 
+  recorded_at: Tue, 10 Jun 2014 00:36:42 GMT
+recorded_with: VCR 2.8.0

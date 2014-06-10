@@ -5,9 +5,13 @@ require "moip2/version"
 
 require "moip2/auth/basic"
 
+require "moip2/resource/order"
+require "moip2/resource/payment"
+
 require "moip2/response"
 require "moip2/client"
 require "moip2/order_api"
+require "moip2/payment_api"
 require "moip2/api"
 
 module Moip2
@@ -30,7 +34,7 @@ module Moip2
     end
 
     def auth
-      @credentials ||= {}
+      @credentials
     end
 
     def opts=(opts = {})
@@ -42,6 +46,8 @@ module Moip2
     end
 
     def new
+      raise "Auth is not set" unless auth
+
       Api.new Client.new(env, auth)
     end
 

@@ -13,11 +13,11 @@ module Moip2
     end
 
     def create(order)
-      client.post(base_path, order)
+      Resource::Order.new client, client.post(base_path, order)
     end
 
     def show(id)
-      client.get("#{base_path}/#{id}")
+      Resource::Order.new client, client.get("#{base_path}/#{id}")
     end
 
   end

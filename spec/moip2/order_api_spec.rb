@@ -42,13 +42,19 @@ describe Moip2::OrderApi do
       }
     end
 
-    let(:created_order) { order_api.create(order) }
+    let(:created_order) do
+      VCR.use_cassette("create_order_success") do
+        order_api.create(order)
+      end
+    end
 
     it "creates an order on moip" do
-      VCR.use_cassette("create_order_success") do
-        expect(created_order).to include("id")
-        expect(created_order).to include("own_id")
-      end
+      expect(created_order.id).to_not be_nil
+      expect(created_order.own_id).to eq("your_own_id_1")
+    end
+
+    it "returns an Order object" do
+      expect(created_order).to be_a(Moip2::Resource::Order)
     end
 
     context "when validation error" do
