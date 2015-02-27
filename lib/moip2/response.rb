@@ -3,7 +3,7 @@ module Moip2
   class Response < SimpleDelegator
 
     def initialize(resp, json)
-      super(OpenStruct.new(json))
+      super(RecursiveOpenStruct.new(json, :recurse_over_arrays => true))
       @resp = resp
     end
 

@@ -25,9 +25,8 @@ describe Moip2::OrderApi do
           birthdate: "1988-11-11",
           tax_document: { number: "22222222222", type: "CPF" },
           phone: { country_code: "55", area_code: "11", number: "5566778899" },
-          addresses: [
+          shipping_address: 
             {
-              type: "BILLING",
               street: "Avenida Faria Lima",
               street_number: 2927,
               complement: 8,
@@ -37,7 +36,6 @@ describe Moip2::OrderApi do
               country: "BRA",
               zip_code: "01234000"
             }
-          ]
         }
       }
     end
@@ -51,6 +49,34 @@ describe Moip2::OrderApi do
     it "creates an order on moip" do
       expect(created_order.id).to_not be_nil
       expect(created_order.own_id).to eq("your_own_id_1")
+      expect(created_order.status).to eq("CREATED")
+      expect(created_order.created_at).to eq("2015-02-27T10:23:13-0300")
+      expect(created_order.amount).to_not be_nil
+
+      expect(created_order.amount.total).to eq 100
+      expect(created_order.amount.fees).to eq(0)
+      expect(created_order.amount.refunds).to eq(0)
+      expect(created_order.amount.liquid).to eq(0)
+      expect(created_order.amount.other_receivers).to eq(0)
+      expect(created_order.amount.currency).to eq("BRL")
+
+      expect(created_order.amount.subtotals).to_not be_nil
+      expect(created_order.amount.subtotals.shipping).to eq(0)
+      expect(created_order.amount.subtotals.addition).to eq(0)
+      expect(created_order.amount.subtotals.discount).to eq(0)
+      expect(created_order.amount.subtotals.items).to eq(100)
+
+      expect(created_order.items[0].product).to eq("Some Product")      
+      expect(created_order.items[0].price).to eq(100)      
+      expect(created_order.items[0].detail).to eq("Some Product Detail")
+      expect(created_order.items[0].quantity).to eq(1)
+      
+      expect(created_order.customer.id).to eq("CUS-B6LE6HLFFXKF")
+
+      expect(created_order.customer.shipping_address).to_not be_nil
+
+      expect(created_order.customer._links).to_not be_nil
+      expect(created_order.customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"
     end
 
     it "returns an Order object" do
@@ -71,10 +97,10 @@ describe Moip2::OrderApi do
       end
 
       it "returns an error json" do
-        expect(created_order["errors"].size).to eq(2)
-        expect(created_order["errors"][0]["code"]).to_not be_nil
-        expect(created_order["errors"][0]["path"]).to_not be_nil
-        expect(created_order["errors"][0]["description"]).to_not be_nil
+        expect(created_order.errors.size).to eq(2)
+        expect(created_order.errors[0].code).to_not be_nil
+        expect(created_order.errors[0].path).to_not be_nil
+        expect(created_order.errors[0].description).to_not be_nil
       end
 
     end
