@@ -37,7 +37,6 @@ module Moip2
     def post(path, resource)
       options = opts().merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
       resp = self.class.post path, options
-
       create_response resp
     end
 

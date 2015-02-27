@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/orders/ORD-7JOU41NX4M1S/refunds
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 27 Feb 2015 18:25:33 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '685'
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"REF-766MUWOO8CSS","status":"COMPLETED","events":[{"createdAt":"2015-02-27T15:25:33-0300","type":"REFUND.COMPLETED"},{"createdAt":"2015-02-27T15:25:31-0300","type":"REFUND.REQUESTED"}],"amount":{"fees":0,"currency":"BRL","total":100},"type":"FULL","refundingInstrument":{"creditCard":{"brand":"VISA","first6":"401200","last4":"3335"},"method":"CREDIT_CARD"},"createdAt":"2015-02-27T15:25:31-0300","_links":{"payment":{"title":"PAY-EJWQRB89JGQ2","href":"https://test.moip.com.br/v2/payments/PAY-EJWQRB89JGQ2"},"order":{"title":"ORD-7JOU41NX4M1S","href":"https://test.moip.com.br/v2/orders/ORD-7JOU41NX4M1S"},"self":{"href":"https://test.moip.com.br/v2/refunds/REF-766MUWOO8CSS"}}}'
+    http_version: 
+  recorded_at: Fri, 27 Feb 2015 18:25:32 GMT
+recorded_with: VCR 2.9.3

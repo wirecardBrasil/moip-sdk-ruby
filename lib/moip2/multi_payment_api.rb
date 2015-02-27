@@ -1,6 +1,6 @@
 module Moip2
   class MultiPaymentApi
-     attr_reader :client
+    attr_reader :client
 
     def initialize(client)
       @client = client
