@@ -7,9 +7,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"ownId":"your_own_id_1","amount":{"currency":"BRL"},"items":[{"product":"Some
         Product","quantity":1,"detail":"Some Product Detail","price":100}],"customer":{"ownId":"your_customer_own_id","fullname":"John
-        Doe","email":"john.doe@mailinator.com","birthdate":"1988-11-11","taxDocument":{"number":"22222222222","type":"CPF"},"phone":{"countryCode":"55","areaCode":"11","number":"5566778899"},"addresses":[{"type":"BILLING","street":"Avenida
+        Doe","email":"john.doe@mailinator.com","birthdate":"1988-11-11","taxDocument":{"number":"22222222222","type":"CPF"},"phone":{"countryCode":"55","areaCode":"11","number":"5566778899"},"shippingAddress":{"street":"Avenida
         Faria Lima","streetNumber":2927,"complement":8,"district":"Itaim","city":"Sao
-        Paulo","state":"SP","country":"BRA","zipCode":"01234000"}]}}'
+        Paulo","state":"SP","country":"BRA","zipCode":"01234000"}}}'
     headers:
       Content-Type:
       - application/json
@@ -19,13 +19,13 @@ http_interactions:
       message: Created
     headers:
       Server:
-      - nginx/1.5.2
+      - nginx
       Date:
-      - Thu, 29 May 2014 01:54:53 GMT
+      - Fri, 27 Feb 2015 13:23:14 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '2121'
+      - '2128'
       Connection:
       - keep-alive
       Status:
@@ -36,12 +36,12 @@ http_interactions:
       - nosniff
     body:
       encoding: UTF-8
-      string: '{"id":"ORD-UEK2XGEXNWL9","ownId":"your_own_id_1","status":"CREATED","createdAt":"2014-05-28T22:54:53-0300","amount":{"total":100,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0,"items":100}},"items":[{"product":"Some
-        Product","detail":"","quantity":1,"price":100}],"addresses":[{"city":"Sao
-        Paulo","complement":"8","district":"Itaim","street":"Avenida Faria Lima","streetNumber":"2927","zipCode":"01234000","state":"SP","type":"BILLING","country":"BRA"}],"customer":{"id":"CUS-YS95T2WARXI3","ownId":"your_customer_own_id","fullname":"John
-        Doe","email":"john.doe@mailinator.com","phone":{"areaCode":"","countryCode":"55","number":""},"taxDocument":{"type":"CPF","number":"22222222222"},"addresses":[{"city":"Sao
-        Paulo","complement":"8","district":"Itaim","street":"Avenida Faria Lima","streetNumber":"2927","zipCode":"01234000","state":"SP","type":"BILLING","country":"BRA"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-YS95T2WARXI3"}}},"payments":[],"refunds":[],"entries":[],"events":[{"createdAt":"2014-05-28T22:54:53-0300","description":"","type":"ORDER.CREATED"}],"receivers":[{"moipAccount":{"fullname":"Moip
-        SandBox","login":"integracao@labs.moip.com.br","id":"MPA-CULBBYHD11"},"secondary":false,"amount":{"fees":0,"refunds":0,"total":100},"payerFee":false,"type":"PRIMARY"}],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-UEK2XGEXNWL9"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-UEK2XGEXNWL9"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-UEK2XGEXNWL9"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-UEK2XGEXNWL9"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-UEK2XGEXNWL9"}}}}'
+      string: '{"id":"ORD-7JOU41NX4M1S","ownId":"your_own_id_1","status":"CREATED","createdAt":"2015-02-27T10:23:13-0300","amount":{"total":100,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0,"items":100}},"items":[{"product":"Some
+        Product","price":100,"detail":"Some Product Detail","quantity":1}],"customer":{"id":"CUS-B6LE6HLFFXKF","ownId":"your_customer_own_id","fullname":"John
+        Doe","createdAt":"2015-02-27T10:23:13-0300","email":"john.doe@mailinator.com","phone":{"countryCode":"55","areaCode":"55","number":"66778899"},"taxDocument":{"type":"CPF","number":"22222222222"},"shippingAddress":{"zipCode":"01234000","street":"Avenida
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"}}},"payments":[],"refunds":[],"entries":[],"events":[{"createdAt":"2015-02-27T10:23:13-0300","description":"","type":"ORDER.CREATED"}],"receivers":[{"amount":{"fees":0,"refunds":0,"total":100},"moipAccount":{"fullname":"Moip
+        SandBox","login":"integracao@labs.moip.com.br","id":"MPA-CULBBYHD11"},"type":"PRIMARY"}],"shippingAddress":{"zipCode":"01234000","street":"Avenida
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-7JOU41NX4M1S"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-7JOU41NX4M1S"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-7JOU41NX4M1S"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-7JOU41NX4M1S"}}}}'
     http_version: 
-  recorded_at: Thu, 29 May 2014 01:54:54 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Fri, 27 Feb 2015 13:23:12 GMT
+recorded_with: VCR 2.9.3

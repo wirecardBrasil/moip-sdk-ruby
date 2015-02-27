@@ -58,7 +58,7 @@ module Moip2
         when Array
           value.map { |v| convert_hash_keys_to(conversion, v) }
         when Hash
-          Hash[value.map { |k, v| [send(conversion, k), convert_hash_keys_to(conversion, v)] }]
+          Hash[value.map { |k, v| [send(conversion, k).to_sym, convert_hash_keys_to(conversion, v)] }]
         else
           value
        end

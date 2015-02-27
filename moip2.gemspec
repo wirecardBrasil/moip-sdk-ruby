@@ -6,8 +6,8 @@ require 'moip2/version'
 Gem::Specification.new do |spec|
   spec.name          = "moip2"
   spec.version       = Moip2::VERSION
-  spec.authors       = ["Rodrigo Saito"]
-  spec.email         = ["rodrigo.saito@moip.com.br"]
+  spec.authors       = ["Rodrigo Saito", "Danillo Souza", "Caio Gama"]
+  spec.email         = ["rodrigo.saito@moip.com.br", "danillo.souza@moip.com.br", "caio.gama@moip.com.br"]
   spec.summary       = %q{Ruby client for moip v2 api}
   spec.description   = %q{Ruby client for moip v2 api}
   spec.homepage      = ""
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "recursive-open-struct"
 end
