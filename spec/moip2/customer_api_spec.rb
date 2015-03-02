@@ -12,58 +12,23 @@ describe Moip2::CustomerApi do
       end
     end
 
-    it "should recover customer information" do
-      expect(customer.id).to eq customer_external_id
-      expect(customer.own_id).to eq "your_customer_own_id"
-      expect(customer.email).to eq "john.doe@mailinator.com"
-      expect(customer.funding_instrument).to_not be_nil
-
-      expect(customer.funding_instrument.credit_card.id).to eq "CRC-OQPJYLGZOY7P"
-      expect(customer.funding_instrument.credit_card.brand).to eq "VISA"
-
-      expect(customer.phone).to_not be_nil
-
-      expect(customer.tax_document).to_not be_nil
-      expect(customer.tax_document.type).to eq "CPF"
-
-      expect(customer.shipping_address).to_not be_nil
-      expect(customer.shipping_address.zip_code).to eq "01234000"
-
-      expect(customer._links).to_not be_nil
-      expect(customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"
-    end
+    it { expect(customer.id).to eq customer_external_id }
+    it { expect(customer.own_id).to eq "your_customer_own_id" }
+    it { expect(customer.email).to eq "john.doe@mailinator.com" }
+    it { expect(customer.funding_instrument).to_not be_nil }
+    it { expect(customer.funding_instrument.credit_card.id).to eq "CRC-OQPJYLGZOY7P" }
+    it { expect(customer.funding_instrument.credit_card.brand).to eq "VISA" }
+    it { expect(customer.phone).to_not be_nil }
+    it { expect(customer.tax_document).to_not be_nil }
+    it { expect(customer.tax_document.type).to eq "CPF" }
+    it { expect(customer.shipping_address).to_not be_nil }
+    it { expect(customer.shipping_address.zip_code).to eq "01234000" }
+    it { expect(customer._links).to_not be_nil }
+    it { expect(customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF" }
 
   end
 
-  describe "#create" do
-
-    let(:customer) do
-      {
-      ownId: "meu_id_sandbox_1231234",
-      fullname: "Jose Silva",
-      email: "jose_silva0@email.com",
-      birthDate: "1988-12-30",
-      taxDocument: {
-        type: "CPF",
-        number: "22222222222"
-        },
-      phone: {
-        countryCode: "55",
-        areaCode: "11",
-        number: "66778899"
-        },
-      shippingAddress: {
-        city: "Sao Paulo",
-        complement: "8",
-        district: "Itaim",
-        street: "Avenida Faria Lima",
-        streetNumber: "2927",
-        zipCode: "01234000",
-        state: "SP",
-        country: "BRA"
-        }
-      }
-    end
+  describe "#create with funding instrument" do
 
     let(:customer_with_funding_instrument) do
       {
@@ -112,11 +77,6 @@ describe Moip2::CustomerApi do
       }
     end
 
-    let(:created_customer) do
-      VCR.use_cassette("create_customer") do
-        customer_api.create customer
-      end
-    end
 
     let(:created_customer_with_funding_instrument) do
       VCR.use_cassette("create_customer_with_funding_instrument") do
@@ -124,43 +84,68 @@ describe Moip2::CustomerApi do
       end
     end
 
-    it "should create a customer without funding instrument" do
-      expect(created_customer.id).to eq "CUS-4GESZSOAH7HX"
-      expect(created_customer.own_id).to eq "meu_id_sandbox_1231234"
-      expect(created_customer.email).to eq "jose_silva0@email.com"
+    it { expect(created_customer_with_funding_instrument.id).to eq "CUS-E5CO735TBXTI" }
+    it { expect(created_customer_with_funding_instrument.own_id).to eq "meu_id_de_cliente" }
+    it { expect(created_customer_with_funding_instrument.email).to eq "josedasilva@email.com" }
+    it { expect(created_customer_with_funding_instrument.funding_instrument).to_not be_nil }
+    it { expect(created_customer_with_funding_instrument.funding_instrument.credit_card.id).to eq "CRC-F5DR8SVINCUI" }
+    it { expect(created_customer_with_funding_instrument.funding_instrument.credit_card.brand).to eq "VISA" }
+    it { expect(created_customer_with_funding_instrument.phone).to_not be_nil }
+    it { expect(created_customer_with_funding_instrument.tax_document).to_not be_nil }
+    it { expect(created_customer_with_funding_instrument.tax_document.type).to eq "CPF" }
+    it { expect(created_customer_with_funding_instrument.shipping_address).to_not be_nil }
+    it { expect(created_customer_with_funding_instrument.shipping_address.zip_code).to eq "01234000" }
+    it { expect(created_customer_with_funding_instrument._links).to_not be_nil }
+    it { expect(created_customer_with_funding_instrument._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-E5CO735TBXTI" }
 
-      expect(created_customer.phone).to_not be_nil
+  end
 
-      expect(created_customer.tax_document).to_not be_nil
-      expect(created_customer.tax_document.type).to eq "CPF"
+  describe "#create without funding instrument" do
 
-      expect(created_customer.shipping_address).to_not be_nil
-      expect(created_customer.shipping_address.zip_code).to eq "01234000"
-
-      expect(created_customer._links).to_not be_nil
-      expect(created_customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-4GESZSOAH7HX"
+    let(:customer) do
+      {
+      ownId: "meu_id_sandbox_1231234",
+      fullname: "Jose Silva",
+      email: "jose_silva0@email.com",
+      birthDate: "1988-12-30",
+      taxDocument: {
+        type: "CPF",
+        number: "22222222222"
+        },
+      phone: {
+        countryCode: "55",
+        areaCode: "11",
+        number: "66778899"
+        },
+      shippingAddress: {
+        city: "Sao Paulo",
+        complement: "8",
+        district: "Itaim",
+        street: "Avenida Faria Lima",
+        streetNumber: "2927",
+        zipCode: "01234000",
+        state: "SP",
+        country: "BRA"
+        }
+      }
     end
 
-    it "should create a customer with funding instrument" do
-      expect(created_customer_with_funding_instrument.id).to eq "CUS-E5CO735TBXTI"
-      expect(created_customer_with_funding_instrument.own_id).to eq "meu_id_de_cliente"
-      expect(created_customer_with_funding_instrument.email).to eq "josedasilva@email.com"
-      expect(created_customer_with_funding_instrument.funding_instrument).to_not be_nil
-
-      expect(created_customer_with_funding_instrument.funding_instrument.credit_card.id).to eq "CRC-F5DR8SVINCUI"
-      expect(created_customer_with_funding_instrument.funding_instrument.credit_card.brand).to eq "VISA"
-
-      expect(created_customer_with_funding_instrument.phone).to_not be_nil
-
-      expect(created_customer_with_funding_instrument.tax_document).to_not be_nil
-      expect(created_customer_with_funding_instrument.tax_document.type).to eq "CPF"
-
-      expect(created_customer_with_funding_instrument.shipping_address).to_not be_nil
-      expect(created_customer_with_funding_instrument.shipping_address.zip_code).to eq "01234000"
-
-      expect(created_customer_with_funding_instrument._links).to_not be_nil
-      expect(created_customer_with_funding_instrument._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-E5CO735TBXTI"
+    let(:created_customer) do
+      VCR.use_cassette("create_customer") do
+        customer_api.create customer
+      end
     end
+
+    it { expect(created_customer.id).to eq "CUS-4GESZSOAH7HX" }
+    it { expect(created_customer.own_id).to eq "meu_id_sandbox_1231234" }
+    it { expect(created_customer.email).to eq "jose_silva0@email.com" }
+    it { expect(created_customer.phone).to_not be_nil }
+    it { expect(created_customer.tax_document).to_not be_nil }
+    it { expect(created_customer.tax_document.type).to eq "CPF" }
+    it { expect(created_customer.shipping_address).to_not be_nil }
+    it { expect(created_customer.shipping_address.zip_code).to eq "01234000" }
+    it { expect(created_customer._links).to_not be_nil }
+    it { expect(created_customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-4GESZSOAH7HX" }
 
   end
 
