@@ -14,6 +14,11 @@ module Moip2
     def show(customer_external_id)
       Resource::Customer.new client, client.get("#{base_path}/#{customer_external_id}")
     end
+
+    def create(customer)
+      Resource::Customer.new client, client.post(base_path, customer)
+    end
+
   end
 
 end

@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/customers
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"meu_id_sandbox_1231234","fullname":"Jose Silva","email":"jose_silva0@email.com","birthDate":"1988-12-30","taxDocument":{"type":"CPF","number":"22222222222"},"phone":{"countryCode":"55","areaCode":"11","number":"66778899"},"shippingAddress":{"city":"Sao
+        Paulo","complement":"8","district":"Itaim","street":"Avenida Faria Lima","streetNumber":"2927","zipCode":"01234000","state":"SP","country":"BRA"}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 02 Mar 2015 13:59:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '570'
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgIEV0YdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAURQkJcDwMRERBKaC1rbB0QH1UXUR1RHVJdAQJVVFUMHwRUWE4VBQBSUARQUFNfAAMAVQFRARpp
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"CUS-4GESZSOAH7HX","ownId":"meu_id_sandbox_1231234","fullname":"Jose
+        Silva","createdAt":"2015-03-02T10:59:31-0300","birthDate":"1988-12-30T00:00:00-0200","email":"jose_silva0@email.com","phone":{"countryCode":"55","areaCode":"11","number":"66778899"},"taxDocument":{"type":"CPF","number":"22222222222"},"shippingAddress":{"zipCode":"01234000","street":"Avenida
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-4GESZSOAH7HX"}}}'
+    http_version: 
+  recorded_at: Mon, 02 Mar 2015 13:59:16 GMT
+recorded_with: VCR 2.9.3
