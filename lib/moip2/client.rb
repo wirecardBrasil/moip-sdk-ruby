@@ -3,20 +3,25 @@ module Moip2
   class Client
     include HTTParty
 
-    attr_reader :env, :auth
+    attr_reader :env, :auth, :uri
 
     def initialize(env = :sandbox, auth = nil, opts = {})
       @env, @auth, @opts = env, auth, opts
 
-      if sandbox?
-        self.class.base_uri "https://test.moip.com.br"
-      else
-        self.class.base_uri "https://api.moip.com.br"
-      end
+      @uri = get_base_uri
+      self.class.base_uri @uri
     end
 
     def sandbox?
       env == :sandbox
+    end
+
+    def production?
+      env == :production
+    end
+
+    def development?
+      env == :development
     end
 
     def opts
@@ -43,6 +48,18 @@ module Moip2
     end
 
     private
+
+    def get_base_uri
+      return ENV["base_uri"] if ENV["base_uri"] && development?
+
+      if production?
+        "https://api.moip.com.br"
+      else
+        "https://test.moip.com.br"
+      end
+
+    end
+
     def create_response(resp)
       raise NotFoundError, "Resource not found" if resp.code == 404
 
