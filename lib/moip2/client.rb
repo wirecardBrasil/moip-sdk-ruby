@@ -20,10 +20,6 @@ module Moip2
       env == :production
     end
 
-    def development?
-      env == :development
-    end
-
     def opts
       @opts.merge(
         headers:
@@ -50,7 +46,7 @@ module Moip2
     private
 
     def get_base_uri
-      return ENV["base_uri"] if ENV["base_uri"] && development?
+      return ENV["base_uri"] if ENV["base_uri"]
 
       if production?
         "https://api.moip.com.br"
