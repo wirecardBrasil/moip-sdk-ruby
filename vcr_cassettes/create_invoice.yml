@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/invoices
+    body:
+      encoding: UTF-8
+      string: '{"amount":13470,"email":"caio.gama@moip.com.br","invoiceType":"subscription","description":"Assinatura
+        da aula de desenho"}'
+    headers:
+      Moip-Account:
+      - MPA-UY765TYBL912
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 04 Mar 2015 19:12:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '140'
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"INV-7A5740BF319D","amount":13470,"description":"Assinatura da
+        aula de desenho","email":"caio.gama@moip.com.br","type":"subscription"}'
+    http_version: 
+  recorded_at: Wed, 04 Mar 2015 19:12:37 GMT
+recorded_with: VCR 2.9.3

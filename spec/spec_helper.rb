@@ -99,3 +99,7 @@ end
 def sandbox_client
   Moip2::Client.new(:sandbox, sandbox_auth)
 end
+
+def sanbox_client_with_header
+  Moip2::Client.new(:sandbox, sandbox_auth, { headers: { "Moip-Account" => "MPA-UY765TYBL912" } } )
+end
