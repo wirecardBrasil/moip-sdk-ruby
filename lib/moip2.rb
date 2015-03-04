@@ -11,6 +11,7 @@ require "moip2/resource/multi_order"
 require "moip2/resource/payment"
 require "moip2/resource/multi_payment"
 require "moip2/resource/customer"
+require "moip2/resource/invoice"
 
 require "moip2/response"
 require "moip2/client"
@@ -19,6 +20,7 @@ require "moip2/multi_order_api"
 require "moip2/payment_api"
 require "moip2/multi_payment_api"
 require "moip2/customer_api"
+require "moip2/invoice_api"
 require "moip2/api"
 
 module Moip2

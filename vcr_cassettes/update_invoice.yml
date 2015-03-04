@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/invoices/INV-7A5740BF319D
+    body:
+      encoding: UTF-8
+      string: '{"orderExternalId":"ORD-NLQ916TW81TN","customerExternalId":"CUS-GF45QI98NST1"}'
+    headers:
+      Moip-Account:
+      - MPA-UY765TYBL912
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 04 Mar 2015 19:13:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '217'
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"INV-7A5740BF319D","amount":13470,"description":"Assinatura da
+        aula de desenho","email":"caio.gama@moip.com.br","orderExternalId":"ORD-NLQ916TW81TN","customerExternalId":"CUS-GF45QI98NST1","type":"subscription"}'
+    http_version: 
+  recorded_at: Wed, 04 Mar 2015 19:13:19 GMT
+recorded_with: VCR 2.9.3

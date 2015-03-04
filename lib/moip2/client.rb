@@ -21,24 +21,35 @@ module Moip2
     end
 
     def opts
-      @opts.merge(
-        headers:
+      opts = @opts
+      opts[:headers] ||= {}
+
+      opts[:headers].merge!(
           {
             "Content-Type" => "application/json",
             "Authorization" => auth.header
           }
       )
+
+      opts
     end
 
     def post(path, resource)
-      options = opts.merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
+      options = opts().merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
       resp = self.class.post path, options
 
       create_response resp
     end
 
+    def put(path, resource)
+      options = opts().merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
+      resp = self.class.put path, options
+
+      create_response resp
+    end
+
     def get(path)
-      resp = self.class.get path, opts
+      resp = self.class.get path, opts()
 
       create_response resp
     end
