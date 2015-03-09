@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use the SDK follow these steps:
+
+First you need to get your authentication using Basic or OAuth
+```ruby
+auth        = Moip2::Auth::Basic.new TOKEN, SECRET
+```
+
+```ruby
+auth        = Moip2::Auth::OAuth.new OAuth
+```
+
+With your credentials properly created, chose an environment, the available options are :sandbox - for tests and integration - and :production. Keep in mind that your authentication changes according to the environment.
+```ruby
+client      = Moip2::Client.new :sandbox, auth
+```
+```ruby
+invoice_api_client = Moip2::InvoiceApi.new client
+```
 
 ## Contributing
 
