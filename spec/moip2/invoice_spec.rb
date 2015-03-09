@@ -1,9 +1,9 @@
 describe Moip2::InvoiceApi do
 
-  let(:invoice_api) { described_class.new sanbox_client_with_header }
+  let(:invoice_api) { described_class.new sandbox_oauth_client }
 
   let(:invoice_external_id) do
-    "INV-7A5740BF319D"
+    "INV-4517A209DDA9"
   end
 
   describe "#create" do
@@ -38,7 +38,7 @@ describe Moip2::InvoiceApi do
       end
     end
 
-    it { expect(invoice.id).to eq "INV-7A5740BF319D" }
+    it { expect(invoice.id).to eq "INV-4517A209DDA9" }
     it { expect(invoice.email).to eq "caio.gama@moip.com.br" }
     it { expect(invoice.type).to eq "subscription" }
     it { expect(invoice.description).to eq "Assinatura da aula de desenho" }
@@ -59,7 +59,7 @@ describe Moip2::InvoiceApi do
       end
     end
 
-    it { expect(updated_invoice.id).to eq "INV-7A5740BF319D"  }
+    it { expect(updated_invoice.id).to eq "INV-4517A209DDA9"  }
 
     it { expect(updated_invoice.order_external_id).to eq "ORD-NLQ916TW81TN"  }
     it { expect(updated_invoice.customer_external_id).to eq "CUS-GF45QI98NST1"  }
