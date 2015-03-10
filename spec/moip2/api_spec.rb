@@ -18,4 +18,8 @@ describe Moip2::Api do
     end
   end
 
+  describe "#invoice" do
+    it { expect(api.invoice).to be_a Moip2::InvoiceApi }
+  end
+
 end

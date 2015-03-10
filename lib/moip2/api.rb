@@ -15,6 +15,10 @@ module Moip2
       Moip2::PaymentApi.new(client)
     end
 
+    def invoice
+      Moip2::InvoiceApi.new client
+    end
+
   end
 
 end

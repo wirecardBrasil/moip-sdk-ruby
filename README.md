@@ -22,20 +22,39 @@ To use the SDK follow these steps:
 
 First you need to get your authentication using Basic or OAuth
 ```ruby
-auth        = Moip2::Auth::Basic.new TOKEN, SECRET
+auth = Moip2::Auth::Basic.new TOKEN, SECRET
 ```
 
 ```ruby
-auth        = Moip2::Auth::OAuth.new OAuth
+auth = Moip2::Auth::OAuth.new OAuth
 ```
 
 With your credentials properly created, chose an environment, the available options are :sandbox - for tests and integration - and :production. Keep in mind that your authentication changes according to the environment.
 ```ruby
-client      = Moip2::Client.new :sandbox, auth
+client = Moip2::Client.new :sandbox, auth
 ```
 ```ruby
-invoice_api_client = Moip2::InvoiceApi.new client
+api         = Moip2::Api.new client
+invoice_api = api.invoice
 ```
+
+## Creating an Invoice
+The following is a example of how to create an invoice using the SDK
+
+```ruby
+invoice = {
+            "amount" => 13470,
+            "email" => "your-email@moip.com.br",
+            "invoiceType" => :credit,
+            "description" => "New set of development books"
+          }
+
+response = invoice_api.create invoice
+```
+
+The response contains a few properties, such as <code>id</code>, <code>email</code>, <code>type</code>, <code>description</code>. 
+
+---------
 
 ## Contributing
 
