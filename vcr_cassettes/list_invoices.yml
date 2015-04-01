@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://test.moip.com.br/v2/invoices?begin=2015-01-01&end=2015-03-31
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth d63tz2xwyu0ewrembove4j5cbv2otpd
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Wed, 01 Apr 2015 18:32:25 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '15'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da26f30a5647ea96a3ee0c9d44ff90e611427913145; expires=Thu, 31-Mar-16
+        18:32:25 GMT; path=/; domain=.moip.com.br; HttpOnly
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - 1d06606847bb07d3-MIA
+    body:
+      encoding: UTF-8
+      string: '{"invoices":[{"id":"INV-635DC2BB9422","amount":9610,"accountId":"MPA-MAROTO000000","description":"Compradealgumascoisas","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}},{"id":"INV-635DC2BSHJ90","amount":9610,"accountId":"MPA-MAROTO000000","description":"compra marota","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}}]}'
+    http_version: 
+  recorded_at: Wed, 01 Apr 2015 18:32:26 GMT
+recorded_with: VCR 2.9.3
