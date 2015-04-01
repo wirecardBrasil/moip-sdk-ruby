@@ -70,4 +70,26 @@ describe Moip2::InvoiceApi do
 
   end
 
+  describe "#list" do
+    let (:result) do
+      VCR.use_cassette("list_invoices") do
+        invoice_api.list begin_date, end_date
+      end
+    end
+
+    context "request with results" do
+
+      let(:begin_date) { '2015-01-01' }
+      let(:end_date) { '2015-03-31' }
+
+      it { expect(result).to_not be_nil }
+      it { expect(result.invoices.size).to eq 2 }
+      it { expect(result.invoices[0].id).to eq 'INV-635DC2BB9422' }
+      it { expect(result.invoices[0].account_id).to eq 'MPA-MAROTO000000' }    
+      it { expect(result.invoices[1].id).to eq 'INV-635DC2BSHJ90' }
+      it { expect(result.invoices[1].account_id).to eq 'MPA-MAROTO000000' }          
+    end
+
+  end
+
 end
