@@ -1,5 +1,4 @@
 module Moip2
-	
 	class KeysApi
 		attr_reader :client
 		

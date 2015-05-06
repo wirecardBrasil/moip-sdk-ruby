@@ -1,5 +1,4 @@
 describe Moip2::KeysApi do
-	
 	let(:keys_api) { described_class.new sandbox_oauth_client }
 	
 	describe "#show" do
