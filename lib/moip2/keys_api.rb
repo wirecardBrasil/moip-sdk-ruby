@@ -12,8 +12,8 @@ module Moip2
 			"/v2/keys"
 		end
 		
-		def show(id)
-			Resource::Keys.new client, client.get("#{base_path}/#{id}")
+		def show
+			Resource::Keys.new client, client.get("#{base_path}")
 		end
 	end
 end
