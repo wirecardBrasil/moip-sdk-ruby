@@ -1,7 +1,6 @@
 module Moip2
 	
-	module KeysApi
-		
+	class KeysApi
 		attr_reader :client
 		
 		def initialize(client)
