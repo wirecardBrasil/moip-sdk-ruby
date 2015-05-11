@@ -11,10 +11,6 @@ describe Moip2 do
       described_class.auth = auth
       described_class.new
     end
-
-    let(:env) { "production" }
-    
-    let(:valid_env) { %i(sandbox production) }
     
     it "creates a new Api using default environment" do
       expect(moip.client.env).to eq(:sandbox)
@@ -29,8 +25,13 @@ describe Moip2 do
     end
     
     it "valid_env comparision rails variable" do
-      expect(valid_env).to include(env.to_sym)
+      expect{ Moip2.env=(:production) }.not_to raise_error
     end
+    
+    it "invalid enviroment error" do
+      expect{ Moip2.env=("bla") }.to raise_error
+    end
+    
     
     context "when auth is not set" do
 
