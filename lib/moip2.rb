@@ -34,7 +34,7 @@ module Moip2
     VALID_ENVS = %i(sandbox production)
 
     def env=(env)
-      raise "Invalid Environment" unless VALID_ENVS.include?(env)
+      raise "Invalid Environment" unless VALID_ENVS.include?(env.to_sym)
       @env = env
     end
 
