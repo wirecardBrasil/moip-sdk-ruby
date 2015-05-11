@@ -27,6 +27,8 @@ require "moip2/api"
 
 require "moip2/keys_api"
 
+require "moip2/exceptions/invalid_enviroment_error"
+
 module Moip2
 
   class << self
@@ -34,7 +36,7 @@ module Moip2
     VALID_ENVS = %i(sandbox production)
 
     def env=(env)
-      raise "Invalid Environment" unless VALID_ENVS.include?(env)
+      raise InvalidEnviromentError unless VALID_ENVS.include?(env.to_sym)
       @env = env
     end
 
