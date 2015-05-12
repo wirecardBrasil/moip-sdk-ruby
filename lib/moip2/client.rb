@@ -6,7 +6,7 @@ module Moip2
     attr_reader :env, :auth, :uri
 
     def initialize(env = :sandbox, auth = nil, opts = {})
-      @env, @auth, @opts = env, auth, opts
+      @env, @auth, @opts = env.to_sym, auth, opts
 
       @uri = get_base_uri
       self.class.base_uri @uri

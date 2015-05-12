@@ -8,6 +8,14 @@ describe Moip2::Client do
     Moip2::Auth::OAuth.new "d63tz2xwyu0ewrembove4j5cbv2otpd"
   end
 
+  describe "initialize env with string" do
+    let(:client) do
+      described_class.new "sandbox", auth
+    end
+
+    it { expect(client.env).to eq :sandbox }
+  end
+
   describe "initialize on sandbox with OAuth" do
 
     let(:client) do
@@ -15,7 +23,6 @@ describe Moip2::Client do
     end
 
     let(:client) { described_class.new :sandbox, oauth }
-
     it { expect(client.uri).to eq "https://test.moip.com.br" }
     it { expect(client.env).to eq :sandbox }
     it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
