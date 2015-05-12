@@ -29,7 +29,7 @@ describe Moip2 do
     end
     
     it "invalid enviroment error" do
-      expect{ Moip2.env=("bla") }.to raise_error
+      expect{ Moip2.env=("abc") }.to raise_error(Moip2::InvalidEnviromentError)
     end
     
     
