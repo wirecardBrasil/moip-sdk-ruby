@@ -11,7 +11,7 @@ module Moip2
 		end
 		
 		def show
-			Resource::Webhooks.new, client.get("#{base_path}")
+			Resource::Webhooks.new(client, client.get("#{base_path}"))
 		end
 	end
 end
