@@ -9,7 +9,7 @@ describe Moip2::KeysApi do
 			end
 		end
 		
-		context 'when shooting request' do
+		context 'when shooting request by keys' do
 			it { expect(keys).not_to be_nil }
 			it { expect(keys.keys.basic_auth.secret).to eq "ABABABABABABABABABABABABABABABABABABABAB" }
 			it { expect(keys.keys.basic_auth.token).to eq "01010101010101010101010101010101"}
