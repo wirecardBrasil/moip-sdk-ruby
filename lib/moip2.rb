@@ -30,8 +30,6 @@ require "moip2/webhooks_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
-
-
 module Moip2
 
   class << self
