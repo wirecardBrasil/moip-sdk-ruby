@@ -4,7 +4,7 @@ O jeito mais simples e rápido de integrar o Moip a sua aplicação Ruby
 
 ## Instalação
 
-Adicionar a seguinte linha no seu Gemfile:
+Adicione a seguinte linha no seu Gemfile:
 
 ```ruby
 gem "moip2"
@@ -30,7 +30,7 @@ client = Moip2::Client.new(:sandbox/:production, auth)
 Agora basta criar o pedido:
 
 ```ruby
-Moip2::OrderApi.new(client).create(
+order = Moip2::OrderApi.new(client).create(
     {
         own_id: "ruby_sdk_1",
         items: [
@@ -45,7 +45,20 @@ Moip2::OrderApi.new(client).create(
           own_id: "ruby_sdk_customer_1",
           fullname: "Jose da Silva",
           email: "sandbox_v2_1401147277@email.com",
-
+          birthdate: "1988-12-30",
+          tax_document: { number: "33333333333", type: "CPF" },
+          phone: { country_code: "55", area_code: "11", number: "66778899" },
+          shipping_address: 
+            {
+              street: "Avenida Faria Lima",
+              street_number: 2927,
+              complement: 8,
+              district: "Itaim",
+              city: "Sao Paulo",
+              state: "SP",
+              country: "BRA",
+              zip_code: "01234000"
+            }
         }
     }
 )
@@ -56,7 +69,7 @@ Moip2::OrderApi.new(client).create(
 ### Cartão de crédito
 
 ```ruby
-Moip2::PaymentApi.new(client).create(
+Moip2::PaymentApi.new(client).create(order.id,
     {
         installment_count: 1,
         funding_instrument: {
@@ -107,7 +120,7 @@ Moip2::PaymentApi.new(client).create(
 ```
 ## Documentação
 
-[Documentação ofcial](https://moip.com.br/referencia-api/)
+[Documentação oficial](https://moip.com.br/referencia-api/)
 
 ## Licença
 
