@@ -112,7 +112,7 @@ Moip2::PaymentApi.new(client).create(
                     second: "Segunda linha do boleto",
                     third: "Terceira linha do boleto"
                   },
-                "logo_uri": "https://"
+                logo_uri: "https://"
             }
         }
     }
