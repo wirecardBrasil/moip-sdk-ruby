@@ -1,65 +1,114 @@
-# Moip2
+# Moip v2 Ruby SDK
 
-TODO: Write a gem description
+O jeito mais simples e rápido de integrar o Moip a sua aplicação Ruby
 
-## Installation
+## Instalação
 
-Add this line to your application's Gemfile:
+Adicionar a seguinte linha no seu Gemfile:
 
-    gem 'moip2'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install moip2
-
-## Usage
-
-To use the SDK follow these steps:
-
-First you need to get your authentication using Basic or OAuth
 ```ruby
-auth = Moip2::Auth::Basic.new TOKEN, SECRET
+gem "moip2"
 ```
 
+## Configurando sua autenticação
+- Autenticando por BasicAuth
 ```ruby
-auth = Moip2::Auth::OAuth.new OAuth
+auth = Moip2::Auth::Basic.new("TOKEN", "SECRET")
+```
+- Autenticando por OAuth
+```ruby
+auth = Moip2::Auth::OAuth.new("TOKEN_OAUTH")
 ```
 
-With your credentials properly created, chose an environment, the available options are :sandbox - for tests and integration - and :production. Keep in mind that your authentication changes according to the environment.
+Após deifinir o tipo de autenticação, é necessário gerar o client, informando em qual environment você quer executar suas ações:
 ```ruby
-client = Moip2::Client.new :sandbox, auth
-```
-```ruby
-api         = Moip2::Api.new client
-invoice_api = api.invoice
+client = Moip2::Client.new(:sandbox/:production, auth)
 ```
 
-## Creating an Invoice
-The following is a example of how to create an invoice using the SDK
+## Criando um Pedido
+
+Agora basta criar o pedido:
 
 ```ruby
-invoice = {
-            "amount" => 13470,
-            "email" => "your-email@moip.com.br",
-            "invoiceType" => :credit,
-            "description" => "New set of development books"
+Moip2::OrderApi.new(client).create(
+    {
+        own_id: "ruby_sdk_1",
+        items: [
+          {
+            product: "Nome do produto",
+            quantity: 1,
+            detail: "Mais info...",
+            price: 1000
           }
+        ],
+        customer: {
+          own_id: "ruby_sdk_customer_1",
+          fullname: "Jose da Silva",
+          email: "sandbox_v2_1401147277@email.com",
 
-response = invoice_api.create invoice
+        }
+    }
+)
 ```
 
-The response contains a few properties, such as <code>id</code>, <code>email</code>, <code>type</code>, <code>description</code>. 
+## Criando um pagamento
 
----------
+### Cartão de crédito
 
-## Contributing
+```ruby
+Moip2::PaymentApi.new(client).create(
+    {
+        installment_count: 1,
+        funding_instrument: {
+            method: "CREDIT_CARD",
+            credit_card: {
+                expiration_month: 04,
+                expiration_year: 18,
+                number: "4012001038443335",
+                cvc: "123",
+                holder: {
+                    fullname: "Jose Portador da Silva",
+                    birthdate: "1988-10-10",
+                    tax_document: {
+                        type: "CPF",
+                        number: "22222222222"
+                },
+                    phone: {
+                        country_code: "55",
+                        area_code: "11",
+                        number: "55667788"
+                    }
+                }
+            }
+        }
+    }
+)
+```
 
-1. Fork it ( http://github.com/<my-github-username>/moip2/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+### Boleto
+
+```ruby
+Moip2::PaymentApi.new(client).create(
+    {
+        fundingInstrument: {
+            method: "BOLETO",
+            boleto: {
+                expirationDate: "2015-09-30",
+                instructionLines: {
+                    first: "Primeira linha do boleto",
+                    second: "Segunda linha do boleto",
+                    third: "Terceira linha do boleto"
+                  },
+                "logoUri": "https://"
+            }
+        }
+    }
+)
+```
+## Documentação
+
+[Documentação ofcial](https://moip.com.br/referencia-api/)
+
+## Licença
+
+[The MIT License](https://github.com/moip/php-sdk/blob/master/LICENSE)
