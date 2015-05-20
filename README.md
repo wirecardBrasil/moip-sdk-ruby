@@ -103,16 +103,16 @@ Moip2::PaymentApi.new(client).create(order.id,
 ```ruby
 Moip2::PaymentApi.new(client).create(
     {
-        fundingInstrument: {
+        funding_instrument: {
             method: "BOLETO",
             boleto: {
-                expirationDate: "2015-09-30",
-                instructionLines: {
+                expiration_date: "2015-09-30",
+                instruction_lines: {
                     first: "Primeira linha do boleto",
                     second: "Segunda linha do boleto",
                     third: "Terceira linha do boleto"
                   },
-                "logoUri": "https://"
+                "logo_uri": "https://"
             }
         }
     }
@@ -124,4 +124,4 @@ Moip2::PaymentApi.new(client).create(
 
 ## Licença
 
-[The MIT License](https://github.com/moip/php-sdk/blob/master/LICENSE)
+[The MIT License](https://github.com/moip/moip-sdk-ruby/blob/master/LICENSE.txt)
