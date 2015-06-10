@@ -1,6 +1,6 @@
 # Moip v2 Ruby SDK
 
-[![Circle CI](https://circleci.com/gh/moip/moip-sdk-ruby.svg?style=svg)](https://circleci.com/gh/moip/moip-sdk-ruby)
+[![Build Status](https://travis-ci.org/moip/moip-sdk-ruby.svg?branch=master)](https://travis-ci.org/moip/moip-sdk-ruby)
 
 O jeito mais simples e rápido de integrar o Moip a sua aplicação Ruby
 
