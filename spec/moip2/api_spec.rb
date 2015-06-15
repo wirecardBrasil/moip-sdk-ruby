@@ -25,4 +25,8 @@ describe Moip2::Api do
     it { expect(api.refund).to be_a Moip2::RefundApi }
   end
 
+  describe "#keys" do
+    it { expect(api.keys).to be_a Moip2::KeysApi }
+  end
+
 end

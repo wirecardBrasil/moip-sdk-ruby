@@ -23,6 +23,10 @@ module Moip2
       Moip2::RefundApi.new(client)
     end
 
+    def keys
+      Moip2::KeysApi.new(client)
+    end
+
   end
 
 end
