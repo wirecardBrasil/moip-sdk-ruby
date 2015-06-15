@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/orders/ORD-DDT31SU6LXZO/payments
+    body:
+      encoding: UTF-8
+      string: '{"installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"hash":"Pf/FTHX09EwW+9mAd2+jhqhVWE8LtdYp+rfoqrSXelFqgkRRdpvcQTKKGA3TVbuInIrH03Cq0Fq1XVwBDgF9EDtFO+L3kacfAl4hfKr55wkvi7yAAZ9MnhqXCzxm+0aOdoc/0UqnsHlxCzpwaGqBZZkQ6Mt+V1e26fxne4OJw2XJeLMOHpPnMM23Uk8BhSsCUVffmiIuE+Ep9VD9b3HkJPqGRPFiKnYT29J6PH2mKYT61u8KM6ZKQu7FmKTtYs25tHtQ2mN7WhfLbAqLARnfBrCKg1a3W+kcWSf4Wjc0z7LWHzFCvT9vxnq8W/fDBAbue102mouV37dlKR8yN7UgZA==","holder":{"fullname":"Jose
+        Portador da Silva","birthdate":"1988-12-30","taxDocument":{"type":"CPF","number":"33333333333"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 15 Jun 2015 00:13:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '856'
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-CRUP19YU2VE1","status":"IN_ANALYSIS","amount":{"fees":76,"refunds":0,"liquid":424,"currency":"BRL","total":500},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-W6DHWUOQLLF1","brand":"MASTERCARD","first6":"555566","last4":"8884","holder":{"birthdate":"30/12/1988","taxDocument":{"type":"CPF","number":"33333333333"},"fullname":"Jose
+        Portador da Silva"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":76}],"events":[{"createdAt":"2015-06-14T21:13:50-0300","type":"PAYMENT.IN_ANALYSIS"},{"createdAt":"2015-06-14T21:13:45-0300","type":"PAYMENT.CREATED"}],"_links":{"order":{"title":"ORD-DDT31SU6LXZO","href":"https://test.moip.com.br/v2/orders/ORD-DDT31SU6LXZO"},"self":{"href":"https://test.moip.com.br/v2/payments/PAY-CRUP19YU2VE1"}},"updatedAt":"2015-06-14T21:13:50-0300","createdAt":"2015-06-14T21:13:45-0300"}'
+    http_version: 
+  recorded_at: Mon, 15 Jun 2015 00:13:51 GMT
+recorded_with: VCR 2.9.3
