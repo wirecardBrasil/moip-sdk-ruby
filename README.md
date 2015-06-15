@@ -27,12 +27,17 @@ Após deifinir o tipo de autenticação, é necessário gerar o client, informan
 client = Moip2::Client.new(:sandbox/:production, auth)
 ```
 
+Agora você pode instanciar a Api:
+```ruby
+api = Moip2::Api.new(client)
+```
+
 ## Criando um Pedido
 
 Agora basta criar o pedido:
 
 ```ruby
-order = Moip2::OrderApi.new(client).create(
+order = api.order.create(
     {
         own_id: "ruby_sdk_1",
         items: [
@@ -71,7 +76,7 @@ order = Moip2::OrderApi.new(client).create(
 ### Cartão de crédito
 
 ```ruby
-Moip2::PaymentApi.new(client).create(order.id,
+api.payment.create(order.id,
     {
         installment_count: 1,
         funding_instrument: {
@@ -103,7 +108,7 @@ Moip2::PaymentApi.new(client).create(order.id,
 ### Boleto
 
 ```ruby
-Moip2::PaymentApi.new(client).create(
+api.payment.create(
     {
         funding_instrument: {
             method: "BOLETO",
