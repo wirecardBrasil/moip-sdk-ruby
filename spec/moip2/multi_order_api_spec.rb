@@ -127,7 +127,7 @@ describe Moip2::MultiOrderApi do
     end
 
     let(:created_multi_order) do
-      VCR.use_cassette("create_mulit_order_success") do
+      VCR.use_cassette("create_multi_order_success") do
         multi_order_api.create(multi_order)
       end
     end
