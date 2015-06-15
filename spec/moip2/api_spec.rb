@@ -5,7 +5,6 @@ describe Moip2::Api do
   let(:api) { described_class.new client }
 
   describe "#order" do
-
     it "returns an OrderApi" do
       expect(api.order).to be_a(Moip2::OrderApi)
     end
@@ -20,6 +19,10 @@ describe Moip2::Api do
 
   describe "#invoice" do
     it { expect(api.invoice).to be_a Moip2::InvoiceApi }
+  end
+
+  describe "#refund" do
+    it { expect(api.refund).to be_a Moip2::RefundApi }
   end
 
 end
