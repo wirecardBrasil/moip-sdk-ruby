@@ -1,6 +1,7 @@
 # Moip v2 Ruby SDK
 
 [![Build Status](https://travis-ci.org/moip/moip-sdk-ruby.svg?branch=master)](https://travis-ci.org/moip/moip-sdk-ruby)
+[![Code Climate](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/gpa.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby)
 
 O jeito mais simples e rápido de integrar o Moip a sua aplicação Ruby
 
