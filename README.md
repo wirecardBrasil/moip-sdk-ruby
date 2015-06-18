@@ -98,6 +98,29 @@ order = api.order.create(
 
 ## Criando um pagamento
 
+### Cartão de crédito com hash
+
+```ruby
+api.payment.create(order.id,
+    {
+        installment_count: 1,
+        funding_instrument: {
+            method: "CREDIT_CARD",
+            credit_card: {
+                hash: "valor do cartã criptografado vindo do JS",
+                holder: {
+                    fullname: "Jose Portador da Silva",
+                    birthdate: "1988-10-10",
+                    tax_document: {
+                        type: "CPF",
+                        number: "22222222222"
+                },
+            }
+        }
+    }
+)
+```
+
 ### Cartão de crédito
 
 ```ruby
