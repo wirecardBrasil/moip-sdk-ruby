@@ -36,6 +36,29 @@ api = Moip2::Api.new(client)
 
 ## Criando um Pedido
 
+```ruby
+order = api.order.create(
+    {
+        own_id: "ruby_sdk_1",
+        items: [
+          {
+            product: "Nome do produto",
+            quantity: 1,
+            detail: "Mais info...",
+            price: 1000
+          }
+        ],
+        customer: {
+          own_id: "ruby_sdk_customer_1",
+          fullname: "Jose da Silva",
+          email: "sandbox_v2_1401147277@email.com",
+        }
+    }
+)
+```
+
+## Criando um Pedido com dados completos do Comprador
+
 Agora basta criar o pedido:
 
 ```ruby
