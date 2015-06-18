@@ -57,7 +57,7 @@ order = api.order.create(
 )
 ```
 
-## Criando um Pedido com dados completos do Comprador
+### Pedido com dados completos do Comprador
 
 Agora basta criar o pedido:
 
