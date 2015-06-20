@@ -114,7 +114,8 @@ api.payment.create(order.id,
                     tax_document: {
                         type: "CPF",
                         number: "22222222222"
-                },
+                    }
+                }
             }
         }
     }
