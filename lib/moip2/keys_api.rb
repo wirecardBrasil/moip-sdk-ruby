@@ -5,7 +5,7 @@ module Moip2
 		def initialize(client)
 			@client = client
 		end
-	
+
 		def base_path
 			"/v2/keys"
 		end
