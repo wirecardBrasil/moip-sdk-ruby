@@ -23,7 +23,7 @@ describe Moip2::Client do
     end
 
     let(:client) { described_class.new :sandbox, oauth }
-    it { expect(client.uri).to eq "https://test.moip.com.br" }
+    it { expect(client.uri).to eq ENV['sandbox_url'] }
     it { expect(client.env).to eq :sandbox }
     it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
 
@@ -115,7 +115,7 @@ describe Moip2::Client do
       described_class.new :sandbox, auth
     end
 
-    it { expect(client.uri).to eq "https://test.moip.com.br" }
+    it { expect(client.uri).to eq ENV['sandbox_url'] }
     it { expect(client.env).to eq :sandbox }
     it { expect(client.opts[:headers]["Authorization"]).to eq "Basic VE9LRU46U0VDUkVU" }
   end

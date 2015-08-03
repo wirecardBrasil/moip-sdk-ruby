@@ -24,7 +24,7 @@ describe Moip2::CustomerApi do
     it { expect(customer.shipping_address).to_not be_nil }
     it { expect(customer.shipping_address.zip_code).to eq "01234000" }
     it { expect(customer._links).to_not be_nil }
-    it { expect(customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF" }
+    it { expect(customer._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-B6LE6HLFFXKF" }
 
   end
 
@@ -96,7 +96,7 @@ describe Moip2::CustomerApi do
     it { expect(created_customer_with_funding_instrument.shipping_address).to_not be_nil }
     it { expect(created_customer_with_funding_instrument.shipping_address.zip_code).to eq "01234000" }
     it { expect(created_customer_with_funding_instrument._links).to_not be_nil }
-    it { expect(created_customer_with_funding_instrument._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-E5CO735TBXTI" }
+    it { expect(created_customer_with_funding_instrument._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-E5CO735TBXTI" }
 
   end
 
@@ -145,7 +145,7 @@ describe Moip2::CustomerApi do
     it { expect(created_customer.shipping_address).to_not be_nil }
     it { expect(created_customer.shipping_address.zip_code).to eq "01234000" }
     it { expect(created_customer._links).to_not be_nil }
-    it { expect(created_customer._links.self.href).to eq "https://test.moip.com.br/v2/customers/CUS-4GESZSOAH7HX" }
+    it { expect(created_customer._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-4GESZSOAH7HX" }
 
   end
 
