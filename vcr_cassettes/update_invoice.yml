@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://test.moip.com.br/v2/invoices/INV-4517A209DDA9
+    uri: https://sandbox.moip.com.br/v2/invoices/INV-4517A209DDA9
     body:
       encoding: UTF-8
       string: '{"orderExternalId":"ORD-NLQ916TW81TN","customerExternalId":"CUS-GF45QI98NST1"}'

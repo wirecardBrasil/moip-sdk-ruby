@@ -61,7 +61,7 @@ module Moip2
       if production?
         "https://api.moip.com.br"
       else
-        "https://test.moip.com.br"
+        "https://sandbox.moip.com.br"
       end
 
     end

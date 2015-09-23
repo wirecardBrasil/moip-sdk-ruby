@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/multiorders/MOR-IVKZDU55LXJU
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/multiorders/MOR-IVKZDU55LXJU
     body:
       encoding: US-ASCII
       string: ''

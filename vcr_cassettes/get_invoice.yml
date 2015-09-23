@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.moip.com.br/v2/invoices/INV-4517A209DDA9
+    uri: https://sandbox.moip.com.br/v2/invoices/INV-4517A209DDA9
     body:
       encoding: US-ASCII
       string: ''

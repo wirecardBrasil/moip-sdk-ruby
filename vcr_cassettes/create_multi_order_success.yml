@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/multiorders
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/multiorders
     body:
       encoding: UTF-8
       string: '{"ownId":"meu_multiorder_id","orders":[{"ownId":"pedido_1_id","amount":{"currency":"BRL","subtotals":{"shipping":2000}},"items":[{"product":"Camisa

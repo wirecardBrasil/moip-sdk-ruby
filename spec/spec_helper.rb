@@ -9,7 +9,7 @@ require "webmock"
 RSpec.configure do |config|
 
 end
-ENV['sandbox_url'] = 'https://test.moip.com.br'
+ENV['sandbox_url'] = 'https://sandbox.moip.com.br'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'vcr_cassettes'

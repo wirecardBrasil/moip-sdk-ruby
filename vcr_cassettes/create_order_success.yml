@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/orders
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/orders
     body:
       encoding: UTF-8
       string: '{"ownId":"your_own_id_1","amount":{"currency":"BRL"},"items":[{"product":"Some
@@ -39,9 +39,9 @@ http_interactions:
       string: '{"id":"ORD-7JOU41NX4M1S","ownId":"your_own_id_1","status":"CREATED","createdAt":"2015-02-27T10:23:13-0300","amount":{"total":100,"fees":0,"refunds":0,"liquid":0,"otherReceivers":0,"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0,"items":100}},"items":[{"product":"Some
         Product","price":100,"detail":"Some Product Detail","quantity":1}],"customer":{"id":"CUS-B6LE6HLFFXKF","ownId":"your_customer_own_id","fullname":"John
         Doe","createdAt":"2015-02-27T10:23:13-0300","email":"john.doe@mailinator.com","phone":{"countryCode":"55","areaCode":"55","number":"66778899"},"taxDocument":{"type":"CPF","number":"22222222222"},"shippingAddress":{"zipCode":"01234000","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"}}},"payments":[],"refunds":[],"entries":[],"events":[{"createdAt":"2015-02-27T10:23:13-0300","description":"","type":"ORDER.CREATED"}],"receivers":[{"amount":{"fees":0,"refunds":0,"total":100},"moipAccount":{"fullname":"Moip
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"}}},"payments":[],"refunds":[],"entries":[],"events":[{"createdAt":"2015-02-27T10:23:13-0300","description":"","type":"ORDER.CREATED"}],"receivers":[{"amount":{"fees":0,"refunds":0,"total":100},"moipAccount":{"fullname":"Moip
         SandBox","login":"integracao@labs.moip.com.br","id":"MPA-CULBBYHD11"},"type":"PRIMARY"}],"shippingAddress":{"zipCode":"01234000","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-7JOU41NX4M1S"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-7JOU41NX4M1S"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-7JOU41NX4M1S"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-7JOU41NX4M1S"}}}}'
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-7JOU41NX4M1S"},"checkout":{"payOnlineBankDebitItau":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/itau/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBB":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bancobrasil/ORD-7JOU41NX4M1S"},"payCreditCard":{"redirectHref":"https://checkout-sandbox.moip.com.br/creditcard/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBradesco":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/bradesco/ORD-7JOU41NX4M1S"},"payBoleto":{"redirectHref":"https://checkout-sandbox.moip.com.br/boleto/ORD-7JOU41NX4M1S"},"payOnlineBankDebitBanrisul":{"redirectHref":"https://checkout-sandbox.moip.com.br/debit/banrisul/ORD-7JOU41NX4M1S"}}}}'
     http_version: 
   recorded_at: Fri, 27 Feb 2015 13:23:12 GMT
 recorded_with: VCR 2.9.3

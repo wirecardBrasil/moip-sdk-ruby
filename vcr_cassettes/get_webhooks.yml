@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.moip.com.br/v2/webhooks
+    uri: https://sandbox.moip.com.br/v2/webhooks
     body:
       encoding: US-ASCII
       string: ''

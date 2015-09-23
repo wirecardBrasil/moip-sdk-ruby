@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://test.moip.com.br/v2/invoices
+    uri: https://sandbox.moip.com.br/v2/invoices
     body:
       encoding: UTF-8
       string: '{"amount":13470,"email":"caio.gama@moip.com.br","invoiceType":"subscription","description":"Assinatura

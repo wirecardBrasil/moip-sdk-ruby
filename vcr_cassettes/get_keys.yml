@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://test.moip.com.br/v2/keys
+    uri: https://sandbox.moip.com.br/v2/keys
     body:
       encoding: US-ASCII
       string: ''

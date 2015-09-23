@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@test.moip.com.br/v2/customers
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/customers
     body:
       encoding: UTF-8
       string: '{"ownId":"meu_id_de_cliente","fullname":"Jose Silva","email":"josedasilva@email.com","phone":{"areaCode":"11","number":"66778899"},"birthDate":"1988-12-30","taxDocument":{"type":"CPF","number":"22222222222"},"shippingAddress":{"street":"Avenida
@@ -39,7 +39,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":"CUS-E5CO735TBXTI","ownId":"meu_id_de_cliente","fullname":"Jose
         Silva","createdAt":"2015-03-02T11:05:28-0300","birthDate":"1988-12-30T00:00:00-0200","email":"josedasilva@email.com","fundingInstrument":{"creditCard":{"id":"CRC-F5DR8SVINCUI","brand":"VISA","first6":"407302","last4":"0002"},"method":"CREDIT_CARD"},"phone":{"countryCode":"55","areaCode":"11","number":"66778899"},"taxDocument":{"type":"CPF","number":"22222222222"},"shippingAddress":{"zipCode":"01234000","street":"Avenida
-        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://test.moip.com.br/v2/customers/CUS-E5CO735TBXTI"}}}'
+        Faria Lima","streetNumber":"2927","complement":"8","city":"Sao Paulo","district":"Itaim","state":"SP","country":"BRA"},"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/customers/CUS-E5CO735TBXTI"}}}'
     http_version: 
   recorded_at: Mon, 02 Mar 2015 14:05:15 GMT
 recorded_with: VCR 2.9.3
