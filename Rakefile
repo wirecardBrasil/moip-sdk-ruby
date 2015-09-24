@@ -8,8 +8,4 @@ begin
   task :default => :spec
 rescue LoadError
   # no rspec available
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> webhooks

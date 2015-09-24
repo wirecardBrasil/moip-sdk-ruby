@@ -14,11 +14,8 @@ require "moip2/resource/multi_payment"
 require "moip2/resource/customer"
 require "moip2/resource/invoice"
 require "moip2/resource/keys"
-<<<<<<< HEAD
 require "moip2/resource/refund"
-=======
 require "moip2/resource/webhooks"
->>>>>>> webhooks
 
 require "moip2/response"
 require "moip2/client"
