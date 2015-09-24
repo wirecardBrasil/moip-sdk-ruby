@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moip2 (0.1.1)
+    moip2 (0.1.4)
       httparty
       recursive-open-struct
 
@@ -35,7 +35,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hitimes (1.2.2)
-    httparty (0.13.5)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
@@ -58,7 +58,7 @@ GEM
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    recursive-open-struct (0.6.4)
+    recursive-open-struct (0.6.5)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
