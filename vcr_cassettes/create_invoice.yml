@@ -5,38 +5,32 @@ http_interactions:
     uri: https://sandbox.moip.com.br/v2/invoices
     body:
       encoding: UTF-8
-      string: '{"amount":13470,"email":"caio.gama@moip.com.br","invoiceType":"subscription","description":"Assinatura
-        da aula de desenho"}'
+      string: '{"invoiceAmount":12610,"description":"teste","customer":{"email":"vagner.vieira@moip.com.br"},"checkoutPreferences":{"fundingInstruments":{"suppressBoleto":true},"installments":[{"quantity":[1,2]}],"suppressShippingAddress":true}}'
     headers:
       Content-Type:
       - application/json
       Authorization:
-      - OAuth d63tz2xwyu0ewrembove4j5cbv2otpd
+      - OAuth s4g8gevtyo8w4jv95nr270dutjy5mq0
   response:
     status:
       code: 201
       message: Created
     headers:
-      Server:
-      - nginx
       Date:
-      - Mon, 09 Mar 2015 13:23:23 GMT
+      - Mon, 16 Nov 2015 15:51:15 GMT
+      Server:
+      - nginx/1.6.2
+      Status:
+      - 201 Created
       Content-Type:
       - application/json
       Content-Length:
-      - '140'
-      Connection:
-      - keep-alive
-      Status:
-      - 201 Created
-      Via:
-      - 1.1 vegur
+      - '523'
       X-Content-Type-Options:
       - nosniff
     body:
       encoding: UTF-8
-      string: '{"id":"INV-4517A209DDA9","amount":13470,"description":"Assinatura da
-        aula de desenho","email":"caio.gama@moip.com.br","type":"subscription"}'
+      string: '{"id":"INV-4C26A14CF75B","invoiceAmount":12610,"description":"teste","customer":{"email":"vagner.vieira@moip.com.br"},"checkoutPreferences":{"fundingInstruments":{"suppressBoleto":true},"installments":[{"quantity":[1,2]}],"suppressShippingAddress":true},"status":"DELIVERED","createdAt":"2015-11-16T13:51:14.803-02:00","updatedAt":"2015-11-16T13:51:14.803-02:00","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-4C26A14CF75B"},"checkout":"https://checkout-sandbox.moip.com.br/invoice/INV-4C26A14CF75B"}}'
     http_version: 
-  recorded_at: Mon, 09 Mar 2015 13:22:55 GMT
+  recorded_at: Mon, 16 Nov 2015 15:51:15 GMT
 recorded_with: VCR 2.9.3

@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/invoices/INV-4517A209DDA9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth d63tz2xwyu0ewrembove4j5cbv2otpd
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 09 Mar 2015 13:25:33 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '140'
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"id":"INV-4517A209DDA9","amount":13470,"description":"Assinatura da
+        aula de desenho","email":"caio.gama@moip.com.br","type":"subscription"}'
+    http_version: 
+  recorded_at: Mon, 09 Mar 2015 13:25:05 GMT
+recorded_with: VCR 2.9.3

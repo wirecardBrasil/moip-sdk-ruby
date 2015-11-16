@@ -2,18 +2,37 @@ describe Moip2::InvoiceApi do
 
   let(:invoice_api) { described_class.new sandbox_oauth_client }
 
-  let(:invoice_external_id) do
+  let(:invoice_external_id_to_update) do
     "INV-4517A209DDA9"
+  end
+
+  let(:invoice_external_id) do
+    "INV-4C26A14CF75B"
   end
 
   describe "#create" do
 
     let(:invoice) do
       {
-          amount: 13470,
-          email: "caio.gama@moip.com.br",
-          invoiceType: :subscription,
-          description: "Assinatura da aula de desenho"
+        invoiceAmount: 12610,
+        description: "teste",
+        customer: {
+            email: "vagner.vieira@moip.com.br"
+        },
+        checkoutPreferences: {
+            fundingInstruments: {
+                suppressBoleto: true
+            },
+            installments: [
+                {
+                    quantity: [
+                        1,
+                        2
+                    ]
+                }
+            ],
+            suppressShippingAddress: true
+          }
       }
     end
 
@@ -24,9 +43,11 @@ describe Moip2::InvoiceApi do
     end
 
     it { expect(created_invoice.id).to_not be_nil }
-    it { expect(created_invoice.email).to eq "caio.gama@moip.com.br" }
-    it { expect(created_invoice.type).to eq "subscription" }
-    it { expect(created_invoice.description).to eq "Assinatura da aula de desenho" }
+    it { expect(created_invoice.invoice_amount).to eq 12610 }
+    it { expect(created_invoice.customer.email).to eq "vagner.vieira@moip.com.br" }
+    it { expect(created_invoice.description).to eq "teste" }
+    it { expect(created_invoice.checkout_preferences.funding_instruments.suppress_boleto).to be_truthy }
+    it { expect(created_invoice.checkout_preferences.suppress_shipping_address).to be_truthy }
 
   end
 
@@ -38,10 +59,12 @@ describe Moip2::InvoiceApi do
       end
     end
 
-    it { expect(invoice.id).to eq "INV-4517A209DDA9" }
-    it { expect(invoice.email).to eq "caio.gama@moip.com.br" }
-    it { expect(invoice.type).to eq "subscription" }
-    it { expect(invoice.description).to eq "Assinatura da aula de desenho" }
+    it { expect(invoice.id).to_not be_nil }
+    it { expect(invoice.invoice_amount).to eq 12610 }
+    it { expect(invoice.customer.email).to eq "vagner.vieira@moip.com.br" }
+    it { expect(invoice.description).to eq "teste" }
+    it { expect(invoice.checkout_preferences.funding_instruments.suppress_boleto).to be_truthy }
+    it { expect(invoice.checkout_preferences.suppress_shipping_address).to be_truthy }
 
   end
 
@@ -55,7 +78,7 @@ describe Moip2::InvoiceApi do
 
     let(:updated_invoice) do
       VCR.use_cassette("update_invoice") do
-        invoice_api.update invoice_external_id, update_params
+        invoice_api.update invoice_external_id_to_update, update_params
       end
     end
 
