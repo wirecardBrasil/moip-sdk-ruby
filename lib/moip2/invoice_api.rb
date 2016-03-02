@@ -24,7 +24,6 @@ module Moip2
     end
 
     def list(opts={})
-      prepare_options(opts, { headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' } })
       return client.get("#{base_path}#{build_url_invoice(opts)}")
     end
 
@@ -36,32 +35,6 @@ module Moip2
 
       def build_url_invoice(opts)
         "#{opts[:query_params]}" if opts.include?(:query_params)
-      end
-
-      def prepare_options(custom_options, required_options)
-        custom_options.merge!(required_options)
-        if custom_options.include?(:moip_auth)
-
-          if custom_options[:moip_auth][:accessToken] && custom_options[:moip_auth][:key]
-            custom_options[:basic_auth] = {
-              username: custom_options[:moip_auth][:accessToken],
-              password: custom_options[:moip_auth][:key]
-            }
-          elsif oauth? custom_options[:moip_auth][:oauth][:accessToken]
-            custom_options[:headers]["Authorization"] = "#{custom_options[:moip_auth][:oauth][:accessToken]}"
-          end
-
-          if custom_options[:moip_auth].include?(:sandbox)
-            if custom_options[:moip_auth][:sandbox]
-              custom_options[:base_uri] = "https://sandbox.moip.com.br/assinaturas/v1"
-            else
-              custom_options[:base_uri] = "https://api.moip.com.br/assinaturas/v1"
-            end
-          end
-
-          custom_options.delete(:moip_auth)
-        end
-        custom_options
       end
 
   end
