@@ -49,7 +49,6 @@ module Moip2
 
     def get(path)
       resp = self.class.get path, opts()
-
       create_response resp
     end
 

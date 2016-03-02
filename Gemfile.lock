@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moip2 (0.1.4)
+    moip2 (0.1.6)
       httparty
       recursive-open-struct
 
@@ -58,7 +58,7 @@ GEM
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    recursive-open-struct (0.6.5)
+    recursive-open-struct (1.0.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -92,7 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (=1.10.6)
+  bundler
   codeclimate-test-reporter
   guard-rspec
   moip2!
@@ -100,3 +100,6 @@ DEPENDENCIES
   rspec
   vcr
   webmock
+
+BUNDLED WITH
+   1.11.2

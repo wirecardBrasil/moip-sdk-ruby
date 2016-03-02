@@ -96,20 +96,20 @@ describe Moip2::InvoiceApi do
   describe "#list" do
     let (:result) do
       VCR.use_cassette("list_invoices") do
-        invoice_api.list begin_date, end_date
+        invoice_api.list({ query_params: "?q=&begin_date=2015-01-01&end_date=2015-03-31&status%5B%5D=DELIVERED&status%5B%5D=NOT_PAID&vmin=95%2C00&vmax=97%2C00#result" })
       end
     end
 
     context "request with results" do
-
-
-
       it { expect(result).to_not be_nil }
-      it { expect(result.invoices.size).to eq 2 }
-      it { expect(result.invoices[0].id).to eq 'INV-635DC2BB9422' }
-      it { expect(result.invoices[0].account_id).to eq 'MPA-MAROTO000000' }
-      it { expect(result.invoices[1].id).to eq 'INV-635DC2BSHJ90' }
-      it { expect(result.invoices[1].account_id).to eq 'MPA-MAROTO000000' }
+      it { expect(result.invoices.size).to eq 20 }
+      it { expect(result.invoices[0].id).to eq 'INV-7F09507A7E5E' }
+      it { expect(result.invoices[1].id).to eq 'INV-7BC38E175152' }
+      it { expect(result.invoices[2].id).to eq 'INV-7340E1A9B45F' }
+      it { expect(result.invoices[3].id).to eq 'INV-D64F5C73B162' }
+      it { expect(result.invoices[4].id).to eq 'INV-9FB41A36AE69' }
+      it { expect(result.invoices[5].id).to eq 'INV-14A260D93C8A' }
+      it { expect(result.invoices[6].id).to eq 'INV-2E68081C2F27' }
     end
 
   end
