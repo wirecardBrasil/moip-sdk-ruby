@@ -28,11 +28,6 @@ module Moip2
     end
 
     private
-      def oauth?(authorization_hash)
-        raise MissingTokenError.new if authorization_hash.nil? || !authorization_hash.downcase.include?("oauth")
-        true
-      end
-
       def build_url_invoice(opts)
         "#{opts[:query_params]}" if opts.include?(:query_params)
       end
