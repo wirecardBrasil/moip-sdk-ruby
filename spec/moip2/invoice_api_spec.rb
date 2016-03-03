@@ -94,24 +94,134 @@ describe Moip2::InvoiceApi do
   end
 
   describe "#list" do
-    let (:result) do
-      VCR.use_cassette("list_invoices") do
-        invoice_api.list({ query_params: "?q=&begin_date=2015-01-01&end_date=2015-03-31&status%5B%5D=DELIVERED&status%5B%5D=NOT_PAID&vmin=95%2C00&vmax=97%2C00#result" })
+
+    let(:client) { double "Moip2::Client" }
+    let(:pagination) do
+      {
+        limit: "10",
+        offset: "50"
+      }
+    end
+
+    subject do
+      Moip2::InvoiceApi.new(client)
+    end
+
+    describe "query" do
+      let(:filters) do
+        { q: "teste" }
+      end
+
+      before do
+        expect(client).to receive(:get).with("/v2/invoices?q=teste&limit=&offset=")
+      end
+
+      it{ expect(subject.list(filters)) }
+    end
+
+    describe "status" do
+      describe "one" do
+        let(:filters) do
+          { status: "DELIVERED" }
+        end
+
+        before do
+          expect(client).to receive(:get).with("/v2/invoices?filters=status::eq(DELIVERED)&limit=&offset=")
+        end
+
+        it{ expect(subject.list(filters)) }
+      end
+
+      describe "two" do
+        let(:filters) do
+          { status: ["DELIVERED","NOT_PAID"] }
+        end
+
+        before do
+          expect(client).to receive(:get).with("/v2/invoices?filters=status::in(DELIVERED,NOT_PAID)&limit=&offset=")
+        end
+
+        it{ expect(subject.list(filters)) }
       end
     end
 
-    context "request with results" do
-      it { expect(result).to_not be_nil }
-      it { expect(result.invoices.size).to eq 20 }
-      it { expect(result.invoices[0].id).to eq 'INV-7F09507A7E5E' }
-      it { expect(result.invoices[1].id).to eq 'INV-7BC38E175152' }
-      it { expect(result.invoices[2].id).to eq 'INV-7340E1A9B45F' }
-      it { expect(result.invoices[3].id).to eq 'INV-D64F5C73B162' }
-      it { expect(result.invoices[4].id).to eq 'INV-9FB41A36AE69' }
-      it { expect(result.invoices[5].id).to eq 'INV-14A260D93C8A' }
-      it { expect(result.invoices[6].id).to eq 'INV-2E68081C2F27' }
+    describe "date" do
+      let(:filters) do
+        {
+          begin_date: "2016-02-28",
+          end_date: "2016-02-28"
+        }
+      end
+
+      before do
+        expect(client).to receive(:get).with("/v2/invoices?filters=creation_date::bt(2016-02-28,2016-02-28)&limit=&offset=")
+      end
+
+      it{ expect(subject.list(filters)) }
     end
 
+    describe "value" do
+      describe "between" do
+        let(:filters) do
+          {
+            vmin: "1234",
+            vmax: "2345"
+          }
+        end
+
+        before do
+          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::bt(1234,2345)&limit=&offset=")
+        end
+
+        it{ expect(subject.list(filters)) }
+      end
+
+      describe "lower than" do
+        let(:filters) do
+          { vmax: "2345" }
+        end
+
+        before do
+          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::le(2345)&limit=&offset=")
+        end
+
+        it{ expect(subject.list(filters)) }
+      end
+
+      describe "higher than" do
+        let(:filters) do
+          { vmin: "1234" }
+        end
+
+        before do
+          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::ge(1234)&limit=&offset=")
+        end
+
+        it{ expect(subject.list(filters)) }
+      end
+
+    end
+
+    describe "all" do
+      let(:filters) do
+        {
+          q: "teste",
+          status: ["DELIVERED","NOT_PAID"],
+          begin_date: "2016-02-28",
+          end_date: "2016-02-28",
+          vmin: "1234",
+          vmax: "2345",
+          limit: "10",
+          offset: "50"
+        }
+      end
+
+      before do
+        expect(client).to receive(:get).with("/v2/invoices?filters=status::in(DELIVERED,NOT_PAID)%7Ccreation_date::bt(2016-02-28,2016-02-28)%7Cinvoice_amount::bt(1234,2345)&q=teste&limit=10&offset=50")
+      end
+
+      it{ expect(subject.list(filters)) }
+    end
   end
 
 end

@@ -29,6 +29,7 @@ require "moip2/refund_api"
 require "moip2/api"
 require "moip2/keys_api"
 require "moip2/webhooks_api"
+require "moip2/query_params"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
