@@ -49,7 +49,6 @@ describe Moip2::Client do
       described_class.new :sandbox, oauth
     end
 
-
     it { expect(client.uri).to eq "http://localhost:5000" }
     it { expect(client.env).to eq :sandbox }
     it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }

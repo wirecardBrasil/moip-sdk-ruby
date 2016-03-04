@@ -36,8 +36,8 @@ module Moip2
         limit: opts[:limit],
         offset: opts[:offset]
       }
-
-      return client.get("#{base_path}#{build_url_invoice(hash_filters(filters, pagination))}")
+      hash_params = { filters: filters, pagination: pagination }
+      return client.get(base_path, hash_params)
     end
 
     private

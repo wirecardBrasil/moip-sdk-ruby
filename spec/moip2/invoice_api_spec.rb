@@ -113,7 +113,7 @@ describe Moip2::InvoiceApi do
       end
 
       before do
-        expect(client).to receive(:get).with("/v2/invoices?q=teste&limit=&offset=")
+        expect(client).to receive(:get).with("/v2/invoices", { filters: {:q=>"teste", :begin_date=>nil, :end_date=>nil, :status=>nil, :vmin=>nil, :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
       end
 
       it{ expect(subject.list(filters)) }
@@ -126,7 +126,7 @@ describe Moip2::InvoiceApi do
         end
 
         before do
-          expect(client).to receive(:get).with("/v2/invoices?filters=status::eq(DELIVERED)&limit=&offset=")
+          expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>nil, :end_date=>nil, :status=>"DELIVERED", :vmin=>nil, :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
         end
 
         it{ expect(subject.list(filters)) }
@@ -138,7 +138,7 @@ describe Moip2::InvoiceApi do
         end
 
         before do
-          expect(client).to receive(:get).with("/v2/invoices?filters=status::in(DELIVERED,NOT_PAID)&limit=&offset=")
+          expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>nil, :end_date=>nil, :status=>["DELIVERED", "NOT_PAID"], :vmin=>nil, :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
         end
 
         it{ expect(subject.list(filters)) }
@@ -154,7 +154,7 @@ describe Moip2::InvoiceApi do
       end
 
       before do
-        expect(client).to receive(:get).with("/v2/invoices?filters=creation_date::bt(2016-02-28,2016-02-28)&limit=&offset=")
+        expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>"2016-02-28", :end_date=>"2016-02-28", :status=>nil, :vmin=>nil, :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
       end
 
       it{ expect(subject.list(filters)) }
@@ -170,7 +170,7 @@ describe Moip2::InvoiceApi do
         end
 
         before do
-          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::bt(1234,2345)&limit=&offset=")
+          expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>nil, :end_date=>nil, :status=>nil, :vmin=>"1234", :vmax=>"2345"}, :pagination=>{:limit=>nil, :offset=>nil}})
         end
 
         it{ expect(subject.list(filters)) }
@@ -182,7 +182,7 @@ describe Moip2::InvoiceApi do
         end
 
         before do
-          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::le(2345)&limit=&offset=")
+          expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>nil, :end_date=>nil, :status=>nil, :vmin=>nil, :vmax=>"2345"}, :pagination=>{:limit=>nil, :offset=>nil}})
         end
 
         it{ expect(subject.list(filters)) }
@@ -194,7 +194,7 @@ describe Moip2::InvoiceApi do
         end
 
         before do
-          expect(client).to receive(:get).with("/v2/invoices?filters=invoice_amount::ge(1234)&limit=&offset=")
+          expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>nil, :begin_date=>nil, :end_date=>nil, :status=>nil, :vmin=>"1234", :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
         end
 
         it{ expect(subject.list(filters)) }
@@ -217,7 +217,7 @@ describe Moip2::InvoiceApi do
       end
 
       before do
-        expect(client).to receive(:get).with("/v2/invoices?filters=status::in(DELIVERED,NOT_PAID)%7Ccreation_date::bt(2016-02-28,2016-02-28)%7Cinvoice_amount::bt(1234,2345)&q=teste&limit=10&offset=50")
+        expect(client).to receive(:get).with("/v2/invoices", {:filters=>{:q=>"teste", :begin_date=>"2016-02-28", :end_date=>"2016-02-28", :status=>["DELIVERED", "NOT_PAID"], :vmin=>"1234", :vmax=>"2345"}, :pagination=>{:limit=>"10", :offset=>"50"}})
       end
 
       it{ expect(subject.list(filters)) }
