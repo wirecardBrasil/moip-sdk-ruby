@@ -47,9 +47,14 @@ module Moip2
       create_response resp
     end
 
-    def get(path)
-      resp = self.class.get path, opts()
+    def get(base_path, hash_params={})
+      path = base_path
+      if !hash_params.empty?
+        filters_hash = hash_filters(hash_params[:filters], hash_params[:pagination])
+        path = "#{path}#{build_url_invoice(filters_hash)}"
+      end
 
+      resp = self.class.get path, opts()
       create_response resp
     end
 

@@ -23,9 +23,61 @@ module Moip2
       Resource::Invoice.new client, client.put("#{base_path}/#{invoice_external_id}", invoice)
     end
 
-    def list(begin_date, end_date)
-      Resource::Invoice.new client, client.get("#{base_path}?begin=#{begin_date}&end=#{end_date}")
+    def list(opts={})
+      filters = {
+        q: opts[:q],
+        begin_date: opts[:begin_date],
+        end_date: opts[:end_date],
+        status: opts[:status],
+        vmin: opts[:vmin],
+        vmax: opts[:vmax]
+      }
+      pagination = {
+        limit: opts[:limit],
+        offset: opts[:offset]
+      }
+      hash_params = { filters: filters, pagination: pagination }
+      return client.get(base_path, hash_params)
     end
+
+    private
+      def build_url_invoice(opts)
+        "#{opts[:query_params]}" if opts.include?(:query_params)
+      end
+
+      def hash_filters(filters, pagination)
+        query_params = URI.encode "#{to_query_params(filters)}&limit=#{pagination[:limit]}&offset=#{pagination[:offset]}"
+        { query_params: query_params }
+      end
+
+      def to_query_params(params = {})
+        query_params = Moip2::QueryParams.new();
+
+        unless params[:q].nil?
+          query_params.full_text_search(params[:q].strip)
+        end
+
+        unless params[:status].nil?
+          query_params.equal("status", params[:status])
+        end
+
+        unless params[:begin_date].nil?
+          query_params.between("creation_date", params[:begin_date], params[:end_date])
+        end
+
+        if !params[:vmin].nil? && !params[:vmax].nil?
+          query_params.between("invoice_amount", params[:vmin], params[:vmax])
+        else
+          unless params[:vmin].nil?
+            query_params.ge("invoice_amount", params[:vmin])
+          end
+
+          unless params[:vmax].nil?
+            query_params.le("invoice_amount", params[:vmax])
+          end
+        end
+        query_params.build_uri()
+      end
 
   end
 

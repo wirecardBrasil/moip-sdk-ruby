@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://sandbox.moip.com.br/v2/invoices?begin=2015-01-01&end=2015-03-31
+    uri: https://sandbox.moip.com.br/v2/invoices?begin_date=2015-01-01&end_date=2015-03-31&q=&status%5B%5D=DELIVERED&status%5B%5D=NOT_PAID&vmax=97,00&vmin=95,00
     body:
       encoding: US-ASCII
       string: ''
@@ -10,34 +10,29 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - OAuth d63tz2xwyu0ewrembove4j5cbv2otpd
+      - OAuth nexxgxwtbmib2hywr0rzyt3jbiokslh
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - cloudflare-nginx
       Date:
-      - Wed, 01 Apr 2015 18:32:25 GMT
+      - Wed, 02 Mar 2016 18:57:57 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 200 OK
       Content-Type:
       - application/json
       Content-Length:
-      - '15'
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=da26f30a5647ea96a3ee0c9d44ff90e611427913145; expires=Thu, 31-Mar-16
-        18:32:25 GMT; path=/; domain=.moip.com.br; HttpOnly
-      Status:
-      - 200 OK
+      - '8306'
       X-Content-Type-Options:
       - nosniff
-      Cf-Ray:
-      - 1d06606847bb07d3-MIA
     body:
       encoding: UTF-8
-      string: '{"invoices":[{"id":"INV-635DC2BB9422","amount":9610,"accountId":"MPA-MAROTO000000","description":"Compradealgumascoisas","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}},{"id":"INV-635DC2BSHJ90","amount":9610,"accountId":"MPA-MAROTO000000","description":"compra marota","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}}]}'
+      string: '{"_links":{"next":{"href":"https://test.moip.com.br/v2/invoices?limit=20&offset=20"},"previous":{"href":"https://test.moip.com.br/v2/invoices?limit=20&offset=0"}},"summary":{"count":39,"amount":1231361751.0},"invoices":[{"id":"INV-7F09507A7E5E","invoiceAmount":11230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-7F09507A7E5E"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-7F09507A7E5E"}},"createdAt":"2016-02-29T13:23:18-03:00","updatedAt":"2016-02-29T13:23:18-03:00"},{"id":"INV-7BC38E175152","invoiceAmount":1230,"description":"teste","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-7BC38E175152"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-7BC38E175152"}},"createdAt":"2016-02-29T13:21:41-03:00","updatedAt":"2016-02-29T13:21:41-03:00"},{"id":"INV-7340E1A9B45F","invoiceAmount":11230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-7340E1A9B45F"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-7340E1A9B45F"}},"createdAt":"2016-02-26T10:36:23-03:00","updatedAt":"2016-02-26T10:36:23-03:00"},{"id":"INV-D64F5C73B162","invoiceAmount":1230,"description":"teste","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-D64F5C73B162"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-D64F5C73B162"}},"createdAt":"2016-02-26T10:36:17-03:00","updatedAt":"2016-02-26T10:36:17-03:00"},{"id":"INV-9FB41A36AE69","invoiceAmount":11230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-9FB41A36AE69"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-9FB41A36AE69"}},"createdAt":"2016-02-26T10:32:56-03:00","updatedAt":"2016-02-26T10:32:56-03:00"},{"id":"INV-14A260D93C8A","invoiceAmount":11230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-14A260D93C8A"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-14A260D93C8A"}},"createdAt":"2016-02-26T10:28:22-03:00","updatedAt":"2016-02-26T10:28:22-03:00"},{"id":"INV-2E68081C2F27","invoiceAmount":1230,"description":"teste","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-2E68081C2F27"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-2E68081C2F27"}},"createdAt":"2016-02-26T10:02:51-03:00","updatedAt":"2016-02-26T10:02:51-03:00"},{"id":"INV-2845F754858C","invoiceAmount":1000,"description":"quqlqeurwqre","status":"DELIVERED","customer":{"email":"teste@teste.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-2845F754858C"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-2845F754858C"}},"createdAt":"2016-02-25T19:33:02-03:00","updatedAt":"2016-02-25T19:33:02-03:00"},{"id":"INV-A98C2E3C82DB","invoiceAmount":55511230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-A98C2E3C82DB"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-A98C2E3C82DB"}},"createdAt":"2016-02-25T17:47:00-03:00","updatedAt":"2016-02-25T17:47:00-03:00"},{"id":"INV-11DFE8489ED0","invoiceAmount":1230,"description":"teste","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-11DFE8489ED0"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-11DFE8489ED0"}},"createdAt":"2016-02-25T17:44:38-03:00","updatedAt":"2016-02-25T17:44:38-03:00"},{"id":"INV-9FD6A2F1487B","invoiceAmount":222000,"description":"","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-9FD6A2F1487B"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-9FD6A2F1487B"}},"createdAt":"2016-02-25T17:31:46-03:00","updatedAt":"2016-02-25T17:31:46-03:00"},{"id":"INV-9E5E04474388","invoiceAmount":55511230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-9E5E04474388"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-9E5E04474388"}},"createdAt":"2016-02-25T17:25:50-03:00","updatedAt":"2016-02-25T17:25:50-03:00"},{"id":"INV-8C2CFC58B7C5","invoiceAmount":222,"description":"","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-8C2CFC58B7C5"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-8C2CFC58B7C5"}},"createdAt":"2016-02-25T17:23:16-03:00","updatedAt":"2016-02-25T17:23:16-03:00"},{"id":"INV-4270BF4E5213","invoiceAmount":10000,"description":"Teste
+        pra Gabi.","status":"DELIVERED","customer":{"email":"gabriela.sanada@moip.com.br"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-4270BF4E5213"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-4270BF4E5213"}},"createdAt":"2016-02-25T17:23:14-03:00","updatedAt":"2016-02-25T17:23:14-03:00"},{"id":"INV-AC197B3F4581","invoiceAmount":55511230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-AC197B3F4581"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-AC197B3F4581"}},"createdAt":"2016-02-25T17:02:18-03:00","updatedAt":"2016-02-25T17:02:18-03:00"},{"id":"INV-50FF9C97618F","invoiceAmount":11111,"description":"","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-50FF9C97618F"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-50FF9C97618F"}},"createdAt":"2016-02-25T14:38:31-03:00","updatedAt":"2016-02-25T14:38:31-03:00"},{"id":"INV-7B6835F2AEC0","invoiceAmount":5511230,"description":"teste","status":"DELIVERED","customer":{"email":"breno26@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-7B6835F2AEC0"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-7B6835F2AEC0"}},"createdAt":"2016-02-24T17:18:34-03:00","updatedAt":"2016-02-24T17:18:34-03:00"},{"id":"INV-458B898B2813","invoiceAmount":1230,"description":"teste","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-458B898B2813"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-458B898B2813"}},"createdAt":"2016-02-24T17:16:38-03:00","updatedAt":"2016-02-24T17:16:38-03:00"},{"id":"INV-6497EFE5C7A8","invoiceAmount":1111,"description":"teste
+        2","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-6497EFE5C7A8"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-6497EFE5C7A8"}},"createdAt":"2016-02-24T17:10:50-03:00","updatedAt":"2016-02-24T17:10:50-03:00"},{"id":"INV-1293A51C3F6C","invoiceAmount":1111,"description":"","status":"DELIVERED","customer":{"email":"guilhermesipoloni@hotmail.com"},"_links":{"checkout":{"pay":{"redirectHref":"https://checkout-sandbox.moip.com.br/invoice/INV-1293A51C3F6C"}},"self":{"href":"https://sandbox.moip.com.br/v2/invoice/INV-1293A51C3F6C"}},"createdAt":"2016-02-24T17:03:04-03:00","updatedAt":"2016-02-24T17:03:04-03:00"}]}'
     http_version: 
-  recorded_at: Wed, 01 Apr 2015 18:32:26 GMT
+  recorded_at: Wed, 02 Mar 2016 18:57:58 GMT
 recorded_with: VCR 2.9.3
