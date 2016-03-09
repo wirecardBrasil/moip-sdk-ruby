@@ -8,7 +8,6 @@ describe Moip2::Api do
     it "returns an OrderApi" do
       expect(api.order).to be_a(Moip2::OrderApi)
     end
-
   end
 
   describe  "#payment" do

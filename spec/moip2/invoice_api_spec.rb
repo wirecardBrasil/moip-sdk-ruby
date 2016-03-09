@@ -113,7 +113,7 @@ describe Moip2::InvoiceApi do
       end
 
       before do
-        expect(client).to receive(:get).with("/v2/invoices", { filters: {:q=>"teste", :begin_date=>nil, :end_date=>nil, :status=>nil, :vmin=>nil, :vmax=>nil}, :pagination=>{:limit=>nil, :offset=>nil}})
+        expect(client).to receive(:get).with("/v2/invoices", { filters: { q: "teste", begin_date: nil, end_date: nil, status: nil, vmin: nil, vmax: nil }, pagination: { limit: nil, offset: nil } })
       end
 
       it{ expect(subject.list(filters)) }
