@@ -27,6 +27,10 @@ module Moip2
       Moip2::KeysApi.new(client)
     end
 
+    def customer
+      Moip2::CustomerApi.new(client)
+    end
+
   end
 
 end
