@@ -29,4 +29,8 @@ describe Moip2::Api do
     it { expect(api.keys).to be_a Moip2::KeysApi }
   end
 
+  describe "#customer" do
+    it { expect(api.customer).to be_a Moip2::CustomerApi }
+  end
+
 end
