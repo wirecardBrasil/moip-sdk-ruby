@@ -23,7 +23,7 @@ module Moip2
       Resource::Invoice.new client, client.put("#{base_path}/#{invoice_external_id}", invoice)
     end
 
-    def list(begin_date, end_date)
+    def list(limit, offset)
       Resource::Invoice.new client, client.get("#{base_path}?limit=#{limit}&offset=#{offset}")
     end
 
