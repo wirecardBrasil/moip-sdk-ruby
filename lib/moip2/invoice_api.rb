@@ -24,7 +24,7 @@ module Moip2
     end
 
     def list(begin_date, end_date)
-      Resource::Invoice.new client, client.get("#{base_path}?begin=#{begin_date}&end=#{end_date}")
+      Resource::Invoice.new client, client.get("#{base_path}?limit=#{limit}&offset=#{offset}")
     end
 
   end
