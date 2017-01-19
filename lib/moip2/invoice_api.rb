@@ -24,7 +24,7 @@ module Moip2
     end
 
     def list(begin_date, end_date)
-      find_all(begin_date: begin_date, end_date: end_date, limit: nil, offset: nil)
+      find_all(begin_date: begin_date, end_date: end_date)
     end
 
     def find_all(begin_date: nil, end_date: nil, limit: 20, offset: 0)
