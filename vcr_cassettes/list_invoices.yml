@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://sandbox.moip.com.br/v2/invoices?begin=2015-01-01&end=2015-03-31&limit=&offset=
+    uri: https://sandbox.moip.com.br/v2/invoices?begin=2015-01-01&end=2015-03-31&limit=20&offset=0
     body:
       encoding: US-ASCII
       string: ''

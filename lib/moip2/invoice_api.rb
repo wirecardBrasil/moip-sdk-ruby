@@ -24,10 +24,10 @@ module Moip2
     end
 
     def list(begin_date, end_date)
-      find_all(begin_date: begin_date, end_date: end_date, limit: "", offset: "")
+      find_all(begin_date: begin_date, end_date: end_date, limit: nil, offset: nil)
     end
 
-    def find_all(:begin_date, :end_date, :limit, :offset)
+    def find_all(begin_date: nil, end_date: nil, limit: 20, offset: 0)
       Resource::Invoice.new client, client.get("#{base_path}?begin=#{begin_date}&end=#{end_date}&limit=#{limit}&offset=#{offset}")
     end
 
