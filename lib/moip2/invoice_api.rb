@@ -27,8 +27,8 @@ module Moip2
       find_all(begin_date: begin_date, end_date: end_date)
     end
 
-    def find_all(begin_date: nil, end_date: nil, limit: 20, offset: 0)
-      Resource::Invoice.new client, client.get("#{base_path}?begin=#{begin_date}&end=#{end_date}&limit=#{limit}&offset=#{offset}")
+    def find_all(email: nil, begin_date: nil, end_date: nil, limit: 20, offset: 0)
+      Resource::Invoice.new client, client.get("#{base_path}?email=#{email}&begin=#{begin_date}&end=#{end_date}&limit=#{limit}&offset=#{offset}")
     end
 
   end
