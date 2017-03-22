@@ -92,7 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (=1.13.7)
+  bundler (=1.14.6)
   codeclimate-test-reporter
   guard-rspec
   moip2!
