@@ -1,10 +1,9 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
-
 require "moip2"
 
 require "vcr"
 require "webmock"
+require 'simplecov'
+SimpleCov.start
 
 RSpec.configure do |config|
 
