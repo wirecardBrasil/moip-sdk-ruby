@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moip2 (0.1.4)
+    moip2 (0.1.5)
       httparty
       recursive-open-struct
 
@@ -35,8 +35,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hitimes (1.2.2)
-    httparty (0.13.7)
-      json (~> 1.8)
+    httparty (0.14.0)
       multi_xml (>= 0.5.2)
     json (1.8.3)
     listen (2.10.0)
@@ -45,7 +44,7 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
     method_source (0.8.2)
-    multi_xml (0.5.5)
+    multi_xml (0.6.0)
     nenv (0.2.0)
     notiffany (0.0.6)
       nenv (~> 0.1)
@@ -58,7 +57,7 @@ GEM
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    recursive-open-struct (0.6.5)
+    recursive-open-struct (1.0.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -92,7 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (=1.13.7)
+  bundler (= 1.13.7)
   codeclimate-test-reporter
   guard-rspec
   moip2!
@@ -100,3 +99,6 @@ DEPENDENCIES
   rspec
   vcr
   webmock
+
+BUNDLED WITH
+   1.13.7
