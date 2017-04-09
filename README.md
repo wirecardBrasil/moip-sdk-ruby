@@ -1,5 +1,7 @@
 # Moip v2 Ruby SDK
 
+[![Join the chat at https://gitter.im/moip/moip-sdk-ruby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/moip/moip-sdk-ruby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/moip/moip-sdk-ruby.svg?branch=master)](https://travis-ci.org/moip/moip-sdk-ruby)
 [![Code Climate](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/gpa.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby)
 [![Test Coverage](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/coverage.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby/coverage)
