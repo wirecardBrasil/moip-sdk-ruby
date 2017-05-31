@@ -157,7 +157,7 @@ api.payment.create(order.id,
 ### Boleto
 
 ```ruby
-api.payment.create(
+api.payment.create(order.id,
     {
         funding_instrument: {
             method: "BOLETO",
