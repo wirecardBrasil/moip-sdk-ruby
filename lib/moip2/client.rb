@@ -84,7 +84,7 @@ module Moip2
           Hash[value.map { |k, v| [send(conversion, k).to_sym, convert_hash_keys_to(conversion, v)] }]
         else
           value
-       end
+      end
     end
 
     def camel_case(str)
