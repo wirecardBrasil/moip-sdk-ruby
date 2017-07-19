@@ -44,7 +44,12 @@ describe Moip2::InvoiceApi do
     it { expect(created_invoice.invoice_amount).to eq 12610 }
     it { expect(created_invoice.customer.email).to eq "vagner.vieira@moip.com.br" }
     it { expect(created_invoice.description).to eq "teste" }
-    it { expect(created_invoice.checkout_preferences.funding_instruments.suppress_boleto).to be_truthy }
+    it {
+      expect(
+        created_invoice.checkout_preferences.funding_instruments.suppress_boleto,
+      ).to be_truthy
+    }
+
     it { expect(created_invoice.checkout_preferences.suppress_shipping_address).to be_truthy }
   end
 

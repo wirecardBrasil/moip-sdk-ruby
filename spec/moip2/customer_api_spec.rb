@@ -22,7 +22,11 @@ describe Moip2::CustomerApi do
     it { expect(customer.shipping_address).to_not be_nil }
     it { expect(customer.shipping_address.zip_code).to eq "01234000" }
     it { expect(customer._links).to_not be_nil }
-    it { expect(customer._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-B6LE6HLFFXKF" }
+    it {
+      expect(
+        customer._links.self.href,
+      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-B6LE6HLFFXKF"
+    }
   end
 
   describe "#create with funding instrument" do
@@ -83,15 +87,31 @@ describe Moip2::CustomerApi do
     it { expect(created_customer_with_funding_instrument.own_id).to eq "meu_id_de_cliente" }
     it { expect(created_customer_with_funding_instrument.email).to eq "josedasilva@email.com" }
     it { expect(created_customer_with_funding_instrument.funding_instrument).to_not be_nil }
-    it { expect(created_customer_with_funding_instrument.funding_instrument.credit_card.id).to eq "CRC-F5DR8SVINCUI" }
-    it { expect(created_customer_with_funding_instrument.funding_instrument.credit_card.brand).to eq "VISA" }
+    it {
+      expect(
+        created_customer_with_funding_instrument.funding_instrument.credit_card.id,
+      ).to eq "CRC-F5DR8SVINCUI"
+    }
+    it {
+      expect(
+        created_customer_with_funding_instrument.funding_instrument.credit_card.brand,
+      ).to eq "VISA"
+    }
     it { expect(created_customer_with_funding_instrument.phone).to_not be_nil }
     it { expect(created_customer_with_funding_instrument.tax_document).to_not be_nil }
     it { expect(created_customer_with_funding_instrument.tax_document.type).to eq "CPF" }
     it { expect(created_customer_with_funding_instrument.shipping_address).to_not be_nil }
-    it { expect(created_customer_with_funding_instrument.shipping_address.zip_code).to eq "01234000" }
+    it {
+      expect(
+        created_customer_with_funding_instrument.shipping_address.zip_code,
+      ).to eq "01234000"
+    }
     it { expect(created_customer_with_funding_instrument._links).to_not be_nil }
-    it { expect(created_customer_with_funding_instrument._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-E5CO735TBXTI" }
+    it {
+      expect(
+        created_customer_with_funding_instrument._links.self.href,
+      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-E5CO735TBXTI"
+    }
   end
 
   describe "#create without funding instrument" do
@@ -138,6 +158,10 @@ describe Moip2::CustomerApi do
     it { expect(created_customer.shipping_address).to_not be_nil }
     it { expect(created_customer.shipping_address.zip_code).to eq "01234000" }
     it { expect(created_customer._links).to_not be_nil }
-    it { expect(created_customer._links.self.href).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-4GESZSOAH7HX" }
+    it {
+      expect(
+        created_customer._links.self.href,
+      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-4GESZSOAH7HX"
+    }
   end
 end
