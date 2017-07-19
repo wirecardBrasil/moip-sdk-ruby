@@ -1,6 +1,5 @@
 module Moip2
   module Auth
-
     class OAuth
       def initialize(oauth)
         @oauth = oauth
@@ -11,8 +10,6 @@ module Moip2
 
         %(OAuth #{@oauth})
       end
-
     end
-
   end
 end

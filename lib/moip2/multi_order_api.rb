@@ -1,6 +1,5 @@
 module Moip2
   class MultiOrderApi
-
     attr_reader :client
 
     def initialize(client)
@@ -18,6 +17,5 @@ module Moip2
     def show(multi_order_id)
       Resource::MultiOrder.new client, client.get("#{base_path}/#{multi_order_id}")
     end
-
   end
 end
