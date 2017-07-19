@@ -23,7 +23,9 @@ describe Moip2::Client do
     let(:client) { described_class.new :sandbox, oauth }
     it { expect(client.uri).to eq ENV["sandbox_url"] }
     it { expect(client.env).to eq :sandbox }
-    it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
+    it {
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+    }
   end
 
   describe "initialize on production" do
@@ -33,7 +35,9 @@ describe Moip2::Client do
 
     it { expect(client.uri).to eq "https://api.moip.com.br" }
     it { expect(client.env).to eq :production }
-    it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
+    it {
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+    }
   end
 
   describe "initialize on sandbox with base_uri and OAuth" do
@@ -47,7 +51,9 @@ describe Moip2::Client do
 
     it { expect(client.uri).to eq "http://localhost:5000" }
     it { expect(client.env).to eq :sandbox }
-    it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
+    it {
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+    }
   end
 
   describe "initialize on production with base_uri and OAuth" do
@@ -61,7 +67,9 @@ describe Moip2::Client do
 
     it { expect(client.uri).to eq "http://localhost:5000" }
     it { expect(client.env).to eq :production }
-    it { expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd" }
+    it {
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+    }
   end
 
   describe "initialize on sandbox with base_uri" do
