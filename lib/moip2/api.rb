@@ -27,6 +27,17 @@ module Moip2
       Moip2::KeysApi.new(client)
     end
 
+    def customer
+      Moip2::CustomerApi.new(client)
+    end
+
+    def multi_order
+      Moip2::MultiOrderApi.new(client)
+    end
+
+    def multi_payment
+      Moip2::MultiPaymentApi.new(client)
+    end
   end
 
 end
