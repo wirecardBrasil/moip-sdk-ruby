@@ -29,4 +29,15 @@ describe Moip2::Api do
     it { expect(api.keys).to be_a Moip2::KeysApi }
   end
 
+  describe "#customer" do
+    it { expect(api.customer).to be_a Moip2::CustomerApi }
+  end
+
+  describe "#multi_order" do
+    it { expect(api.multi_order).to be_a Moip2::MultiOrderApi }
+  end
+
+  describe "#multi_payment" do
+    it { expect(api.multi_payment).to be_a Moip2::MultiPaymentApi }
+  end
 end
