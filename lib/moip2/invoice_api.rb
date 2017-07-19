@@ -1,5 +1,4 @@
 module Moip2
-
   class InvoiceApi
     attr_reader :client
 
@@ -30,7 +29,5 @@ module Moip2
     def find_all(email: nil, begin_date: nil, end_date: nil, limit: 20, offset: 0)
       Resource::Invoice.new client, client.get("#{base_path}?email=#{email}&begin=#{begin_date}&end=#{end_date}&limit=#{limit}&offset=#{offset}")
     end
-
   end
-
 end

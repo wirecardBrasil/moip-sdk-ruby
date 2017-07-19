@@ -1,6 +1,5 @@
 module Moip2
   module Resource
-
     class Invoice < SimpleDelegator
       attr_reader :client
 
@@ -9,6 +8,5 @@ module Moip2
         @client = client
       end
     end
-
   end
 end

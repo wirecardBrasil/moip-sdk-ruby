@@ -1,5 +1,4 @@
 module Moip2
-
   class CustomerApi
     attr_reader :client
 
@@ -18,7 +17,5 @@ module Moip2
     def create(customer)
       Resource::Customer.new client, client.post(base_path, customer)
     end
-
   end
-
 end
