@@ -1,7 +1,5 @@
 module Moip2
-
   class OrderApi
-
     attr_reader :client
 
     def initialize(client)
@@ -19,7 +17,5 @@ module Moip2
     def show(id)
       Resource::Order.new client, client.get("#{base_path}/#{id}")
     end
-
   end
-
 end

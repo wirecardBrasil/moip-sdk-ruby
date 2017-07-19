@@ -33,10 +33,8 @@ require "moip2/webhooks_api"
 require "moip2/exceptions/invalid_enviroment_error"
 
 module Moip2
-
   class << self
-
-    VALID_ENVS = %i(sandbox production)
+    VALID_ENVS = %i(sandbox production).freeze
 
     def env=(env)
       raise InvalidEnviromentError unless VALID_ENVS.include?(env.to_sym)
@@ -68,10 +66,8 @@ module Moip2
 
       Api.new Client.new(env, auth)
     end
-
   end
 
   class NotFoundError < StandardError
   end
-
 end

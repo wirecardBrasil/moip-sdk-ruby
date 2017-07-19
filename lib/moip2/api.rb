@@ -1,5 +1,4 @@
 module Moip2
-
   class Api
     attr_reader :client
 
@@ -39,5 +38,4 @@ module Moip2
       Moip2::MultiPaymentApi.new(client)
     end
   end
-
 end

@@ -19,8 +19,9 @@ module Moip2
     end
 
     private
-      def base_resource(id)
-        id.start_with?("PAY") ? "payments" : "orders"
-      end
+
+    def base_resource(id)
+      id.start_with?("PAY") ? "payments" : "orders"
+    end
   end
 end

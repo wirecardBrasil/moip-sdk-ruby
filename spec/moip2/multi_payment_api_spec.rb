@@ -1,14 +1,14 @@
 describe Moip2::MultiPaymentApi do
   let(:multi_payment_api) { described_class.new(sandbox_client) }
 
-  describe "#create" do 
+  describe "#create" do
     let(:multi_payment) do
       {
         installmentCount: 1,
         fundingInstrument: {
           method: "CREDIT_CARD",
           creditCard: {
-            expirationMonth: 05,
+            expirationMonth: 0o5,
             expirationYear: 18,
             number: "4012001038443335",
             cvc: "123",
@@ -17,16 +17,16 @@ describe Moip2::MultiPaymentApi do
               birthdate: "1988-12-30",
               taxDocument: {
                 type: "CPF",
-                number: "33333333333"
+                number: "33333333333",
               },
               phone: {
                 countryCode: "55",
                 areaCode: "11",
-                number: "66778899"
-              }
-            }
-          }
-        }
+                number: "66778899",
+              },
+            },
+          },
+        },
       }
     end
 
@@ -41,7 +41,6 @@ describe Moip2::MultiPaymentApi do
       expect(created_multi_payment.payments).to_not be_nil
       expect(created_multi_payment.status).to eq "WAITING"
     end
-
   end
 
   describe "#show" do
@@ -56,7 +55,5 @@ describe Moip2::MultiPaymentApi do
       expect(multi_payment.payments).to_not be_nil
       expect(multi_payment.status).to eq "AUTHORIZED"
     end
-
   end
-
 end
