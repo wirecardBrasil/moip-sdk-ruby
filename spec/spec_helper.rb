@@ -17,11 +17,14 @@ end
 
 # Helper methods
 def sandbox_auth
-  Moip2::Auth::Basic.new("01010101010101010101010101010101", "ABABABABABABABABABABABABABABABABABABABAB")
+  Moip2::Auth::Basic.new(
+    "01010101010101010101010101010101",
+    "ABABABABABABABABABABABABABABABABABABABAB",
+  )
 end
 
 def sandbox_oauth
-  Moip2::Auth::OAuth.new "d63tz2xwyu0ewrembove4j5cbv2otpd"
+  Moip2::Auth::OAuth.new("d63tz2xwyu0ewrembove4j5cbv2otpd")
 end
 
 def sandbox_client
