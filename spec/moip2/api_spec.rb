@@ -38,4 +38,8 @@ describe Moip2::Api do
   describe "#multi_payment" do
     it { expect(api.multi_payment).to be_a Moip2::MultiPaymentApi }
   end
+
+  describe "#oauth" do
+    it { expect(api.oauth).to be_a Moip2::OAuthApi }
+  end
 end
