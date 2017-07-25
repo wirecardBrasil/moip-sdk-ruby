@@ -7,6 +7,40 @@
 [![Code Climate](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/gpa.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby)
 [![Test Coverage](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/coverage.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby/coverage)
 
+**Índice** 
+
+- [Instalação](#instalação)
+- [Configurando a autenticação](#configurando-a-autenticação)
+	- [Por BasicAuth](#por-basicauth)
+	- [Por OAuth](#por-oauth)
+- [Configurando o ambiente](#configurando-o-ambiente)
+- Exemplos de Uso:
+	- [Clientes](#clientes)
+		- [Criação](#criação)
+		- [Consulta](#consulta)
+	- [Pedidos](#pedidos)
+		- [Criação](#criação-1)
+		- [Consulta](#consulta-1)
+	- [Pagamentos](#pagamentos)
+		- [Cartão de Credito](#cartão-de-credito)
+			- [Com Hash](#com-hash)
+			- [Com Dados do Cartão](#com-dados-do-cartão)
+			- [Com boleto](#com-boleto)
+	- [Reembolsos](#reembolsos)
+		- [Criação](#criação-2)
+			- [Valor Total](#valor-total)
+			- [Valor Parcial](#valor-parcial)
+		- [Consulta](#consulta-2)
+	- [Multipedidos](#multipedidos)
+		- [Criação](#criação-3)
+		- [Consulta](#consulta-3)
+		- [Nota](#nota)
+	- [Multipagamentos](#multipagamentos)
+		- [Criação](#criação-4)
+		- [Consulta](#consulta-4)
+	- [Documentação](#documentação)
+	- [Licença](#licença)
+
 
 ## Instalação
 
@@ -178,7 +212,7 @@ reembolso = api.refund.create("ORD-V41BR451L", amount: 2000)
 reembolso = api.refund.show("REF-V41BR451L")
 ```
 
-### Multipedidos
+## Multipedidos
 ### Criação
 ```ruby
 multi = api.multi_order.create(
