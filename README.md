@@ -11,35 +11,35 @@
 
 - [Instalação](#instalação)
 - [Configurando a autenticação](#configurando-a-autenticação)
-	- [Por BasicAuth](#por-basicauth)
-	- [Por OAuth](#por-oauth)
+  - [Por BasicAuth](#por-basicauth)
+  - [Por OAuth](#por-oauth)
 - [Configurando o ambiente](#configurando-o-ambiente)
-- Exemplos de Uso:
-	- [Clientes](#clientes)
-		- [Criação](#criação)
-		- [Consulta](#consulta)
-	- [Pedidos](#pedidos)
-		- [Criação](#criação-1)
-		- [Consulta](#consulta-1)
-	- [Pagamentos](#pagamentos)
-		- [Cartão de Credito](#cartão-de-credito)
-			- [Com Hash](#com-hash)
-			- [Com Dados do Cartão](#com-dados-do-cartão)
-			- [Com boleto](#com-boleto)
-	- [Reembolsos](#reembolsos)
-		- [Criação](#criação-2)
-			- [Valor Total](#valor-total)
-			- [Valor Parcial](#valor-parcial)
-		- [Consulta](#consulta-2)
-	- [Multipedidos](#multipedidos)
-		- [Criação](#criação-3)
-		- [Consulta](#consulta-3)
-		- [Nota](#nota)
-	- [Multipagamentos](#multipagamentos)
-		- [Criação](#criação-4)
-		- [Consulta](#consulta-4)
-	- [Documentação](#documentação)
-	- [Licença](#licença)
+- [Exemplos de Uso](#clientes):
+  - [Clientes](#clientes)
+    - [Criação](#criação)
+    - [Consulta](#consulta)
+  - [Pedidos](#pedidos)
+    - [Criação](#criação-1)
+    - [Consulta](#consulta-1)
+  - [Pagamentos](#pagamentos)
+    - [Cartão de Credito](#cartão-de-credito)
+      - [Com Hash](#com-hash)
+      - [Com Dados do Cartão](#com-dados-do-cartão)
+      - [Com boleto](#com-boleto)
+  - [Reembolsos](#reembolsos)
+    - [Criação](#criação-2)
+      - [Valor Total](#valor-total)
+      - [Valor Parcial](#valor-parcial)
+    - [Consulta](#consulta-2)
+  - [Multipedidos](#multipedidos)
+    - [Criação](#criação-3)
+    - [Consulta](#consulta-3)
+    - [Nota](#nota)
+  - [Multipagamentos](#multipagamentos)
+    - [Criação](#criação-4)
+    - [Consulta](#consulta-4)
+- [Documentação](#documentação)
+- [Licença](#licença)
 
 
 ## Instalação
@@ -76,21 +76,21 @@ api = Moip2::Api.new(client)
 ### Criação
 ```ruby
 customer = api.customer.create(
-	ownId: "meu_id_de_cliente",
+        ownId: "meu_id_de_cliente",
         fullname: "Jose Silva",
         email: "josedasilva@email.com",
         phone: {
-			#...
+          #...
         },
         birthDate: "1988-12-30",
         taxDocument: {
-	        #...
+          #...
         },
         shippingAddress: {
-	        #...
+          #...
         },
         fundingInstrument: {
-	        # Campo opcional. Consulte a documentação da API.
+          # Campo opcional. Consulte a documentação da API.
         },
       }
 )
@@ -105,20 +105,20 @@ customer = api.customer.show("CUS-V41BR451L")
 
 ```ruby
 order = api.order.create({
-	own_id: "ruby_sdk_1",
-	items: [
-	  {
-	    product: "Nome do produto",
-	    quantity: 1,
-	    detail: "Mais info...",
-	    price: 1000
-	  }
-	],
-	customer: {
-	  own_id: "ruby_sdk_customer_1",
-	  fullname: "Jose da Silva",
-	  email: "sandbox_v2_1401147277@email.com",
-	}
+  own_id: "ruby_sdk_1",
+  items: [
+    {
+      product: "Nome do produto",
+      quantity: 1,
+      detail: "Mais info...",
+      price: 1000
+    }
+  ],
+  customer: {
+    own_id: "ruby_sdk_customer_1",
+    fullname: "Jose da Silva",
+    email: "sandbox_v2_1401147277@email.com",
+  }
 })
 ```
 ### Consulta
@@ -137,7 +137,7 @@ api.payment.create(order.id,
         funding_instrument: {
             method: "CREDIT_CARD",
             credit_card: {
-                hash: "valor do cartã criptografado vindo do JS",
+                hash: "valor do cartão criptografado vindo do JS",
                 holder: {
                     fullname: "Jose Portador da Silva",
                     birthdate: "1988-10-10",
@@ -180,7 +180,7 @@ api.payment.create(order.id,
 ```ruby
 api.payment.create(order.id,
     {
-	    # ...
+      # ...
         funding_instrument: {
             method: "BOLETO",
             boleto: {
@@ -216,17 +216,17 @@ reembolso = api.refund.show("REF-V41BR451L")
 ### Criação
 ```ruby
 multi = api.multi_order.create(
-	{
-		ownId: "meu_multiorder_id",
-		orders: [
-			{
-				# Objeto Order 1
-			},
-			{
-				# Objeto Order 2
-			}
-		]
-	}
+  {
+    ownId: "meu_multiorder_id",
+    orders: [
+      {
+        # Objeto Order 1
+      },
+      {
+        # Objeto Order 2
+      }
+    ]
+  }
 )
 ```
 ### Consulta
@@ -235,18 +235,18 @@ multi = api.multi_order.show("MOR-V41BR451L")
 ```
 ### Nota
 > 1. Essa função depende de permissões das contas associadas ao recebimento.  [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#multipedidos)
-2. Para reembolsos de multipedidos, é necessario reembolsar os pedidos individualmente. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#multipedidos)
+> 2. Para reembolsos de multipedidos, é necessario reembolsar os pedidos individualmente. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#multipedidos)
 
 ## Multipagamentos
 ### Criação
 ```ruby
 multi_pag = api.multi_payment.create("MOR-V41BR451L",
-	{
-		installmentCount: 1,
-		fundingInstrument: {
-			# ... 
-		}
-	}
+  {
+    installmentCount: 1,
+    fundingInstrument: {
+      # ... 
+    }
+  }
 )
 ```
 ### Consulta
