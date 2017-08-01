@@ -34,7 +34,6 @@
   - [Multipedidos](#multipedidos)
     - [Criação](#criação-3)
     - [Consulta](#consulta-3)
-    - [Nota](#nota)
   - [Multipagamentos](#multipagamentos)
     - [Criação](#criação-4)
     - [Consulta](#consulta-4)
