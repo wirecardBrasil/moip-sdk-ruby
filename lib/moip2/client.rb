@@ -28,6 +28,7 @@ module Moip2
       opts[:headers].merge!(
         "Content-Type" => "application/json",
         "Authorization" => auth.header,
+        "User-Agent" => "MoipRubySDK/#{Moip2::VERSION} (+https://github.com/moip/moip-sdk-ruby)",
       )
 
       opts
