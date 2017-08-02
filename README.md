@@ -74,25 +74,24 @@ api = Moip2::Api.new(client)
 ## Clientes
 ### Criação
 ```ruby
-customer = api.customer.create(
-        ownId: "meu_id_de_cliente",
-        fullname: "Jose Silva",
-        email: "josedasilva@email.com",
-        phone: {
-          #...
-        },
-        birthDate: "1988-12-30",
-        taxDocument: {
-          #...
-        },
-        shippingAddress: {
-          #...
-        },
-        fundingInstrument: {
-          # Campo opcional. Consulte a documentação da API.
-        },
-      }
-)
+customer = api.customer.create({
+  ownId: "meu_id_de_cliente",
+  fullname: "Jose Silva",
+  email: "josedasilva@email.com",
+  phone: {
+    #...
+  },
+  birthDate: "1988-12-30",
+  taxDocument: {
+    #...
+  },
+  shippingAddress: {
+    #...
+  },
+  fundingInstrument: {
+    # Campo opcional. Consulte a documentação da API.
+  }
+})
 ```
 ### Consulta
 ```ruby
