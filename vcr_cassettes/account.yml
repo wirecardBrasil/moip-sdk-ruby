@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/accounts
+    body:
+      encoding: UTF-8
+      string: '{"email":{"address":"mail.example@labs.moip.com.br"},"person":{"name":"Runscope","lastName":"Random
+        9123","taxDocument":{"type":"CPF","number":"052.783.271-54"},"identityDocument":{"type":"RG","number":"434322344","issuer":"SSP","issueDate":"2000-12-12"},"birthDate":"1990-01-01","phone":{"countryCode":"55","areaCode":"11","number":"965213244"},"address":{"street":"Av.
+        Brigadeiro Faria Lima","streetNumber":"2927","district":"Itaim","zipCode":"01234-000","city":"São
+        Paulo","state":"SP","country":"BRA"}},"type":"MERCHANT"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 1tldio91gi74r34zv30d4saz8yuuws5
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 07 Jun 2017 21:26:59 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTVVBRBAkAX1MTGhEhCQ0WQg1UDl1KG3VBBEkEHiBjK14MdhEPTk4BHwUCAVhEWRIXER5jLTU3SxJOCEwIFAUcAlMKUQRQBVJRBAVVUFMBBxxJUE4VUFRUUgUEUFpQWgAJU1wDDRpp
+      Expires:
+      - Thu, 07 Jun 2018 21:26:59 GMT
+      Cache-Control:
+      - max-age=31536000, public
+      Content-Length:
+      - '1066'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik1QQS03QTg3QTdBQTFDMEYiLCJsb2dpbiI6Im1haWwuZXhhbXBs
+        ZUBsYWJzLm1vaXAuY29tLmJyIiwiYWNjZXNzVG9rZW4iOiI3ZDlhYzAxN2I1
+        YmI0NGU5OGVlZWIzMjFlNjkwOGRkOV92MiIsImNoYW5uZWxJZCI6IkFQUC1N
+        T0lQU0FOREJPWFgiLCJ0eXBlIjoiTUVSQ0hBTlQiLCJ0cmFuc3BhcmVudEFj
+        Y291bnQiOmZhbHNlLCJlbWFpbCI6eyJhZGRyZXNzIjoibWFpbC5leGFtcGxl
+        QGxhYnMubW9pcC5jb20uYnIiLCJjb25maXJtZWQiOmZhbHNlfSwicGVyc29u
+        Ijp7Im5hbWUiOiJSdW5zY29wZSIsImxhc3ROYW1lIjoiUmFuZG9tIDkxMjMi
+        LCJiaXJ0aERhdGUiOiIxOTkwLTAxLTAxIiwidGF4RG9jdW1lbnQiOnsidHlw
+        ZSI6IkNQRiIsIm51bWJlciI6IjA1Mi43ODMuMjcxLTU0In0sImFkZHJlc3Mi
+        Onsic3RyZWV0IjoiQXYuIEJyaWdhZGVpcm8gRmFyaWEgTGltYSIsInN0cmVl
+        dE51bWJlciI6IjI5MjciLCJkaXN0cmljdCI6Ikl0YWltIiwiemlwY29kZSI6
+        IjAxMjM0MDAwIiwiemlwQ29kZSI6IjAxMjM0MDAwIiwiY2l0eSI6IlPDo28g
+        UGF1bG8iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJwaG9uZSI6
+        eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIxMSIsIm51bWJlciI6
+        Ijk2NTIxMzI0NCJ9LCJpZGVudGl0eURvY3VtZW50Ijp7Im51bWJlciI6IjQz
+        NDMyMjM0NCIsImlzc3VlciI6IlNTUCIsImlzc3VlRGF0ZSI6IjIwMDAtMTIt
+        MTIiLCJ0eXBlIjoiUkcifX0sImNyZWF0ZWRBdCI6IjIwMTctMDYtMDdUMjE6
+        MjY6NTguNDU0WiIsIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczov
+        L3NhbmRib3gubW9pcC5jb20uYnIvbW9pcGFjY291bnRzL01QQS03QTg3QTdB
+        QTFDMEYiLCJ0aXRsZSI6bnVsbH0sInNldFBhc3N3b3JkIjp7ImhyZWYiOiJo
+        dHRwczovL2Rlc2Vudm9sdmVkb3IubW9pcC5jb20uYnIvc2FuZGJveC9Bc2tG
+        b3JOZXdQYXNzd29yZC5kbz9tZXRob2Q9Y29uZmlybVx1MDAyNmVtYWlsPW1h
+        aWwuZXhhbXBsZSU0MGxhYnMubW9pcC5jb20uYnJcdTAwMjZjb2RlPTc3ZmE1
+        MWU5NjVkZjM2NDQ2MWY2ZGUxNTlhNDlhNDNlIn19fQ==
+    http_version: 
+  recorded_at: Wed, 07 Jun 2017 21:26:59 GMT
+recorded_with: VCR 2.9.3
