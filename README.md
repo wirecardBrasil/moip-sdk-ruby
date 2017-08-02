@@ -25,7 +25,7 @@
     - [Cartão de Credito](#cartão-de-credito)
       - [Com Hash](#com-hash)
       - [Com Dados do Cartão](#com-dados-do-cartão)
-      - [Com boleto](#com-boleto)
+    - [Com Boleto](#com-boleto)
   - [Reembolsos](#reembolsos)
     - [Criação](#criação-2)
       - [Valor Total](#valor-total)
@@ -174,7 +174,7 @@ api.payment.create(order.id,
 )
 ```
 
-#### Com boleto
+### Com Boleto
 
 ```ruby
 api.payment.create(order.id,
