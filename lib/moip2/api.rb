@@ -37,5 +37,9 @@ module Moip2
     def multi_payment
       Moip2::MultiPaymentApi.new(client)
     end
+
+    def accounts
+      Moip2::AccountsApi.new(client)
+    end
   end
 end
