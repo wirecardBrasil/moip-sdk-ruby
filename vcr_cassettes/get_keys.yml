@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 1tldio91gi74r34zv30d4saz8yuuws5
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
   response:
     status:
       code: 200
