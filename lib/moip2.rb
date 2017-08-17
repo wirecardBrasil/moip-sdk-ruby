@@ -7,6 +7,7 @@ require "moip2/version"
 require "moip2/auth/basic"
 require "moip2/auth/oauth"
 
+require "moip2/resource/account"
 require "moip2/resource/order"
 require "moip2/resource/payment"
 require "moip2/resource/multi_order"

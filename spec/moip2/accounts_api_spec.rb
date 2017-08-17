@@ -6,18 +6,18 @@ describe Moip2::AccountsApi do
       let(:account) do
         {
           email: {
-            address: "dev.moip.#{Time.now.to_i}@labs.moip.com.br",
+            address: "dev.moip.1503312362@labs.moip.com.br",
           },
           person: {
             name: "Joaquim José",
             lastName: "Silva Silva",
             taxDocument: {
               type: "CPF",
-              number: "960.004.572-00",
+              number: "572.619.050-54",
             },
             identityDocument: {
               type: "RG",
-              number: "434322344",
+              number: "35.868.057-8",
               issuer: "SSP",
               issueDate: "2000-12-12",
             },
@@ -60,18 +60,18 @@ describe Moip2::AccountsApi do
       let(:account) do
         {
           email: {
-            address: "dev.moip.#{Time.now.to_i}@labs.moip.com.br",
+            address: "dev.moip.1503312536@labs.moip.com.br",
           },
           person: {
             name: "Joaquim José",
             lastName: "Silva Silva",
             taxDocument: {
               type: "CPF",
-              number: "960.004.572-00",
+              number: "436.130.670-21",
             },
             identityDocument: {
               type: "RG",
-              number: "434322344",
+              number: "30.790.138-5",
               issuer: "SSP",
               issueDate: "2000-12-12",
             },
@@ -116,7 +116,7 @@ describe Moip2::AccountsApi do
               zipCode: "01452002",
               city: "São Paulo",
               state: "SP",
-              country: "BR",
+              country: "BRA",
             },
           },
           type: "MERCHANT",
@@ -136,7 +136,7 @@ describe Moip2::AccountsApi do
         expect(created_account.person.name).to eq("Joaquim José")
         expect(created_account.person.last_name).to eq("Silva Silva")
         expect(created_account.company.business_name).to eq("ACME Inc.")
-        expect(created_account.company.tax_document).to eq("88127676000191")
+        expect(created_account.company.tax_document.number).to eq("88.127.676/0001-91")
       end
     end
   end

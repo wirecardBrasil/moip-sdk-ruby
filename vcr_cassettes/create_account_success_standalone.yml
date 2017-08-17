@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/accounts
+    body:
+      encoding: UTF-8
+      string: '{"email":{"address":"dev.moip.1503312362@labs.moip.com.br"},"person":{"name":"Joaquim
+        José","lastName":"Silva Silva","taxDocument":{"type":"CPF","number":"572.619.050-54"},"identityDocument":{"type":"RG","number":"35.868.057-8","issuer":"SSP","issueDate":"2000-12-12"},"birthDate":"1990-01-01","phone":{"countryCode":"55","areaCode":"11","number":"965213244"},"address":{"street":"Av.
+        Brigadeiro Faria Lima","streetNumber":"2927","district":"Itaim","zipCode":"01234-000","city":"São
+        Paulo","state":"SP","country":"BRA"}},"type":"MERCHANT"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 21 Aug 2017 10:45:46 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTVVBRBAkAX1MTGhEhCQ0WQg1UDl1KG3VBBEkEHiBjK14MdhEPTk4BHwUCAVhEWRIXER5jLTU3SxJOCEwIFAUcA1wKVANVB1dSBgVVV1QUHgFIQwZUU1NTUVUPAFZeUgQJV1lAZQ==
+      Expires:
+      - Tue, 21 Aug 2018 10:45:46 GMT
+      Cache-Control:
+      - max-age=31536000, public
+      Content-Length:
+      - '1095'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik1QQS1BNjQ3MkEzQ0YxNDQiLCJsb2dpbiI6ImRldi5tb2lwLjE1
+        MDMzMTIzNjJAbGFicy5tb2lwLmNvbS5iciIsImFjY2Vzc1Rva2VuIjoiNTkz
+        OTZjNzU5YjA3NDliNzk3YmRhOTcyNmY0ZDE1MmZfdjIiLCJjaGFubmVsSWQi
+        OiJBUFAtTk5HMTk5TFhSMkFWIiwidHlwZSI6Ik1FUkNIQU5UIiwidHJhbnNw
+        YXJlbnRBY2NvdW50IjpmYWxzZSwiZW1haWwiOnsiYWRkcmVzcyI6ImRldi5t
+        b2lwLjE1MDMzMTIzNjJAbGFicy5tb2lwLmNvbS5iciIsImNvbmZpcm1lZCI6
+        ZmFsc2V9LCJwZXJzb24iOnsibmFtZSI6IkpvYXF1aW0gSm9zw6kiLCJsYXN0
+        TmFtZSI6IlNpbHZhIFNpbHZhIiwiYmlydGhEYXRlIjoiMTk5MC0wMS0wMSIs
+        InRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI1NzIuNjE5
+        LjA1MC01NCJ9LCJhZGRyZXNzIjp7InN0cmVldCI6IkF2LiBCcmlnYWRlaXJv
+        IEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIyOTI3IiwiZGlzdHJpY3Qi
+        OiJJdGFpbSIsInppcGNvZGUiOiIwMTIzNDAwMCIsInppcENvZGUiOiIwMTIz
+        NDAwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwic3RhdGUiOiJTUCIsImNvdW50
+        cnkiOiJCUkEifSwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFD
+        b2RlIjoiMTEiLCJudW1iZXIiOiI5NjUyMTMyNDQifSwiaWRlbnRpdHlEb2N1
+        bWVudCI6eyJudW1iZXIiOiIzNS44NjguMDU3LTgiLCJpc3N1ZXIiOiJTU1Ai
+        LCJpc3N1ZURhdGUiOiIyMDAwLTEyLTEyIiwidHlwZSI6IlJHIn19LCJjcmVh
+        dGVkQXQiOiIyMDE3LTA4LTIxVDEwOjQ1OjQ1LjQ5NloiLCJfbGlua3MiOnsi
+        c2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL21v
+        aXBhY2NvdW50cy9NUEEtQTY0NzJBM0NGMTQ0IiwidGl0bGUiOm51bGx9LCJz
+        ZXRQYXNzd29yZCI6eyJocmVmIjoiaHR0cHM6Ly9kZXNlbnZvbHZlZG9yLm1v
+        aXAuY29tLmJyL3NhbmRib3gvQXNrRm9yTmV3UGFzc3dvcmQuZG8/bWV0aG9k
+        PWNvbmZpcm1cdTAwMjZlbWFpbD1kZXYubW9pcC4xNTAzMzEyMzYyJTQwbGFi
+        cy5tb2lwLmNvbS5iclx1MDAyNmNvZGU9YjU4MWI4ODYyNzUyMzNjMjU0MmFi
+        ZjJlNDE3YWI1NjAifX19
+    http_version: 
+  recorded_at: Mon, 21 Aug 2017 10:46:04 GMT
+recorded_with: VCR 2.9.3
