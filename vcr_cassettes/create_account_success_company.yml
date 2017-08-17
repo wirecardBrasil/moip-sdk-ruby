@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/accounts
+    body:
+      encoding: UTF-8
+      string: '{"email":{"address":"dev.moip.1503312536@labs.moip.com.br"},"person":{"name":"Joaquim
+        José","lastName":"Silva Silva","taxDocument":{"type":"CPF","number":"436.130.670-21"},"identityDocument":{"type":"RG","number":"30.790.138-5","issuer":"SSP","issueDate":"2000-12-12"},"birthDate":"1990-01-01","phone":{"countryCode":"55","areaCode":"11","number":"965213244"},"address":{"street":"Av.
+        Brigadeiro Faria Lima","streetNumber":"2927","district":"Itaim","zipCode":"01234-000","city":"São
+        Paulo","state":"SP","country":"BRA"}},"company":{"name":"ACME Factories","businessName":"ACME
+        Inc.","taxDocument":{"type":"CNPJ","number":"88127676000191"},"mainActivity":{"cnae":"82.91-1/00","description":"Atividades
+        de cobranças e informações cadastrais"},"openingDate":"2011-01-01","phone":{"countryCode":"55","areaCode":"15","number":"40028922"},"address":{"street":"Av.
+        Brig Faria Lima","streetNumber":"3064","complement":"12o Andar","district":"Itaim
+        Bibi","zipCode":"01452002","city":"São Paulo","state":"SP","country":"BRA"}},"type":"MERCHANT"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 21 Aug 2017 10:48:40 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTVVBRBAkAX1MTGhEhCQ0WQg1UDl1KG3VBBEkEHiBjK14MdhEPTk4BHwUCAVhEWRIXER5jLTU3SxJOCEwIFAQcClwJUQlYC1tXBQNQVlUMBhxJUE4VV1RUAFJSBgFSAgBWVFwBDRpp
+      Expires:
+      - Tue, 21 Aug 2018 10:48:40 GMT
+      Cache-Control:
+      - max-age=31536000, public
+      Content-Length:
+      - '1515'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik1QQS02N0MxNTMzMkVCNEEiLCJsb2dpbiI6ImRldi5tb2lwLjE1
+        MDMzMTI1MzZAbGFicy5tb2lwLmNvbS5iciIsImFjY2Vzc1Rva2VuIjoiOTQ2
+        ZjlmNTNjNzY1NDYyNThiMTA1ZTc5NTc0YjFkOTdfdjIiLCJjaGFubmVsSWQi
+        OiJBUFAtTk5HMTk5TFhSMkFWIiwidHlwZSI6Ik1FUkNIQU5UIiwidHJhbnNw
+        YXJlbnRBY2NvdW50IjpmYWxzZSwiZW1haWwiOnsiYWRkcmVzcyI6ImRldi5t
+        b2lwLjE1MDMzMTI1MzZAbGFicy5tb2lwLmNvbS5iciIsImNvbmZpcm1lZCI6
+        ZmFsc2V9LCJwZXJzb24iOnsibmFtZSI6IkpvYXF1aW0gSm9zw6kiLCJsYXN0
+        TmFtZSI6IlNpbHZhIFNpbHZhIiwiYmlydGhEYXRlIjoiMTk5MC0wMS0wMSIs
+        InRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI0MzYuMTMw
+        LjY3MC0yMSJ9LCJhZGRyZXNzIjp7InN0cmVldCI6IkF2LiBCcmlnYWRlaXJv
+        IEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIyOTI3IiwiZGlzdHJpY3Qi
+        OiJJdGFpbSIsInppcGNvZGUiOiIwMTIzNDAwMCIsInppcENvZGUiOiIwMTIz
+        NDAwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwic3RhdGUiOiJTUCIsImNvdW50
+        cnkiOiJCUkEifSwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFD
+        b2RlIjoiMTEiLCJudW1iZXIiOiI5NjUyMTMyNDQifSwiaWRlbnRpdHlEb2N1
+        bWVudCI6eyJudW1iZXIiOiIzMC43OTAuMTM4LTUiLCJpc3N1ZXIiOiJTU1Ai
+        LCJpc3N1ZURhdGUiOiIyMDAwLTEyLTEyIiwidHlwZSI6IlJHIn19LCJjb21w
+        YW55Ijp7Im5hbWUiOiJBQ01FIEZhY3RvcmllcyIsImJ1c2luZXNzTmFtZSI6
+        IkFDTUUgSW5jLiIsInRheERvY3VtZW50Ijp7InR5cGUiOiJDTlBKIiwibnVt
+        YmVyIjoiODguMTI3LjY3Ni8wMDAxLTkxIn0sImFkZHJlc3MiOnsic3RyZWV0
+        IjoiQXYuIEJyaWcgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjMwNjQi
+        LCJkaXN0cmljdCI6Ikl0YWltIEJpYmkiLCJ6aXBjb2RlIjoiMDE0NTIwMDIi
+        LCJ6aXBDb2RlIjoiMDE0NTIwMDIiLCJjaXR5IjoiU8OjbyBQYXVsbyIsInN0
+        YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIiwiY29tcGxlbWVudCI6IjEybyBB
+        bmRhciJ9LCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUi
+        OiIxNSIsIm51bWJlciI6IjQwMDI4OTIyIn0sIm9wZW5pbmdEYXRlIjoiMjAx
+        MS0wMS0wMSJ9LCJjcmVhdGVkQXQiOiIyMDE3LTA4LTIxVDEwOjQ4OjM5Ljc2
+        NVoiLCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94
+        Lm1vaXAuY29tLmJyL21vaXBhY2NvdW50cy9NUEEtNjdDMTUzMzJFQjRBIiwi
+        dGl0bGUiOm51bGx9LCJzZXRQYXNzd29yZCI6eyJocmVmIjoiaHR0cHM6Ly9k
+        ZXNlbnZvbHZlZG9yLm1vaXAuY29tLmJyL3NhbmRib3gvQXNrRm9yTmV3UGFz
+        c3dvcmQuZG8/bWV0aG9kPWNvbmZpcm1cdTAwMjZlbWFpbD1kZXYubW9pcC4x
+        NTAzMzEyNTM2JTQwbGFicy5tb2lwLmNvbS5iclx1MDAyNmNvZGU9ZTlkNzA1
+        MGI5MDQ3NGU2ZGM5NGRjYjFjMGY5OTBlNzMifX19
+    http_version: 
+  recorded_at: Mon, 21 Aug 2017 10:48:58 GMT
+recorded_with: VCR 2.9.3
