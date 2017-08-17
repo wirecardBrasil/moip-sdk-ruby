@@ -4,7 +4,7 @@ describe Moip2::Client do
   end
 
   let(:oauth) do
-    Moip2::Auth::OAuth.new "d63tz2xwyu0ewrembove4j5cbv2otpd"
+    Moip2::Auth::OAuth.new "9fdc242631454d4c95d82e27b4127394_v2"
   end
 
   describe "initialize env with string" do
@@ -24,7 +24,7 @@ describe Moip2::Client do
     it { expect(client.uri).to eq ENV["sandbox_url"] }
     it { expect(client.env).to eq :sandbox }
     it {
-      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth 9fdc242631454d4c95d82e27b4127394_v2"
     }
   end
 
@@ -36,7 +36,7 @@ describe Moip2::Client do
     it { expect(client.uri).to eq "https://api.moip.com.br" }
     it { expect(client.env).to eq :production }
     it {
-      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth 9fdc242631454d4c95d82e27b4127394_v2"
     }
   end
 
@@ -52,7 +52,7 @@ describe Moip2::Client do
     it { expect(client.uri).to eq "http://localhost:5000" }
     it { expect(client.env).to eq :sandbox }
     it {
-      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth 9fdc242631454d4c95d82e27b4127394_v2"
     }
   end
 
@@ -68,7 +68,7 @@ describe Moip2::Client do
     it { expect(client.uri).to eq "http://localhost:5000" }
     it { expect(client.env).to eq :production }
     it {
-      expect(client.opts[:headers]["Authorization"]).to eq "OAuth d63tz2xwyu0ewrembove4j5cbv2otpd"
+      expect(client.opts[:headers]["Authorization"]).to eq "OAuth 9fdc242631454d4c95d82e27b4127394_v2"
     }
   end
 

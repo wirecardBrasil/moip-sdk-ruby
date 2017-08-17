@@ -24,7 +24,7 @@ def sandbox_auth
 end
 
 def sandbox_oauth
-  Moip2::Auth::OAuth.new("d63tz2xwyu0ewrembove4j5cbv2otpd")
+  Moip2::Auth::OAuth.new("9fdc242631454d4c95d82e27b4127394_v2")
 end
 
 def sandbox_client
