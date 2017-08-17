@@ -9,5 +9,9 @@ module Moip2
     def base_path
       "/v2/accounts"
     end
+
+    def create(account)
+      Resource::Account.new client, client.post(base_path, account)
+    end
   end
 end
