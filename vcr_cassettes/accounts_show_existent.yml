@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/accounts/MPA-67C15332EB4A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Aug 2017 13:43:14 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMOVUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAcHUllGDBIQPh8ZWQFbV0FcRyxdHBFJdCcwHxVNVk0IHwBKUVYPCAVQXQYAH1JKQVoFBl0ACQ1QVANWDVUDVApASFBWDRUGZQ==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1287'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"MPA-67C15332EB4A","person":{"lastName":"Silva Silva","phone":{"areaCode":"11","countryCode":"55","number":"965213244"},"parentsName":{"mother":"","father":""},"address":{"zipcode":"01234-000","zipCode":"01234-000","street":"Av.
+        Brigadeiro Faria Lima","state":"SP","streetNumber":"2927","district":"Itaim","country":"BRA","city":"São
+        Paulo"},"taxDocument":{"number":"436.130.670-21","type":"CPF"},"name":"Joaquim","birthDate":"1990-01-01"},"transparentAccount":false,"email":{"confirmed":false,"address":"dev.moip.1503312536@labs.moip.com.br"},"createdAt":"2017-08-21T07:48:39.000-03:00","businessSegment":{"id":0},"company":{"monthlyRevenue":"","businessName":"ACME
+        Inc.","phone":{"areaCode":"15","countryCode":"55","number":"40028922"},"openingDate":"2011-01-01","address":{"complement":"12o
+        Andar","zipcode":"01452-002","zipCode":"01452-002","street":"Av. Brig Faria
+        Lima","state":"SP","streetNumber":"3064","district":"Itaim Bibi","country":"BRA","city":"São
+        Paulo"},"taxDocument":{"number":"88.127.676/0001-91","type":"CNPJ"},"name":"ACME
+        Factories","constitutionType":""},"_links":{"self":{"href":"https://sandbox.moip.com.br/accounts/MPA-67C15332EB4A"}},"monthlyRevenueId":0,"softDescriptor":"ACME
+        Factori","login":"dev.moip.1503312536@labs.moip.com.br","type":"MERCHANT"}'
+    http_version: 
+  recorded_at: Tue, 22 Aug 2017 13:43:13 GMT
+recorded_with: VCR 2.9.3
