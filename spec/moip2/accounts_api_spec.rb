@@ -162,4 +162,32 @@ describe Moip2::AccountsApi do
       it { expect(existence_check).to be false }
     end
   end
+
+  describe "#show" do
+    context "given an existent account" do
+      let(:account) do
+        VCR.use_cassette("accounts_show_existent") do
+          accounts_api.show("MPA-67C15332EB4A")
+        end
+      end
+
+      it "returns the corresponding data" do
+        expect(account.id).to eq("MPA-67C15332EB4A")
+        expect(account.person.name).to eq("Joaquim")
+        expect(account.person.last_name).to eq("Silva Silva")
+      end
+    end
+
+    context "given a nonexistent account" do
+      let(:account) do
+        VCR.use_cassette("accounts_show_nonexistent") do
+          accounts_api.show("MPA-F00B4R123456")
+        end
+      end
+
+      it "raises Moip2::NotFoundError" do
+        expect { account }.to raise_error(Moip2::NotFoundError)
+      end
+    end
+  end
 end
