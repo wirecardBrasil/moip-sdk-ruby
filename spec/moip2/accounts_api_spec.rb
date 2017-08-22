@@ -140,4 +140,26 @@ describe Moip2::AccountsApi do
       end
     end
   end
+
+  describe "#exists" do
+    describe "with a registered tax document" do
+      let(:existence_check) do
+        VCR.use_cassette("account_exists") do
+          accounts_api.exists?("436.130.670-21")
+        end
+      end
+
+      it { expect(existence_check).to be true }
+    end
+
+    describe "with a non registered tax document" do
+      let(:existence_check) do
+        VCR.use_cassette("account_doesnt_exist") do
+          accounts_api.exists?("555.000.123-40")
+        end
+      end
+
+      it { expect(existence_check).to be false }
+    end
+  end
 end
