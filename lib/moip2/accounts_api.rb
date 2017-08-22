@@ -19,5 +19,9 @@ module Moip2
 
       response.code.to_i == 200
     end
+
+    def show(id)
+      Resource::Account.new client, client.get("#{base_path}/#{id}")
+    end
   end
 end
