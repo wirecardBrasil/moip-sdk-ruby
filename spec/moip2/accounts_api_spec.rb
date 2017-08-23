@@ -140,4 +140,50 @@ describe Moip2::AccountsApi do
       end
     end
   end
+
+  describe "#exists" do
+    describe "with a registered tax document" do
+      let(:existence_check) do
+        VCR.use_cassette("account_exists") do
+          accounts_api.exists?("436.130.670-21")
+        end
+      end
+
+      it { expect(existence_check).to be true }
+    end
+
+    describe "with a non registered tax document" do
+      let(:existence_check) do
+        VCR.use_cassette("account_doesnt_exist") do
+          accounts_api.exists?("555.000.123-40")
+        end
+      end
+
+      it { expect(existence_check).to be false }
+    end
+  end
+
+  describe "#show" do
+    context "when given an existent account" do
+      let(:retrieved_account) do
+        VCR.use_cassette("accounts_show_existent") do
+          accounts_api.show("MPA-67C15332EB4A")
+        end
+      end
+
+      it { expect(retrieved_account.id).to eq("MPA-67C15332EB4A") }
+      it { expect(retrieved_account.person.name).to eq("Joaquim") }
+      it { expect(retrieved_account.person.last_name).to eq("Silva Silva") }
+    end
+
+    context "when given a nonexistent account" do
+      let(:retrieved_account) do
+        VCR.use_cassette("accounts_show_nonexistent") do
+          accounts_api.show("MPA-F00B4R123456")
+        end
+      end
+
+      it { expect { retrieved_account }.to raise_error(Moip2::NotFoundError) }
+    end
+  end
 end

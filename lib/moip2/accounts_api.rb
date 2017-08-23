@@ -13,5 +13,15 @@ module Moip2
     def create(account)
       Resource::Account.new client, client.post(base_path, account)
     end
+
+    def exists?(tax_document = "")
+      response = client.get("#{base_path}/exists?tax_document=#{tax_document}")
+
+      response.success?
+    end
+
+    def show(id)
+      Resource::Account.new client, client.get("#{base_path}/#{id}")
+    end
   end
 end
