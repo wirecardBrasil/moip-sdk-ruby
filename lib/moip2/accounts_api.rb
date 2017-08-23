@@ -17,7 +17,7 @@ module Moip2
     def exists?(tax_document = "")
       response = client.get("#{base_path}/exists?tax_document=#{tax_document}")
 
-      response.code.to_i == 200
+      response.success?
     end
 
     def show(id)
