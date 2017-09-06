@@ -91,7 +91,6 @@ describe Moip2::PaymentApi do
     it { expect(payment.id).to eq payment_id }
     it { expect(payment.status).to eq "AUTHORIZED" }
     it { expect(payment.installment_count).to eq 1 }
-    
     it { expect(payment.funding_instrument).to_not be_nil }
     it { expect(payment.funding_instrument.credit_card).to_not be_nil }
     it { expect(payment.funding_instrument.credit_card.brand).to eq "MASTERCARD" }
