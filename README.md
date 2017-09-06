@@ -22,21 +22,25 @@
     - [Criação](#criação-1)
     - [Consulta](#consulta-1)
   - [Pagamentos](#pagamentos)
-    - [Cartão de Credito](#cartão-de-credito)
-      - [Com Hash](#com-hash)
-      - [Com Dados do Cartão](#com-dados-do-cartão)
-    - [Com Boleto](#com-boleto)
-  - [Reembolsos](#reembolsos)
     - [Criação](#criação-2)
+      - [Cartão de Crédito](#cartão-de-crédito)
+        - [Com Hash](#com-hash)
+        - [Com Dados do Cartão](#com-dados-do-cartão)
+      - [Com Boleto](#com-boleto)
+    - [Consulta](#consulta-2)
+    - [Capturar pagamento pré-autorizado](#capturar-pagamento-pré-autorizado)
+    - [Cancelar pagamento pré-autorizado](#cancelar-pagamento-pré-autorizado)
+  - [Reembolsos](#reembolsos)
+    - [Criação](#criação-3)
       - [Valor Total](#valor-total)
       - [Valor Parcial](#valor-parcial)
-    - [Consulta](#consulta-2)
-  - [Multipedidos](#multipedidos)
-    - [Criação](#criação-3)
     - [Consulta](#consulta-3)
-  - [Multipagamentos](#multipagamentos)
+  - [Multipedidos](#multipedidos)
     - [Criação](#criação-4)
     - [Consulta](#consulta-4)
+  - [Multipagamentos](#multipagamentos)
+    - [Criação](#criação-5)
+    - [Consulta](#consulta-5)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -125,8 +129,10 @@ order = api.order.show("ORD-V41BR451L")
 ```
 
 ## Pagamentos
-### Cartão de Credito 
-#### Com Hash
+
+### Criação
+#### Cartão de Crédito 
+##### Com Hash
 
 ```ruby
 api.payment.create(order.id,
@@ -150,7 +156,7 @@ api.payment.create(order.id,
 )
 ```
 
-#### Com Dados do Cartão 
+##### Com Dados do Cartão 
 > Esses método requer certificação PCI. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#criar-pagamento)
 
 ```ruby
@@ -173,7 +179,7 @@ api.payment.create(order.id,
 )
 ```
 
-### Com Boleto
+#### Com Boleto
 
 ```ruby
 api.payment.create(order.id,
@@ -194,6 +200,22 @@ api.payment.create(order.id,
     }
 )
 ```
+
+### Consulta
+```ruby
+pagamento = api.payment.show("PAY-CRUP19YU2VE1")
+```
+
+### Capturar pagamento pré-autorizado
+```ruby
+api.payment.capture("PAY-KT5OSI01X8QU")
+```
+
+### Cancelar pagamento pré-autorizado
+```ruby
+api.payment.void("PAY-IXNGCU456GG4")
+```
+
 ## Reembolsos
 ### Criação
 #### Valor Total
@@ -260,4 +282,3 @@ multi_pag = api.multi_payment.show("MPY-V41BR451L")
 ## Licença
 
 [The MIT License](https://github.com/moip/moip-sdk-ruby/blob/master/LICENSE.txt)
-
