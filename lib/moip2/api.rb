@@ -31,6 +31,10 @@ module Moip2
       Moip2::CustomerApi.new(client)
     end
 
+    def webhooks
+      Moip2::WebhooksApi.new(client)
+    end
+
   end
 
 end
