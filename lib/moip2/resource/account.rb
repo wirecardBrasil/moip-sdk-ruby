@@ -1,6 +1,6 @@
 module Moip2
   module Resource
-    class Invoice < SimpleDelegator
+    class Account < SimpleDelegator
       attr_reader :client
 
       def initialize(client, response)

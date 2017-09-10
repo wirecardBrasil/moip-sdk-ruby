@@ -1,6 +1,5 @@
 describe Moip2::Api do
-
-  let(:auth) { Moip2::Auth::Basic.new('', '') }
+  let(:auth) { Moip2::Auth::Basic.new("", "") }
   let(:client) { Moip2::Client.new(:sandbox, auth) }
   let(:api) { described_class.new client }
 
@@ -8,10 +7,9 @@ describe Moip2::Api do
     it "returns an OrderApi" do
       expect(api.order).to be_a(Moip2::OrderApi)
     end
-
   end
 
-  describe  "#payment" do
+  describe "#payment" do
     it "returns a PaymentApi" do
       expect(api.payment).to be_a(Moip2::PaymentApi)
     end
@@ -29,4 +27,19 @@ describe Moip2::Api do
     it { expect(api.keys).to be_a Moip2::KeysApi }
   end
 
+  describe "#customer" do
+    it { expect(api.customer).to be_a Moip2::CustomerApi }
+  end
+
+  describe "#multi_order" do
+    it { expect(api.multi_order).to be_a Moip2::MultiOrderApi }
+  end
+
+  describe "#multi_payment" do
+    it { expect(api.multi_payment).to be_a Moip2::MultiPaymentApi }
+  end
+
+  describe "#accounts" do
+    it { expect(api.accounts).to be_a Moip2::AccountsApi }
+  end
 end

@@ -7,6 +7,7 @@ require "moip2/version"
 require "moip2/auth/basic"
 require "moip2/auth/oauth"
 
+require "moip2/resource/account"
 require "moip2/resource/order"
 require "moip2/resource/payment"
 require "moip2/resource/multi_order"
@@ -29,14 +30,13 @@ require "moip2/refund_api"
 require "moip2/api"
 require "moip2/keys_api"
 require "moip2/webhooks_api"
+require "moip2/accounts_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
 module Moip2
-
   class << self
-
-    VALID_ENVS = %i(sandbox production)
+    VALID_ENVS = %i(sandbox production).freeze
 
     def env=(env)
       raise InvalidEnviromentError unless VALID_ENVS.include?(env.to_sym)
@@ -68,10 +68,8 @@ module Moip2
 
       Api.new Client.new(env, auth)
     end
-
   end
 
   class NotFoundError < StandardError
   end
-
 end

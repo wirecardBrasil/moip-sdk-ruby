@@ -1,5 +1,4 @@
 module Moip2
-
   class Api
     attr_reader :client
 
@@ -31,10 +30,21 @@ module Moip2
       Moip2::CustomerApi.new(client)
     end
 
+    def multi_order
+      Moip2::MultiOrderApi.new(client)
+    end
+
+    def multi_payment
+      Moip2::MultiPaymentApi.new(client)
+    end
+
+    def accounts
+      Moip2::AccountsApi.new(client)
+    end
+
     def webhooks
       Moip2::WebhooksApi.new(client)
     end
 
   end
-
 end

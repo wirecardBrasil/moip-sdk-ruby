@@ -1,12 +1,13 @@
 module Moip2
-
   class Client
     include HTTParty
 
     attr_reader :env, :auth, :uri
 
     def initialize(env = :sandbox, auth = nil, opts = {})
-      @env, @auth, @opts = env.to_sym, auth, opts
+      @env = env.to_sym
+      @auth = auth
+      @opts = opts
 
       @uri = get_base_uri
       self.class.base_uri @uri
@@ -25,30 +26,29 @@ module Moip2
       opts[:headers] ||= {}
 
       opts[:headers].merge!(
-          {
-            "Content-Type" => "application/json",
-            "Authorization" => auth.header
-          }
+        "Content-Type" => "application/json",
+        "Authorization" => auth.header,
+        "User-Agent" => "MoipRubySDK/#{Moip2::VERSION} (+https://github.com/moip/moip-sdk-ruby)",
       )
 
       opts
     end
 
     def post(path, resource)
-      options = opts().merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
+      options = opts.merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
       resp = self.class.post path, options
       create_response resp
     end
 
     def put(path, resource)
-      options = opts().merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
+      options = opts.merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
       resp = self.class.put path, options
 
       create_response resp
     end
 
     def get(path)
-      resp = self.class.get path, opts()
+      resp = self.class.get path, opts
 
       create_response resp
     end
@@ -63,7 +63,6 @@ module Moip2
       else
         "https://sandbox.moip.com.br"
       end
-
     end
 
     def create_response(resp)
@@ -73,34 +72,32 @@ module Moip2
     end
 
     def basic_auth
-      { username: @auth[:token], password: @auth[:secret]}
+      { username: @auth[:token], password: @auth[:secret] }
     end
 
     def convert_hash_keys_to(conversion, value)
       case value
-        when Array
-          value.map { |v| convert_hash_keys_to(conversion, v) }
-        when Hash
-          Hash[value.map { |k, v| [send(conversion, k).to_sym, convert_hash_keys_to(conversion, v)] }]
-        else
-          value
-       end
+      when Array
+        value.map { |v| convert_hash_keys_to(conversion, v) }
+      when Hash
+        Hash[value.map { |k, v| [send(conversion, k).to_sym, convert_hash_keys_to(conversion, v)] }]
+      else
+        value
+      end
     end
 
     def camel_case(str)
       return str.to_s if str.to_s !~ /_/ && str.to_s =~ /[A-Z]+.*/
-      words = str.to_s.split('_')
-      (words[0..0] << words[1..-1].map{|e| e.capitalize}).join
+      words = str.to_s.split("_")
+      (words[0..0] << words[1..-1].map(&:capitalize)).join
     end
 
     def snake_case(str)
-        str.gsub(/::/, '/').
-            gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-            gsub(/([a-z\d])([A-Z])/,'\1_\2').
-            tr("-", "_").
-            downcase
+      str.gsub(/::/, "/").
+        gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2').
+        gsub(/([a-z\d])([A-Z])/, '\1_\2').
+        tr("-", "_").
+        downcase
     end
-
   end
-
 end
