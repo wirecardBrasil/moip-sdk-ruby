@@ -53,6 +53,12 @@ module Moip2
       create_response resp
     end
 
+    def delete(path)
+      resp = self.class.delete path, opts
+
+      create_response resp
+    end
+
     private
 
     def get_base_uri
