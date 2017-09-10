@@ -54,7 +54,8 @@ module Moip2
     end
 
     def delete(path)
-      self.class.delete path, opts
+      resp = self.class.delete(path, opts)
+      resp.code == 204 if resp.present?
     end
 
     private
