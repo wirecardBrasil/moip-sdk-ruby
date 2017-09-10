@@ -47,7 +47,7 @@ module Moip2
     end
 
     def notification_preference
-      Moip2::NotificationPreference.new(client)
+      Moip2::NotificationPreferenceApi.new(client)
     end
 
   end
