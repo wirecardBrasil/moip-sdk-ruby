@@ -3,6 +3,8 @@ module Moip2
     def initialize(resp, json)
       if json.is_a? Hash
         super(RecursiveOpenStruct.new(json, recurse_over_arrays: true))
+      elsif json.is_a? Array
+        super(JSON.parse(json.to_json, object_class: RecursiveOpenStruct))
       else
         super(resp)
       end
