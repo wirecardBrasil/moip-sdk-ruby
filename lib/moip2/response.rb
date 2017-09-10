@@ -1,9 +1,8 @@
 module Moip2
   class Response < SimpleDelegator
     def initialize(resp, json)
-      if json.is_a? Hash
-        super(RecursiveOpenStruct.new(json, recurse_over_arrays: true))
-      elsif json.is_a? Array
+      if json.is_a?(Hash) || json.is_a?(Array)
+        # super(RecursiveOpenStruct.new(json, recurse_over_arrays: true))
         super(JSON.parse(json.to_json, object_class: RecursiveOpenStruct))
       else
         super(resp)
