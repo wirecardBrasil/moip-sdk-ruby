@@ -46,5 +46,9 @@ module Moip2
       Moip2::WebhooksApi.new(client)
     end
 
+    def notification_preference
+      Moip2::NotificationPreference.new(client)
+    end
+
   end
 end
