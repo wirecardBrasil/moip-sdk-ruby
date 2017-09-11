@@ -41,6 +41,10 @@
   - [Multipagamentos](#multipagamentos)
     - [Criação](#criação-5)
     - [Consulta](#consulta-5)
+  - [Conta Moip](#conta-moip)
+    - [Criação](#criação-6)
+    - [Consulta](#consulta-6)
+    - [Verifica se usuário já possui Conta Moip](#verifica-se-usuário-já-possui-conta-moip)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -274,6 +278,57 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
 multi_pag = api.multi_payment.show("MPY-V41BR451L")
 ```
 
+## Conta Moip
+### Criação
+```ruby
+account = api.accounts.create(
+  {
+    email: {
+      address: "dev.moip@labs.moip.com.br",
+    },
+    person: {
+      name: "Joaquim José",
+      lastName: "Silva Silva",
+      taxDocument: {
+        type: "CPF",
+        number: "572.619.050-54",
+      },
+      identityDocument: {
+        type: "RG",
+        number: "35.868.057-8",
+        issuer: "SSP",
+        issueDate: "2000-12-12",
+      },
+      birthDate: "1990-01-01",
+      phone: {
+        countryCode: "55",
+        areaCode: "11",
+        number: "965213244",
+      },
+      address: {
+        street: "Av. Brigadeiro Faria Lima",
+        streetNumber: "2927",
+        district: "Itaim",
+        zipCode: "01234-000",
+        city: "S\u00E3o Paulo",
+        state: "SP",
+        country: "BRA",
+      },
+    },
+    type: "MERCHANT"
+  }
+)
+```
+
+### Consulta
+```ruby
+account = api.accounts.show("MPA-12312312312")
+```
+
+### Verifica se usuário já possui Conta Moip
+```ruby
+api.accounts.exists?("123.456.789.10")
+```
 
 ## Documentação
 
