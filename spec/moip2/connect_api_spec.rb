@@ -19,4 +19,18 @@ describe Moip2::ConnectApi do
       )
     end
   end
+
+  describe "#generate_oauth_token" do
+    let (:oauth_token) do
+      VCR.use_cassette("generate_oauth_token") do
+        connect_api.authorize(
+          clientId: "",
+          clientSecret: "",
+          code: "",
+          redirectUri: "",
+          grantType: "",
+        )
+      end
+    end
+  end
 end

@@ -22,5 +22,9 @@ module Moip2
         ),
       ).to_s
     end
+
+    def authorize(connect)
+      Resource::Connect.new client.post("/oauth/token", connect)
+    end
   end
 end
