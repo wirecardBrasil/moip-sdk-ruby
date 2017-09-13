@@ -42,4 +42,8 @@ describe Moip2::Api do
   describe "#accounts" do
     it { expect(api.accounts).to be_a Moip2::AccountsApi }
   end
+
+  describe "#connect" do
+    it { expect(api.connect).to be_a Moip2::ConnectApi }
+  end
 end

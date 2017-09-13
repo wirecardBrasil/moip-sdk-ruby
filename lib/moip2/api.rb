@@ -41,5 +41,9 @@ module Moip2
     def accounts
       Moip2::AccountsApi.new(client)
     end
+
+    def connect
+      Moip2::ConnectApi.new(client)
+    end
   end
 end

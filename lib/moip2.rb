@@ -31,6 +31,7 @@ require "moip2/api"
 require "moip2/keys_api"
 require "moip2/webhooks_api"
 require "moip2/accounts_api"
+require "moip2/connect_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
