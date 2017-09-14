@@ -24,13 +24,17 @@ describe Moip2::ConnectApi do
     let (:oauth_token) do
       VCR.use_cassette("generate_oauth_token") do
         connect_api.authorize(
-          clientId: "",
-          clientSecret: "",
-          code: "",
-          redirectUri: "",
-          grantType: "",
+          client_id: "APP-EQMTJ8WEHO71",
+          client_secret: "78bdf2e876b240f6a4e0c10fdf6d8cc1",
+          code: "8ee7a54a62c184d1ba0b64ebcabd6623d61b030c",
+          redirect_uri: "http://localhost/test-moip-sdk-php/callback.php",
+          grant_type: "authorization_code",
         )
       end
+    end
+
+    it "token generated" do
+      expect(oauth_token).to eq("")
     end
   end
 end

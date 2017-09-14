@@ -34,8 +34,13 @@ module Moip2
       opts
     end
 
-    def post(path, resource)
-      options = opts.merge(body: convert_hash_keys_to(:camel_case, resource).to_json)
+    def post(path, resource, content_type = "application/json")
+      opts = opts()
+      opts[:headers]["Content-Type"] = content_type
+      options = opts.merge(
+        body:
+          content_type == "application/json" ? convert_hash_keys_to(:camel_case, resource).to_json : URI.encode_www_form(resource),
+      )
       resp = self.class.post path, options
       create_response resp
     end

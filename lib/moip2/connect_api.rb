@@ -24,7 +24,11 @@ module Moip2
     end
 
     def authorize(connect)
-      Resource::Connect.new client.post("/oauth/token", connect)
+      Resource::Connect.new client.post(
+        "/oauth/token",
+        connect,
+        "application/x-www-form-urlencoded",        
+      )
     end
   end
 end
