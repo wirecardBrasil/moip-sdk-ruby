@@ -45,5 +45,6 @@ describe Moip2::Api do
 
   describe "#connect" do
     it { expect(api.connect).to be_a Moip2::ConnectApi }
+    it { expect(api.connect.client.uri).to eq "https://connect-sandbox.moip.com.br" }
   end
 end
