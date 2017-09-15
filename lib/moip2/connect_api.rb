@@ -9,6 +9,12 @@ module Moip2
       @client = client
     end
 
+    def self.host(env = :sandbox)
+      return "https://#{CONNECT_SANDBOX}" if env == :sandbox
+
+      "https://#{CONNECT_PRODUCTION}"
+    end
+
     def authorize_url(client_id, redirect_uri, scope)
       host = client.production? ? CONNECT_PRODUCTION : CONNECT_SANDBOX
       URI::HTTPS.build(
@@ -27,7 +33,7 @@ module Moip2
       Resource::Connect.new client.post(
         "/oauth/token",
         connect,
-        "application/x-www-form-urlencoded",        
+        "application/x-www-form-urlencoded",
       )
     end
   end

@@ -4,12 +4,12 @@ module Moip2
 
     attr_reader :env, :auth, :uri
 
-    def initialize(env = :sandbox, auth = nil, opts = {})
+    def initialize(env = :sandbox, auth = nil, opts = {}, host = nil)
       @env = env.to_sym
       @auth = auth
       @opts = opts
 
-      @uri = get_base_uri
+      @uri = host == nil ? get_base_uri : host
       self.class.base_uri @uri
     end
 
@@ -37,12 +37,16 @@ module Moip2
     def post(path, resource, content_type = "application/json")
       opts = opts()
       opts[:headers]["Content-Type"] = content_type
-      options = opts.merge(
-        body:
-          content_type == "application/json" ? convert_hash_keys_to(:camel_case, resource).to_json : URI.encode_www_form(resource),
-      )
+      options = opts.merge(body: encode_resource(content_type, resource))
+
       resp = self.class.post path, options
       create_response resp
+    end
+
+    def encode_resource(content_type, resource)
+      return URI.encode_www_form(resource) if content_type == "application/x-www-form-urlencoded"
+
+      convert_hash_keys_to(:camel_case, resource).to_json
     end
 
     def put(path, resource)

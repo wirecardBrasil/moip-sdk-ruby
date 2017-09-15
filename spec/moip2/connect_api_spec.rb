@@ -1,5 +1,5 @@
 describe Moip2::ConnectApi do
-  let(:connect_api) { described_class.new sandbox_oauth_client }
+  let(:connect_api) { described_class.new sandbox_client_connect }
 
   describe "#authorize_url" do
     let (:authorize_url) do
@@ -24,17 +24,23 @@ describe Moip2::ConnectApi do
     let (:oauth_token) do
       VCR.use_cassette("generate_oauth_token") do
         connect_api.authorize(
-          client_id: "APP-EQMTJ8WEHO71",
-          client_secret: "78bdf2e876b240f6a4e0c10fdf6d8cc1",
-          code: "8ee7a54a62c184d1ba0b64ebcabd6623d61b030c",
-          redirect_uri: "http://localhost/test-moip-sdk-php/callback.php",
+          client_id: "APP-Y0YCCJ5P603B",
+          client_secret: "363cdf8ab70a4c5aa08017564c08efbe",
+          code: "4efde1f89d9acc3b12124ccfded146518465e423",
+          redirect_uri: "http://localhost/moip/callback.php",
           grant_type: "authorization_code",
         )
       end
     end
 
     it "token generated" do
-      expect(oauth_token).to eq("")
+      expect(oauth_token.refresh_token).to_not be_nil
+      expect(oauth_token.scope).to eq (
+        "DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,"\
+        "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS"
+      )
+      expect(oauth_token.access_token).to_not be_nil
+      expect(oauth_token.expires_in).to eq "2027-09-15"
     end
   end
 end
