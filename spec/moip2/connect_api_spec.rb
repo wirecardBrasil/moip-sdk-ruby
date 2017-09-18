@@ -15,7 +15,8 @@ describe Moip2::ConnectApi do
         "https://connect-sandbox.moip.com.br/oauth/authorize"\
         "?response_type=code&client_id=APP-XT5FIAK2F8I7"\
         "&redirect_uri=http%3A%2F%2Flocalhost%2Fmoip%2Fcallback.php"\
-        "&scope=RECEIVE_FUNDS%2CREFUND%2CMANAGE_ACCOUNT_INFO%2CRETRIEVE_FINANCIAL_INFO%2CTRANSFER_FUNDS",
+        "&scope=RECEIVE_FUNDS%2CREFUND%2CMANAGE_ACCOUNT_INFO%2C"\
+        "RETRIEVE_FINANCIAL_INFO%2CTRANSFER_FUNDS",
       )
     end
   end
@@ -35,12 +36,33 @@ describe Moip2::ConnectApi do
 
     it "token generated" do
       expect(oauth_token.refresh_token).to_not be_nil
-      expect(oauth_token.scope).to eq (
+      expect(oauth_token.scope).to eq(
         "DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,"\
-        "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS"
+        "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS",
       )
       expect(oauth_token.access_token).to_not be_nil
       expect(oauth_token.expires_in).to eq "2027-09-15"
+    end
+  end
+
+  describe "#refresh_oauth_token" do
+    let (:oauth_token_refresh) do
+      VCR.use_cassette("refresh_oauth_token") do
+        connect_api.authorize(
+          refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
+          grant_type: "refresh_token",
+        )
+      end
+    end
+
+    it "token refreshed" do
+      expect(oauth_token_refresh.refresh_token).to_not be_nil
+      expect(oauth_token_refresh.scope).to eq(
+        "DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,"\
+        "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS",
+      )
+      expect(oauth_token_refresh.access_token).to_not be_nil
+      expect(oauth_token_refresh.expires_in).to eq "2027-09-18"
     end
   end
 end
