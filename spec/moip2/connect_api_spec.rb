@@ -49,7 +49,7 @@ describe Moip2::ConnectApi do
     let (:oauth_token_refresh) do
       VCR.use_cassette("refresh_oauth_token") do
         connect_api.authorize(
-          refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
+          refresh_token: "f96ee59c608f42c3a4bc0cf560bb4aa8_v2",
           grant_type: "refresh_token",
         )
       end

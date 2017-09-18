@@ -9,7 +9,7 @@ module Moip2
       @auth = auth
       @opts = opts
 
-      @uri = host == nil ? get_base_uri : host
+      @uri = host.nil? ? get_base_uri : host
       self.class.base_uri @uri
     end
 
@@ -35,18 +35,17 @@ module Moip2
     end
 
     def post(path, resource, content_type = "application/json")
-      opts = opts()
-      opts[:headers]["Content-Type"] = content_type
-      options = opts.merge(body: encode_resource(content_type, resource))
+      new_opts = opts
+      new_opts[:headers]["Content-Type"] = content_type
+      body = if content_type == "application/x-www-form-urlencoded"
+               URI.encode_www_form(resource)
+             else
+               convert_hash_keys_to(:camel_case, resource).to_json
+             end
+      options = new_opts.merge(body: body)
 
       resp = self.class.post path, options
       create_response resp
-    end
-
-    def encode_resource(content_type, resource)
-      return URI.encode_www_form(resource) if content_type == "application/x-www-form-urlencoded"
-
-      convert_hash_keys_to(:camel_case, resource).to_json
     end
 
     def put(path, resource)

@@ -44,7 +44,8 @@ module Moip2
 
     def connect
       host = Moip2::ConnectApi.host(client.env)
-      Moip2::ConnectApi.new(Client.new(client.env, client.auth, client.opts, host))
+      connect_client = Client.new(client.env, client.auth, client.opts, host)
+      Moip2::ConnectApi.new(connect_client)
     end
   end
 end
