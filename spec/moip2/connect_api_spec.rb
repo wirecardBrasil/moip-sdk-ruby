@@ -40,7 +40,7 @@ describe Moip2::ConnectApi do
         "DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,"\
         "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS",
       )
-      expect(oauth_token.access_token).to_not be_nil
+      expect(oauth_token.access_token).to end_with "_v2"
       expect(oauth_token.expires_in).to eq "2027-09-15"
     end
   end
@@ -61,7 +61,7 @@ describe Moip2::ConnectApi do
         "DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,"\
         "REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS",
       )
-      expect(oauth_token_refresh.access_token).to_not be_nil
+      expect(oauth_token_refresh.access_token).to end_with "_v2"
       expect(oauth_token_refresh.expires_in).to eq "2027-09-18"
     end
   end
