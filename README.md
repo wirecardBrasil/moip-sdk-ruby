@@ -45,6 +45,10 @@
     - [Criação](#criação-6)
     - [Consulta](#consulta-6)
     - [Verifica se usuário já possui Conta Moip](#verifica-se-usuário-já-possui-conta-moip)
+  - [OAuth (Moip Connect)](#oauth-(moip-connect))
+    - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
+    - [Gerar Token OAuth](#gerar-token-oauth)
+    - [Atualizar Token OAuth](#atualizar-token-oauth)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -328,6 +332,31 @@ account = api.accounts.show("MPA-12312312312")
 ### Verifica se usuário já possui Conta Moip
 ```ruby
 api.accounts.exists?("123.456.789.10")
+```
+
+## OAuth (Moip Connect)
+### Solicitar permissões de acesso ao usuário
+```ruby
+api.connect.authorize_url("APP-ID","http://localhost/moip/callback","RECEIVE_FUNDS,REFUND")
+```
+
+### Gerar token OAuth
+```ruby
+api.connect.authorize(
+  client_id: "APP-YRYCCJ5P603B",
+  client_secret: "363cdf8ab70a4c5aa08017564c08efbe",
+  code: "4efde1f89d9acc3b12124ccfded146518465e423",
+  redirect_uri: "http://localhost/moip/callback",
+  grant_type: "authorization_code"
+)
+```
+
+### Atualizar token OAuth
+```ruby
+api.connect.authorize(
+  refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
+  grant_type: "refresh_token"
+)
 ```
 
 ## Documentação
