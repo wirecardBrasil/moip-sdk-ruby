@@ -127,4 +127,34 @@ describe Moip2::OrderApi do
       end
     end
   end
+
+  describe "#find_all" do
+    context "when passing no filters" do
+      subject(:response) do
+        VCR.use_cassette("find_all_orders_no_filter") do
+          order_api.find_all
+        end
+      end
+
+      it { expect(response).to be_a(Moip2::Resource::Order) }
+      it { expect(response._links).not_to be_nil }
+      it { expect(response.summary).not_to be_nil }
+      it { expect(response.orders.size).to eq(20) }
+      it { expect(response.orders.first).to be_a(Moip2::Resource::Order) }
+    end
+
+    context "when passing limit" do
+      subject(:response) do
+        VCR.use_cassette("find_all_orders_limit") do
+          order_api.find_all(limit: 10)
+        end
+      end
+
+      it { expect(response).to be_a(Moip2::Resource::Order) }
+      it { expect(response._links).not_to be_nil }
+      it { expect(response.summary).not_to be_nil }
+      it { expect(response.orders.size).to eq(10) }
+      it { expect(response.orders.first).to be_a(Moip2::Resource::Order) }
+    end
+  end
 end
