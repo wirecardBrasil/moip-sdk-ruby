@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/orders?limit=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Sep 2017 11:32:12 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '6549'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"_links":{"next":{"href":"https://test.moip.com.br/v2/orders?filters=&limit=10&offset=10"},"previous":{"href":"https://test.moip.com.br/v2/orders?filters=&limit=10&offset=0"}},"summary":{"count":25585,"amount":5018996246},"orders":[{"id":"ORD-AXESCD0ZKBA9","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":9990,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"nome
+        sobrenome","email":"nome@exemplo.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-V9RAAHI74C77","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"VISA"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-AXESCD0ZKBA9"}},"createdAt":"2017-09-21T09:02:10-0300","updatedAt":"2017-09-21T09:02:11-0300"},{"id":"ORD-QJCPV0SGTURI","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":9990,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"nome
+        sobrenome","email":"nome@exemplo.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-XR758T5XPRD5","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"VISA"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-QJCPV0SGTURI"}},"createdAt":"2017-09-21T09:02:10-0300","updatedAt":"2017-09-21T09:02:11-0300"},{"id":"ORD-EODN81C4CPC7","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":1111,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"teste
+        teste","email":"teste@teste.com"},"items":[{"product":null}],"payments":[{"id":"PAY-U8G77BMP1FQN","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"MASTERCARD"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-EODN81C4CPC7"}},"createdAt":"2017-09-21T09:02:06-0300","updatedAt":"2017-09-21T09:02:09-0300"},{"id":"ORD-WKS6JRQMT5BK","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":1111,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"teste
+        teste","email":"teste@teste.com"},"items":[{"product":null}],"payments":[{"id":"PAY-EV9QC7PJR3ZC","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"MASTERCARD"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-WKS6JRQMT5BK"}},"createdAt":"2017-09-21T09:02:06-0300","updatedAt":"2017-09-21T09:02:08-0300"},{"id":"ORD-I3BNKLFBJJM3","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":900,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"breno
+        laranjeiras","email":"breno25@moip.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-TI39OQ7EB7CM","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"MASTERCARD"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-I3BNKLFBJJM3"}},"createdAt":"2017-09-21T09:02:06-0300","updatedAt":"2017-09-21T09:02:09-0300"},{"id":"ORD-GLUNC56M5WNJ","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":900,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"william
+        miranda","email":"manowill@moip.com"},"items":[{"product":null}],"payments":[{"id":"PAY-JZ4DRPSQOCTA","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"VISA"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-GLUNC56M5WNJ"}},"createdAt":"2017-09-21T09:02:06-0300","updatedAt":"2017-09-21T09:02:09-0300"},{"id":"ORD-ZEVV1DRYYWZB","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":900,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"breno
+        laranjeiras","email":"breno25@moip.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-7RP1RKNJXWZB","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"MASTERCARD"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-ZEVV1DRYYWZB"}},"createdAt":"2017-09-21T09:02:06-0300","updatedAt":"2017-09-21T09:02:08-0300"},{"id":"ORD-6DUNJDPOMTNX","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":9990,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"ariane
+        paula","email":"teste@moip.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-Z0EUJ0U7CT25","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"MASTERCARD"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-6DUNJDPOMTNX"}},"createdAt":"2017-09-21T09:02:05-0300","updatedAt":"2017-09-21T09:02:09-0300"},{"id":"ORD-FFBHGG31CLGX","ownId":null,"status":"NOT_PAID","blocked":false,"amount":{"total":4990,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"nome
+        sobrenome","email":"nome@exemplo.com.br"},"items":[{"product":null}],"payments":[{"id":"PAY-OP6DHDV5BA1X","installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","brand":"AMEX"}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-FFBHGG31CLGX"}},"createdAt":"2017-09-21T09:02:05-0300","updatedAt":"2017-09-21T09:02:07-0300"},{"id":"ORD-56K8NAIAX5NW","ownId":"4987062","status":"WAITING","blocked":false,"amount":{"total":100,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"moip
+        test","email":"moip@mailinator.com"},"items":[{"product":null}],"payments":[{"id":"PAY-1PUR1B3NJNMH","installmentCount":1,"fundingInstrument":{"method":"BOLETO","brand":null}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-56K8NAIAX5NW"}},"createdAt":"2017-09-21T06:01:23-0300","updatedAt":"2017-09-21T06:01:24-0300"}]}'
+    http_version: 
+  recorded_at: Thu, 21 Sep 2017 11:32:16 GMT
+recorded_with: VCR 2.9.3
