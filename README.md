@@ -21,6 +21,11 @@
   - [Pedidos](#pedidos)
     - [Criação](#criação-1)
     - [Consulta](#consulta-1)
+      - [Pedido Específico](#pedido-específico)
+      - [Todos os Pedidos](#todos-os-pedidos)
+        - [Sem Filtro](#sem-filtro)
+        - [Com Filtros](#com-filtros)
+        - [Com Paginação](#com-paginação)
   - [Pagamentos](#pagamentos)
     - [Criação](#criação-2)
       - [Cartão de Crédito](#cartão-de-crédito)
@@ -132,8 +137,25 @@ order = api.order.create({
 })
 ```
 ### Consulta
+#### Pedido Específico
 ```ruby
 order = api.order.show("ORD-V41BR451L")
+```
+
+#### Todos os Pedidos
+##### Sem Filtro
+```ruby
+orders = api.order.find_all()
+```
+
+##### Com Filtros
+```ruby
+orders = api.order.find_all(filters: { status: { in: ["PAID", "WAITING"] }, amount: { bt: [500, 1000] } })
+```
+
+##### Com Paginação
+```ruby
+orders = api.order.find_all(limit: 10, offset: 50)
 ```
 
 ## Pagamentos
