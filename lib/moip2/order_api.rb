@@ -33,8 +33,7 @@ module Moip2
       response = client.get(path)
 
       # We need to transform raw JSON in Order objects
-      order_objects = response.orders.map { |order| Resource::Order.new client, order }
-      response.orders = order_objects
+      response.orders.collect! { |order| Resource::Order.new client, order }
       Resource::Order.new client, response
     end
   end
