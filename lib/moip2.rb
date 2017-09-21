@@ -36,6 +36,8 @@ require "moip2/connect_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
+require "moip2/util/filters_encoder"
+
 module Moip2
   class << self
     VALID_ENVS = %i(sandbox production).freeze

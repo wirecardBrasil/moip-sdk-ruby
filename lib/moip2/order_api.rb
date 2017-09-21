@@ -18,9 +18,18 @@ module Moip2
       Resource::Order.new client, client.get("#{base_path}/#{id}")
     end
 
-    def find_all(limit: nil, offset: nil)
-      params = URI.encode_www_form(limit: limit, offset: offset)
-      path = "#{base_path}?#{params}"
+    def find_all(limit: nil, offset: nil, filters: nil)
+      encoded_filters = Moip2::Util::FiltersEncoder.encode(filters)
+
+      # `URI.encode...` will accept nil params, but they will pollute the URI
+      params = {
+        limit: limit,
+        offset: offset,
+        filters: encoded_filters,
+      }.reject { |_, value| value.nil? }
+
+      query_string = URI.encode_www_form(params)
+      path = "#{base_path}?#{query_string}"
       response = client.get(path)
 
       # We need to transform raw JSON in Order objects
