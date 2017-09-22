@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/fundinginstruments/CRC-920F3Z3CTVN8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 22 Sep 2017 17:42:47 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kCRFhXCwgEC14RTBBNVVFcRxZlTkoIVx9EHnMkKiZsdhlGTVIZARtWSgEEA1ZVVlUAVhRSFBoHCldRDgQIUlZSUVRRUlcFGh9WBQ0RUmw=
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Content-Length:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 22 Sep 2017 17:42:47 GMT
+recorded_with: VCR 2.9.3

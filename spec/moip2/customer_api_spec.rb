@@ -202,4 +202,26 @@ describe Moip2::CustomerApi do
     it { expect(credit_card_added.credit_card.first6).to eq "555566" }
     it { expect(credit_card_added.credit_card.last4).to eq "8884" }
   end
+
+  describe "#delete a credit card from customer" do
+    context "when credit card exists" do
+      let(:credit_card_deleted) do
+        VCR.use_cassette("delete_credit_card_customer") do
+          customer_api.delete_credit_card("CRC-920F3Z3CTVN8")
+        end
+      end
+
+      it { expect(credit_card_deleted).to eq true }
+    end
+
+    context "when credit card doesn't exist" do
+      let(:credit_card_nonexistent) do
+        VCR.use_cassette("delete_nonexistent_credit_card_customer") do
+          customer_api.delete_credit_card("CRC-450F3Z4CTVN8")
+        end
+      end
+
+      it { expect(credit_card_nonexistent).to eq false }
+    end
+  end
 end

@@ -10,6 +10,10 @@ module Moip2
       "/v2/customers"
     end
 
+    def base_path_credit_card
+      "/v2/fundinginstruments"
+    end
+
     def show(customer_external_id)
       Resource::Customer.new client, client.get("#{base_path}/#{customer_external_id}")
     end
@@ -23,6 +27,12 @@ module Moip2
         "#{base_path}/#{customer_external_id}/fundinginstruments",
         credit_card,
       )
+    end
+
+    def delete_credit_card(credit_card_id)
+      code = client.delete("#{base_path_credit_card}/#{credit_card_id}")
+
+      code.between?(200, 299)
     end
   end
 end
