@@ -18,6 +18,8 @@
   - [Clientes](#clientes)
     - [Criação](#criação)
     - [Consulta](#consulta)
+    - [Adicionar cartão de crédito](#adicionar-cartão-de-crédito)
+    - [Deletar cartão de crédito](#deletar-cartão-de-crédito)
   - [Pedidos](#pedidos)
     - [Criação](#criação-1)
     - [Consulta](#consulta-1)
@@ -113,6 +115,46 @@ customer = api.customer.create({
 ### Consulta
 ```ruby
 customer = api.customer.show("CUS-V41BR451L")
+```
+
+### Adicionar cartão de crédito
+```ruby
+credit_card = api.customer.add_credit_card("CUSTOMER-ID", 
+    {
+      method: "CREDIT_CARD",
+      creditCard: {
+        expirationMonth: "05",
+        expirationYear: "22",
+        number: "5555666677778884",
+        cvc: "123",
+        holder: {
+          fullname: "Jose Portador da Silva",
+          birthdate: "1988-12-30",
+          taxDocument: {
+            type: "CPF",
+            number: "33333333333",
+          },
+          phone: {
+            countryCode: "55",
+            areaCode: "11",
+            number: "66778899",
+          },
+        },
+      },
+    }
+)
+```
+
+### Deletar cartão de crédito
+
+> Retorna uma Exception do tipo `NotFoundError` caso não encontre o cartão de crédito para deletar
+```ruby
+api.customer.delete_credit_card!("CREDIT-CARD-ID")
+```
+
+> Retorna `false` caso não encontre o cartão de crédito para deletar
+```ruby
+api.customer.delete_credit_card("CREDIT-CARD-ID")
 ```
 
 ## Pedidos
