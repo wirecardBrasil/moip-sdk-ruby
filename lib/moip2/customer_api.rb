@@ -34,5 +34,11 @@ module Moip2
 
       code.between?(200, 299)
     end
+
+    def delete_credit_card!(credit_card_id)
+      return if delete_credit_card(credit_card_id)
+
+      raise NotFoundError, "Credit card not found"
+    end
   end
 end

@@ -214,7 +214,7 @@ describe Moip2::CustomerApi do
       it { expect(credit_card_deleted).to eq true }
     end
 
-    context "when credit card doesn't exist" do
+    context "when credit card doesn't exist expecting boolean" do
       let(:credit_card_nonexistent) do
         VCR.use_cassette("delete_nonexistent_credit_card_customer") do
           customer_api.delete_credit_card("CRC-450F3Z4CTVN8")
@@ -222,6 +222,16 @@ describe Moip2::CustomerApi do
       end
 
       it { expect(credit_card_nonexistent).to eq false }
+    end
+
+    context "when credit card doesn't exist expecting an error" do
+      let(:credit_card_nonexistent) do
+        VCR.use_cassette("delete_nonexistent_credit_card_customer") do
+          customer_api.delete_credit_card!("CRC-450F3Z4CTVN8")
+        end
+      end
+
+      it { expect { credit_card_nonexistent }.to raise_error(Moip2::NotFoundError) }
     end
   end
 end
