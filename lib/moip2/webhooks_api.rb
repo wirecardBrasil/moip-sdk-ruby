@@ -10,13 +10,8 @@ module Moip2
 			"/v2/webhooks"
 		end
 
-		def resend(webhook)
-			Resource::Webhooks.new client, client.post(base_path, webhook)
-		end
-
-
-		def show(id)
-			Resource::Webhooks.new(client, client.get("#{base_path}/#{id}"))
+		def all
+			Resource::Webhooks.new(client, client.get(base_path))
 		end
 
 	end
