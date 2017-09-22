@@ -14,11 +14,7 @@ module Moip2
       end
     end
 
-    def create(notification_preference)
-      Resource::NotificationPreference.new client, client.post(base_path, notification_preference)
-    end
-
-    def create_for_app(notification_preference, app_id)
+    def create(notification_preference, app_id = nil)
       Resource::NotificationPreference.new client, client.post(base_path(app_id), notification_preference)
     end
 
