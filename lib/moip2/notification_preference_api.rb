@@ -6,12 +6,12 @@ module Moip2
       @client = client
     end
 
-    def base_path
-      "/v2/preferences/notifications"
-    end
-
-    def base_path_for_app(app_id)
-      "/v2/preferences/#{app_id}/notifications"
+    def base_path(app_id = nil)
+      if app_id.nil?
+        "/v2/preferences/notifications"
+      else
+        "/v2/preferences/#{app_id}/notifications"
+      end
     end
 
     def create(notification_preference)
@@ -19,7 +19,7 @@ module Moip2
     end
 
     def create_for_app(notification_preference, app_id)
-      Resource::NotificationPreference.new client, client.post(base_path_for_app(app_id), notification_preference)
+      Resource::NotificationPreference.new client, client.post(base_path(app_id), notification_preference)
     end
 
     def show(id)
