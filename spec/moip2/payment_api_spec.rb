@@ -78,4 +78,59 @@ describe Moip2::PaymentApi do
       expect(created_payment).to be_a(Moip2::Resource::Payment)
     end
   end
+
+  describe "#show" do
+    let (:payment_id) { "PAY-CRUP19YU2VE1" }
+
+    let(:payment) do
+      VCR.use_cassette("get_payment") do
+        payment_api.show(payment_id)
+      end
+    end
+
+    it { expect(payment.id).to eq payment_id }
+    it { expect(payment.status).to eq "AUTHORIZED" }
+    it { expect(payment.installment_count).to eq 1 }
+    it { expect(payment.funding_instrument).to_not be_nil }
+    it { expect(payment.funding_instrument.credit_card).to_not be_nil }
+    it { expect(payment.funding_instrument.credit_card.brand).to eq "MASTERCARD" }
+
+    context "when payment is not found" do
+      let(:payment) do
+        VCR.use_cassette("get_payment_not_found") do
+          payment_api.show("MOR-INVALID")
+        end
+      end
+
+      it "raises a NotFound" do
+        expect { payment }.to raise_error Moip2::NotFoundError
+      end
+    end
+  end
+
+  describe "#capture" do
+    let (:captured_payment) do
+      VCR.use_cassette("capture_payment") do
+        payment_api.capture("PAY-KT5OSI01X8QU")
+      end
+    end
+
+    it { expect(captured_payment.id).to eq "PAY-KT5OSI01X8QU" }
+    it { expect(captured_payment.status).to eq "AUTHORIZED" }
+    it { expect(captured_payment.funding_instrument).to_not be_nil }
+    it { expect(captured_payment.installment_count).to eq 1 }
+  end
+
+  describe "#void" do
+    let (:cancelled_payment) do
+      VCR.use_cassette("cancel_payment") do
+        payment_api.void("PAY-IXNGCU456GG4")
+      end
+    end
+
+    it { expect(cancelled_payment.id).to eq "PAY-IXNGCU456GG4" }
+    it { expect(cancelled_payment.status).to eq "CANCELLED" }
+    it { expect(cancelled_payment.funding_instrument).to_not be_nil }
+    it { expect(cancelled_payment.installment_count).to eq 1 }
+  end
 end

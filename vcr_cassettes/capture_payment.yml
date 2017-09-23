@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/payments/PAY-KT5OSI01X8QU/capture
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 04 Sep 2017 17:25:11 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kUUE9eBwgXEWxNQwtcRWgdUARJFUQTVkJMZngyMkoaHwBKUU4HHwRUXQgDBlVVT1YcQA1VXA8DA1dWCgMCVFVQAgMVTQACVEBVOQ==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1292'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-KT5OSI01X8QU","status":"AUTHORIZED","delayCapture":true,"amount":{"total":102470,"gross":102470,"fees":7622,"refunds":0,"liquid":94848,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-Y193W7M06F08","brand":"VISA","first6":"401200","last4":"1112","store":true,"holder":{"birthdate":"1988-12-30","birthDate":"1988-12-30","taxDocument":{"type":"CPF","number":"22222222222"},"fullname":"Jose
+        Portador da Silva"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":7622}],"events":[{"type":"PAYMENT.AUTHORIZED","createdAt":"2017-09-04T14:25:11.388-03"},{"type":"PAYMENT.PRE_AUTHORIZED","createdAt":"2017-09-04T14:17:35.000-03"},{"type":"PAYMENT.CREATED","createdAt":"2017-09-04T14:17:34.000-03"},{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-09-04T14:17:34.000-03"}],"receivers":[{"moipAccount":{"id":"MPA-CULBBYHD11","login":"integracao@labs.moip.com.br","fullname":"Moip
+        SandBox"},"type":"PRIMARY","amount":{"total":102470,"fees":7622,"refunds":0},"feePayor":true}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-KT5OSI01X8QU"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-5N85DL9MNDSS","title":"ORD-5N85DL9MNDSS"}},"updatedAt":"2017-09-04T14:25:11.387-03","createdAt":"2017-09-04T14:17:34.000-03"}'
+    http_version: 
+  recorded_at: Mon, 04 Sep 2017 17:25:11 GMT
+recorded_with: VCR 2.9.3

@@ -17,6 +17,7 @@ require "moip2/resource/invoice"
 require "moip2/resource/keys"
 require "moip2/resource/refund"
 require "moip2/resource/webhooks"
+require "moip2/resource/connect"
 require "moip2/resource/notification_preference"
 
 require "moip2/response"
@@ -32,9 +33,12 @@ require "moip2/api"
 require "moip2/keys_api"
 require "moip2/webhooks_api"
 require "moip2/accounts_api"
+require "moip2/connect_api"
 require "moip2/notification_preference_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
+
+require "moip2/util/filters_encoder"
 
 module Moip2
   class << self

@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@connect-sandbox.moip.com.br/oauth/token
+    body:
+      encoding: US-ASCII
+      string: client_id=APP-Y0YCCJ5P603B&client_secret=363cdf8ab70a4c5aa08017564c08efbe&code=4efde1f89d9acc3b12124ccfded146518465e423&redirect_uri=http%3A%2F%2Flocalhost%2Fmoip%2Fcallback.php&grant_type=authorization_code
+    headers:
+      Moip-Account:
+      - MPA-UY765TYBL912
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 15 Sep 2017 18:12:05 GMT
+      Server:
+      - nginx/1.13.5
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 5.0.26
+      Content-Length:
+      - '388'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"314583f572da417ab361964111bd4d0d_v2","access_token":"314583f572da417ab361964111bd4d0d_v2","expires_in":"2027-09-15","refreshToken":"1d5dc51e71674683b4ed79cd7a988fa1_v2","refresh_token":"1d5dc51e71674683b4ed79cd7a988fa1_v2","scope":"DEFINE_PREFERENCES,MANAGE_ACCOUNT_INFO,RECEIVE_FUNDS,REFUND,RETRIEVE_FINANCIAL_INFO,TRANSFER_FUNDS","moipAccount":{"id":"MPA-8D5DBB4EF8B8"}}'
+    http_version: 
+  recorded_at: Fri, 15 Sep 2017 18:12:06 GMT
+recorded_with: VCR 2.9.3

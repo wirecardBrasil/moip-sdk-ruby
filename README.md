@@ -21,22 +21,39 @@
   - [Pedidos](#pedidos)
     - [Criação](#criação-1)
     - [Consulta](#consulta-1)
+      - [Pedido Específico](#pedido-específico)
+      - [Todos os Pedidos](#todos-os-pedidos)
+        - [Sem Filtro](#sem-filtro)
+        - [Com Filtros](#com-filtros)
+        - [Com Paginação](#com-paginação)
   - [Pagamentos](#pagamentos)
-    - [Cartão de Credito](#cartão-de-credito)
-      - [Com Hash](#com-hash)
-      - [Com Dados do Cartão](#com-dados-do-cartão)
-    - [Com Boleto](#com-boleto)
-  - [Reembolsos](#reembolsos)
     - [Criação](#criação-2)
+      - [Cartão de Crédito](#cartão-de-crédito)
+        - [Com Hash](#com-hash)
+        - [Com Dados do Cartão](#com-dados-do-cartão)
+      - [Com Boleto](#com-boleto)
+    - [Consulta](#consulta-2)
+    - [Capturar pagamento pré-autorizado](#capturar-pagamento-pré-autorizado)
+    - [Cancelar pagamento pré-autorizado](#cancelar-pagamento-pré-autorizado)
+  - [Reembolsos](#reembolsos)
+    - [Criação](#criação-3)
       - [Valor Total](#valor-total)
       - [Valor Parcial](#valor-parcial)
-    - [Consulta](#consulta-2)
-  - [Multipedidos](#multipedidos)
-    - [Criação](#criação-3)
     - [Consulta](#consulta-3)
-  - [Multipagamentos](#multipagamentos)
+  - [Multipedidos](#multipedidos)
     - [Criação](#criação-4)
     - [Consulta](#consulta-4)
+  - [Multipagamentos](#multipagamentos)
+    - [Criação](#criação-5)
+    - [Consulta](#consulta-5)
+  - [Conta Moip](#conta-moip)
+    - [Criação](#criação-6)
+    - [Consulta](#consulta-6)
+    - [Verifica se usuário já possui Conta Moip](#verifica-se-usuário-já-possui-conta-moip)
+  - [OAuth (Moip Connect)](#oauth-(moip-connect))
+    - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
+    - [Gerar Token OAuth](#gerar-token-oauth)
+    - [Atualizar Token OAuth](#atualizar-token-oauth)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -120,13 +137,32 @@ order = api.order.create({
 })
 ```
 ### Consulta
+#### Pedido Específico
 ```ruby
 order = api.order.show("ORD-V41BR451L")
 ```
 
+#### Todos os Pedidos
+##### Sem Filtro
+```ruby
+orders = api.order.find_all()
+```
+
+##### Com Filtros
+```ruby
+orders = api.order.find_all(filters: { status: { in: ["PAID", "WAITING"] }, amount: { bt: [500, 1000] } })
+```
+
+##### Com Paginação
+```ruby
+orders = api.order.find_all(limit: 10, offset: 50)
+```
+
 ## Pagamentos
-### Cartão de Credito 
-#### Com Hash
+
+### Criação
+#### Cartão de Crédito 
+##### Com Hash
 
 ```ruby
 api.payment.create(order.id,
@@ -150,7 +186,7 @@ api.payment.create(order.id,
 )
 ```
 
-#### Com Dados do Cartão 
+##### Com Dados do Cartão 
 > Esses método requer certificação PCI. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#criar-pagamento)
 
 ```ruby
@@ -173,7 +209,7 @@ api.payment.create(order.id,
 )
 ```
 
-### Com Boleto
+#### Com Boleto
 
 ```ruby
 api.payment.create(order.id,
@@ -194,6 +230,22 @@ api.payment.create(order.id,
     }
 )
 ```
+
+### Consulta
+```ruby
+pagamento = api.payment.show("PAY-CRUP19YU2VE1")
+```
+
+### Capturar pagamento pré-autorizado
+```ruby
+api.payment.capture("PAY-KT5OSI01X8QU")
+```
+
+### Cancelar pagamento pré-autorizado
+```ruby
+api.payment.void("PAY-IXNGCU456GG4")
+```
+
 ## Reembolsos
 ### Criação
 #### Valor Total
@@ -252,6 +304,82 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
 multi_pag = api.multi_payment.show("MPY-V41BR451L")
 ```
 
+## Conta Moip
+### Criação
+```ruby
+account = api.accounts.create(
+  {
+    email: {
+      address: "dev.moip@labs.moip.com.br",
+    },
+    person: {
+      name: "Joaquim José",
+      lastName: "Silva Silva",
+      taxDocument: {
+        type: "CPF",
+        number: "572.619.050-54",
+      },
+      identityDocument: {
+        type: "RG",
+        number: "35.868.057-8",
+        issuer: "SSP",
+        issueDate: "2000-12-12",
+      },
+      birthDate: "1990-01-01",
+      phone: {
+        countryCode: "55",
+        areaCode: "11",
+        number: "965213244",
+      },
+      address: {
+        street: "Av. Brigadeiro Faria Lima",
+        streetNumber: "2927",
+        district: "Itaim",
+        zipCode: "01234-000",
+        city: "S\u00E3o Paulo",
+        state: "SP",
+        country: "BRA",
+      },
+    },
+    type: "MERCHANT"
+  }
+)
+```
+
+### Consulta
+```ruby
+account = api.accounts.show("MPA-12312312312")
+```
+
+### Verifica se usuário já possui Conta Moip
+```ruby
+api.accounts.exists?("123.456.789.10")
+```
+
+## OAuth (Moip Connect)
+### Solicitar permissões de acesso ao usuário
+```ruby
+api.connect.authorize_url("APP-ID","http://localhost/moip/callback","RECEIVE_FUNDS,REFUND")
+```
+
+### Gerar token OAuth
+```ruby
+api.connect.authorize(
+  client_id: "APP-YRYCCJ5P603B",
+  client_secret: "363cdf8ab70a4c5aa08017564c08efbe",
+  code: "4efde1f89d9acc3b12124ccfded146518465e423",
+  redirect_uri: "http://localhost/moip/callback",
+  grant_type: "authorization_code"
+)
+```
+
+### Atualizar token OAuth
+```ruby
+api.connect.authorize(
+  refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
+  grant_type: "refresh_token"
+)
+```
 
 ## Documentação
 
@@ -260,4 +388,3 @@ multi_pag = api.multi_payment.show("MPY-V41BR451L")
 ## Licença
 
 [The MIT License](https://github.com/moip/moip-sdk-ruby/blob/master/LICENSE.txt)
-
