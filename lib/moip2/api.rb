@@ -47,5 +47,14 @@ module Moip2
       connect_client = Client.new(client.env, client.auth, client.opts, host)
       Moip2::ConnectApi.new(connect_client)
     end
+
+    def webhooks
+      Moip2::WebhooksApi.new(client)
+    end
+
+    def notification_preference
+      Moip2::NotificationPreferenceApi.new(client)
+    end
+
   end
 end
