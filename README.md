@@ -449,6 +449,7 @@ api.notifications.show("NOTIFICATION-ID")
 
 ### Exclusão
 > Caso o notification não seja encontrado uma exceção do tipo `NotFoundError` será lançada, veja como tratar [aqui](#tratamento-de-exceções).
+
 ```ruby
 api.notifications.delete("NOTIFICATION-ID")
 ```
