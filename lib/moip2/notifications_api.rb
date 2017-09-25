@@ -17,5 +17,9 @@ module Moip2
     def show(notification_id)
       Resource::Notification.new client, client.get("#{base_path}/#{notification_id}")
     end
+
+    def find_all
+      Resource::Notification.new client, client.get(base_path)
+    end
   end
 end

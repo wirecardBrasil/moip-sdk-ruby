@@ -42,4 +42,17 @@ describe Moip2::NotificationsApi do
     it { expect(notification.events).to eq ["ORDER.*", "PAYMENT.AUTHORIZED", "PAYMENT.CANCELLED"] }
     it { expect(notification.token).to eq "5877e87109cc4ef6ae9b1a181cf8a276" }
   end
+
+  describe "#find all" do
+    let(:notifications) do
+      VCR.use_cassette("get_notifications_list") do
+        notifications_api.find_all
+      end
+    end
+
+    it { expect(notifications).to be_a(Moip2::Resource::Notification) }
+    it { expect(notifications).to_not be_nil }
+    it { expect(notifications[0]["media"]).to eq "WEBHOOK" }
+    it { expect(notifications[0]["target"]).to eq "pandaofertas.com/receive/receiver.php" }
+  end
 end
