@@ -27,6 +27,32 @@ describe Moip2::NotificationsApi do
     it { expect(notification_created.token).to_not be_nil }
   end
 
+  describe "#create to apps" do
+    let (:notification) do
+      {
+        events: ["ORDER.*", "PAYMENT.AUTHORIZED", "PAYMENT.CANCELLED"],
+        target: "http://requestb.in/1dhjesw1",
+        media: "WEBHOOK",
+      }
+    end
+
+    let(:notification_created) do
+      VCR.use_cassette("create_notification_app") do
+        notifications_api.create(notification, "APP-Y0YCCJ5P603B")
+      end
+    end
+
+    it { expect(notification_created.id).to_not be_nil }
+    it { expect(notification_created.media).to eq "WEBHOOK" }
+    it { expect(notification_created.target).to eq "http://requestb.in/1dhjesw1" }
+    it {
+      expect(notification_created.events).to (
+        eq ["ORDER.*", "PAYMENT.AUTHORIZED", "PAYMENT.CANCELLED"]
+      )
+    }
+    it { expect(notification_created.token).to_not be_nil }
+  end
+
   describe "#show" do
     let(:notification_id) { "NPR-1EICPJBCFS4J" }
 
