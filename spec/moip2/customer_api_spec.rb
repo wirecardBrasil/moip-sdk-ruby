@@ -164,4 +164,64 @@ describe Moip2::CustomerApi do
       ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-4GESZSOAH7HX"
     }
   end
+
+  describe "#create credit card to customer" do
+    let(:credit_card) do
+      {
+        method: "CREDIT_CARD",
+        creditCard: {
+          expirationMonth: "05",
+          expirationYear: "22",
+          number: "5555666677778884",
+          cvc: "123",
+          holder: {
+            fullname: "Jose Portador da Silva",
+            birthdate: "1988-12-30",
+            taxDocument: {
+              type: "CPF",
+              number: "33333333333",
+            },
+            phone: {
+              countryCode: "55",
+              areaCode: "11",
+              number: "66778899",
+            },
+          },
+        },
+      }
+    end
+
+    let(:credit_card_added) do
+      VCR.use_cassette("create_credit_card_customer") do
+        customer_api.add_credit_card("CUS-4GESZSOAH7HX", credit_card)
+      end
+    end
+
+    it { expect(credit_card_added.credit_card.id).to_not be_nil }
+    it { expect(credit_card_added.credit_card.brand).to eq "MASTERCARD" }
+    it { expect(credit_card_added.credit_card.first6).to eq "555566" }
+    it { expect(credit_card_added.credit_card.last4).to eq "8884" }
+  end
+
+  describe "#delete a credit card from customer" do
+    context "when credit card exists" do
+      let(:credit_card_deleted) do
+        VCR.use_cassette("delete_credit_card_customer") do
+          customer_api.delete_credit_card!("CRC-920F3Z3CTVN8")
+        end
+      end
+
+      it { expect(credit_card_deleted).to eq true }
+    end
+
+    context "when credit card doesn't exist" do
+      let(:credit_card_nonexistent) do
+        VCR.use_cassette("delete_nonexistent_credit_card_customer") do
+          customer_api.delete_credit_card!("CRC-450F3Z4CTVN8")
+        end
+      end
+
+      it { expect { credit_card_nonexistent }.to raise_error(Moip2::NotFoundError) }
+    end
+  end
 end

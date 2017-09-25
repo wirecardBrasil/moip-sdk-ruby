@@ -50,6 +50,12 @@ module Moip2
       create_response resp
     end
 
+    def delete(path)
+      resp = self.class.delete path, opts
+
+      create_response resp
+    end
+
     def get(path)
       resp = self.class.get path, opts
 

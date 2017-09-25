@@ -18,6 +18,7 @@ require "moip2/resource/keys"
 require "moip2/resource/refund"
 require "moip2/resource/webhooks"
 require "moip2/resource/connect"
+require "moip2/resource/credit_card"
 
 require "moip2/response"
 require "moip2/client"
