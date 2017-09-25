@@ -61,6 +61,7 @@
     -  [Consulta](#consulta-7)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
+- [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -447,6 +448,7 @@ api.notifications.show("NOTIFICATION-ID")
 ```
 
 ### Exclusão
+> Caso o notification não seja encontrado uma exceção do tipo `NotFoundError` será lançada, veja como tratar [aqui](#tratamento-de-exceções).
 ```ruby
 api.notifications.delete("NOTIFICATION-ID")
 ```
@@ -454,6 +456,20 @@ api.notifications.delete("NOTIFICATION-ID")
 ### Listagem
 ```ruby
 api.notifications.find_all
+```
+
+## Tratamento de Exceções
+
+Caso algum recurso não seja encontrado uma exceção do tipo `NotFoundError` será lançada.
+
+```ruby
+begin
+  api.payment.create(
+    # ...
+  )
+rescue NotFoundError => e
+  puts e.message
+end
 ```
 
 ## Documentação

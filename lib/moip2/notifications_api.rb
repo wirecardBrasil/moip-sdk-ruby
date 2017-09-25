@@ -27,5 +27,11 @@ module Moip2
     def find_all
       Resource::Notification.new client, client.get(base_path)
     end
+
+    def delete(notification_id)
+      resp = Resource::Notification.new client, client.delete("#{base_path}/#{notification_id}")
+
+      resp.success?
+    end
   end
 end

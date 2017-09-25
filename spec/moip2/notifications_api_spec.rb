@@ -81,4 +81,24 @@ describe Moip2::NotificationsApi do
     it { expect(notifications[0]["media"]).to eq "WEBHOOK" }
     it { expect(notifications[0]["target"]).to eq "pandaofertas.com/receive/receiver.php" }
   end
+
+  describe "#delete" do
+    let(:response) do
+      VCR.use_cassette("delete_notification") do
+        notifications_api.delete("NPR-NI9P75W67ZK7")
+      end
+    end
+
+    it { expect(response).to eq true }
+  end
+
+  describe "#delete nonexistent notification" do
+    let(:response) do
+      VCR.use_cassette("delete_nonexistent_notification") do
+        notifications_api.delete("NPR-NI9P75W68ZK7")
+      end
+    end
+
+    it { expect { response }.to raise_error(Moip2::NotFoundError) }
+  end
 end
