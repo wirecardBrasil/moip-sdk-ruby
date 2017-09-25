@@ -29,16 +29,10 @@ module Moip2
       )
     end
 
-    def delete_credit_card(credit_card_id)
-      code = client.delete("#{base_path_credit_card}/#{credit_card_id}")
-
-      code.between?(200, 299)
-    end
-
     def delete_credit_card!(credit_card_id)
-      return if delete_credit_card(credit_card_id)
+      resp = client.delete("#{base_path_credit_card}/#{credit_card_id}")
 
-      raise NotFoundError, "Credit card not found"
+      resp.success?
     end
   end
 end

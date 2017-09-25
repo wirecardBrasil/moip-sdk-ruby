@@ -53,7 +53,7 @@ module Moip2
     def delete(path)
       resp = self.class.delete path, opts
 
-      resp.code
+      create_response resp
     end
 
     def get(path)
