@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/preferences/notifications/NPR-NI9P75W68ZK7
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 25 Sep 2017 18:13:08 GMT
+      Server:
+      - Apache
+      Status:
+      - 404 Not Found
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUlFRBAcCVlATGhE1AwE2QgNWEVlbQFtcC2VOYhFBCwpRdA4IF0pcXAgEEGseQVQ4HkZBBwAGEFUMWwdLZBtcXBFQB1gCUhYNWVkSOkxDWlQZQUpzdHsjMHQfEU5WTVIcUhZSCAEFAgpTClkdUR9AAA4CVgUGXQADVllSBwVWBEYdUFIOFQY/
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Content-Length:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 25 Sep 2017 18:13:08 GMT
+recorded_with: VCR 2.9.3

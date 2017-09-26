@@ -56,6 +56,12 @@
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
     - [Atualizar Token OAuth](#atualizar-token-oauth)
+  - [Preferências de Notificação](#preferências-de-notificação)
+    -  [Criação](#criação-7)
+    -  [Consulta](#consulta-7)
+    -  [Exclusão](#exclusão)
+    -  [Listagem](#listagem)
+- [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
 
@@ -423,6 +429,48 @@ api.connect.authorize(
   refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
   grant_type: "refresh_token"
 )
+```
+
+## Preferências de notificação
+
+### Criação
+```ruby
+api.notifications.create(
+  events: ["ORDER.*", "PAYMENT.AUTHORIZED", "PAYMENT.CANCELLED"],
+  target: "http://requestb.in/1dhjesw1",
+  media: "WEBHOOK"
+)
+```
+
+### Consulta
+```ruby
+api.notifications.show("NOTIFICATION-ID")
+```
+
+### Exclusão
+> Caso o notification não seja encontrado uma exceção do tipo `NotFoundError` será lançada, veja como tratar [aqui](#tratamento-de-exceções).
+
+```ruby
+api.notifications.delete("NOTIFICATION-ID")
+```
+
+### Listagem
+```ruby
+api.notifications.find_all
+```
+
+## Tratamento de Exceções
+
+Caso algum recurso não seja encontrado uma exceção do tipo `NotFoundError` será lançada.
+
+```ruby
+begin
+  api.payment.create(
+    # ...
+  )
+rescue NotFoundError => e
+  puts e.message
+end
 ```
 
 ## Documentação

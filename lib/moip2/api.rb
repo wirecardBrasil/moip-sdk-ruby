@@ -47,5 +47,9 @@ module Moip2
       connect_client = Client.new(client.env, client.auth, client.opts, host)
       Moip2::ConnectApi.new(connect_client)
     end
+
+    def notifications
+      Moip2::NotificationsApi.new(client)
+    end
   end
 end
