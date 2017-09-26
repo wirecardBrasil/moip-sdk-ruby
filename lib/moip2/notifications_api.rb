@@ -15,7 +15,7 @@ module Moip2
     end
 
     def create(notification, app_id = nil)
-      path = app_id == nil ? base_path : base_path_app(app_id)
+      path = app_id.nil? ? base_path : base_path_app(app_id)
 
       Resource::Notification.new client, client.post(path, notification)
     end
