@@ -1,3 +1,3 @@
 module Moip2
-  VERSION = "0.1.5".freeze
+  VERSION = "1.0.0".freeze
 end
