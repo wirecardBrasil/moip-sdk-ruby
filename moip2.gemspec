@@ -7,11 +7,19 @@ require "moip2/version"
 Gem::Specification.new do |spec|
   spec.name          = "moip2"
   spec.version       = Moip2::VERSION
-  spec.authors       = ["Rodrigo Saito", "Danillo Souza", "Caio Gama"]
-  spec.email         = [
+  spec.authors       = [
+    "Rodrigo Saito",
+    "Danillo Souza",
+    "Caio Gama",
+    "João Lucas Lucchetta",
+    "Caio Gaspar",
+  ]
+  spec.email = [
     "rodrigo.saito@moip.com.br",
     "danillo.souza@moip.com.br",
     "caio.gama@moip.com.br",
+    "joao.lucchetta@moip.com.br",
+    "caio.gaspar@moip.com.br",
   ]
   spec.summary       = "Ruby client for moip v2 api"
   spec.description   = "Ruby client for moip v2 api"
