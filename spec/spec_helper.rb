@@ -47,7 +47,7 @@ def sandbox_client_connect
   Moip2::Client.new(
     :sandbox,
     sandbox_auth,
-    {},
     ENV["connect_sandbox_url"],
+    {},
   )
 end

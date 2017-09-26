@@ -10,7 +10,7 @@ describe Moip2::Resource::Order do
                              fundingInstrument: {
                                method: "CREDIT_CARD",
                                creditCard: {
-                                 expirationMonth: 0o5,
+                                 expirationMonth: 05,
                                  expirationYear: 18,
                                  number: "4012001038443335",
                                  cvc: "123",

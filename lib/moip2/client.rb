@@ -4,7 +4,7 @@ module Moip2
 
     attr_reader :env, :auth, :uri
 
-    def initialize(env = :sandbox, auth = nil, opts = {}, host = nil)
+    def initialize(env = :sandbox, auth = nil, host = nil, opts = {})
       @env = env.to_sym
       @auth = auth
       @opts = opts

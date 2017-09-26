@@ -13,7 +13,7 @@ module Moip2
         end
       end
 
-      def create_multi_payment(_payment)
+      def create_multi_payment(_payment = nil)
         multi_payment_api.create
       end
     end
