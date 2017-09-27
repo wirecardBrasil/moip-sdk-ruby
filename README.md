@@ -57,6 +57,7 @@
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
     - [Atualizar Token OAuth](#atualizar-token-oauth)
+    - [Obter Chave Pública](#obter-chave-pública)
   - [Preferências de Notificação](#preferências-de-notificação)
     -  [Criação](#criação-7)
     -  [Consulta](#consulta-7)
@@ -435,6 +436,11 @@ api.connect.authorize(
   refresh_token: "1d5dc51e71674683b4ed79cd7a988fa1_v2",
   grant_type: "refresh_token"
 )
+```
+
+### Obter Chave Pública
+```ruby
+keys = api.keys.show
 ```
 
 ## Preferências de notificação
