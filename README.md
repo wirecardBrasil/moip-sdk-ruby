@@ -28,7 +28,7 @@
         - [Sem Filtro](#sem-filtro)
         - [Com Filtros](#com-filtros)
         - [Com Paginação](#com-paginação)
-        - [Por Own Id](#por-own-id)
+        - [Consulta Valor Específico](#consulta-valor-específico)
   - [Pagamentos](#pagamentos)
     - [Criação](#criação-2)
       - [Cartão de Crédito](#cartão-de-crédito)
@@ -209,9 +209,9 @@ orders = api.order.find_all(filters: { status: { in: ["PAID", "WAITING"] }, amou
 orders = api.order.find_all(limit: 10, offset: 50)
 ```
 
-##### Por Own Id
+##### Consulta Valor Específico
 ```ruby
-orders = api.order.find_all(q: "your_own_id")
+orders = api.order.find_all(q: "your_value")
 ```
 
 ## Pagamentos
