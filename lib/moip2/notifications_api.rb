@@ -6,22 +6,16 @@ module Moip2
       @client = client
     end
 
-    def base_path
-      "/v2/preferences/notifications"
-    end
-
-    def base_path_app(app_id)
-      "/v2/preferences/#{app_id}/notifications"
+    def base_path(app_id: nil, notification_id: nil)
+      ["", "v2", "preferences", app_id, "notifications", notification_id].compact.join("/")
     end
 
     def create(notification, app_id = nil)
-      path = app_id.nil? ? base_path : base_path_app(app_id)
-
-      Resource::Notification.new client, client.post(path, notification)
+      Resource::Notification.new client, client.post(base_path(app_id: app_id), notification)
     end
 
     def show(notification_id)
-      Resource::Notification.new client, client.get("#{base_path}/#{notification_id}")
+      Resource::Notification.new client, client.get(base_path(notification_id: notification_id))
     end
 
     def find_all
@@ -29,7 +23,9 @@ module Moip2
     end
 
     def delete(notification_id)
-      resp = Resource::Notification.new client, client.delete("#{base_path}/#{notification_id}")
+      resp = Resource::Notification.new client, client.delete(
+        base_path(notification_id: notification_id),
+      )
 
       resp.success?
     end

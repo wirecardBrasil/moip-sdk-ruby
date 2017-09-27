@@ -14,7 +14,7 @@ module Moip2
       Resource::Account.new client, client.post(base_path, account)
     end
 
-    def exists?(tax_document = "")
+    def exists?(tax_document)
       response = client.get("#{base_path}/exists?tax_document=#{tax_document}")
 
       response.success?
