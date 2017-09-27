@@ -28,6 +28,7 @@
         - [Sem Filtro](#sem-filtro)
         - [Com Filtros](#com-filtros)
         - [Com Paginação](#com-paginação)
+        - [Por Own Id](#por-own-id)
   - [Pagamentos](#pagamentos)
     - [Criação](#criação-2)
       - [Cartão de Crédito](#cartão-de-crédito)
@@ -206,6 +207,11 @@ orders = api.order.find_all(filters: { status: { in: ["PAID", "WAITING"] }, amou
 ##### Com Paginação
 ```ruby
 orders = api.order.find_all(limit: 10, offset: 50)
+```
+
+##### Por Own Id
+```ruby
+orders = api.order.find_all(q: "your_own_id")
 ```
 
 ## Pagamentos
