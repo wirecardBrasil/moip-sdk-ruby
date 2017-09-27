@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/orders?q=25051990
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 27 Sep 2017 12:52:58 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '863'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"_links":{"next":{"href":"https://test.moip.com.br/v2/orders?q=25051990&filters=&limit=0&offset=0"},"previous":{"href":"https://test.moip.com.br/v2/orders?q=25051990&filters=&limit=0&offset=0"}},"summary":{"count":1,"amount":2000},"orders":[{"id":"ORD-4DVPI2J0BET6","ownId":"25051990","status":"WAITING","blocked":false,"amount":{"total":2000,"addition":0,"fees":0,"deduction":0,"otherReceivers":0,"currency":"BRL"},"receivers":[{"type":"PRIMARY","moipAccount":{"id":"MPA-CULBBYHD11"}}],"customer":{"fullname":"jose
+        silva","email":"nome@email.com"},"items":[{"product":null}],"payments":[{"id":"PAY-9MFQPF57MRWR","installmentCount":1,"fundingInstrument":{"method":"BOLETO","brand":null}}],"events":[],"_links":{"self":{"href":"https://test.moip.com.br/v2/orders/ORD-4DVPI2J0BET6"}},"createdAt":"2017-09-20T15:22:38-0300","updatedAt":"2017-09-20T15:23:56-0300"}]}'
+    http_version: 
+  recorded_at: Wed, 27 Sep 2017 12:52:58 GMT
+recorded_with: VCR 2.9.3

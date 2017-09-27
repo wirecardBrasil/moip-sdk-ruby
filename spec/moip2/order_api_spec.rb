@@ -214,5 +214,28 @@ describe Moip2::OrderApi do
         end
       end
     end
+    
+    context "when passing ownID search with `q`" do
+      subject(:response) do
+        VCR.use_cassette("find_all_orders_q_search") do
+          order_api.find_all(q: "25051990")
+        end
+      end
+
+      it { expect(response).to be_a(Moip2::Resource::Order) }
+      it { expect(response._links).not_to be_nil }
+      it { expect(response.summary).not_to be_nil }
+
+      it "_links.next has the right filters" do
+        expect(response._links.next.href).to eq(
+          "https://test.moip.com.br/v2/orders" \
+          "?q=25051990&filters=&limit=0&offset=0",
+        )
+      end
+
+      it "all orders satisfy the status constraint" do
+        expect(response.orders.first.own_id).to eq("25051990")
+      end
+    end
   end
 end
