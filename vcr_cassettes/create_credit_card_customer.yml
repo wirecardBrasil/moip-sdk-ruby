@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/customers/CUS-4GESZSOAH7HX/fundinginstruments
+    body:
+      encoding: UTF-8
+      string: '{"method":"CREDIT_CARD","creditCard":{"expirationMonth":"05","expirationYear":"22","number":"5555666677778884","cvc":"123","holder":{"fullname":"Jose
+        Portador da Silva","birthdate":"1988-12-30","taxDocument":{"type":"CPF","number":"33333333333"},"phone":{"countryCode":"55","areaCode":"11","number":"66778899"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 22 Sep 2017 16:34:27 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWAQ0DAAZSFVIAUh9ABQZSWAJTXQRVV1EBBQUFAEYdUFIOFQY/
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '173'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"creditCard":{"id":"CRC-920F3Z3CTVN8","brand":"MASTERCARD","first6":"555566","last4":"8884","store":true},"card":{"brand":"MASTERCARD","store":true},"method":"CREDIT_CARD"}'
+    http_version: 
+  recorded_at: Fri, 22 Sep 2017 16:34:27 GMT
+recorded_with: VCR 2.9.3

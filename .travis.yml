@@ -1,10 +1,16 @@
 language: ruby
 rvm:
-  - 2.2
-  - 2.1
-  - 2.0.0
-
+- 2.2
+- 2.1
+- 2.0.0
 before_install:
-  - gem update bundler
-
+- gem update bundler
 bundler_args: --no-deployment
+deploy:
+  provider: rubygems
+  api_key:
+    secure: tGQRV+41CkKVpG+SUnGAYayQ8Uxd3EgZhVDCVRu8CzQMe7yvjkeOOdBpQviRoWAl+H+ThX/i3yE/zegeK4bv6biURj86PU2KzINGukVkqt+EoVqj9BDi4EKJgGUosNuGVuLiio58Pns2rvxndYN+czIKRu7GDJgNxWWGe3a11ekHDLgnecikqsZZRxX0GM+9lkZfQ2KhVqpBYEnVgAdT7w6QTdm91TW6/BDJxg1LTIt7X6qH++HJGmF6WdnPtPXKnucrYLZIfSSGqlB5q/8YtOwg6pxoTOtfsvM4afzDmxdUL8bA6qgvWU6qwIiH4iHP+cdBuuat4UdNNt4uds1t/y3cMdUU5EbQSldKB/zn+adTGYfb/WvS455jwS/RkRqn5AOPyySKclwBewOaZvrK7feR6OIIHEm1RR7s/nYLCa7YIZRyxuZ9C4QxPh2zRy+cnf9FhDi2gbgTcWd66E4xR26yPSnhNBpWXm6BLZB2ozvGO7CHZuNsWyAVJUcDGffSWq+rMlY+3mBwG3xwKxxYwpe8axBlDE7R6i7FwxYdoLWJixKoI7PS4jfx5SsHznYszzz4P4q6X8cx7HV3ahLas7eMuoxutsIsapnPqzsV8FTpHmfGL9tRO1d90IOWQ/92zUMCnOhWGZdB+63DOpZuvvgScVgs5UkdOjgRUFx+tZ4=
+  gem: moip2
+  on:
+    tags: true
+    repo: moip/moip-sdk-ruby

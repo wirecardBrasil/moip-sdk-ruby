@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/preferences/notifications
+    body:
+      encoding: UTF-8
+      string: '{"events":["ORDER.*","PAYMENT.AUTHORIZED","PAYMENT.CANCELLED"],"target":"http://requestb.in/1dhjesw1","media":"WEBHOOK"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 25 Sep 2017 12:09:54 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '187'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"events":["ORDER.*","PAYMENT.AUTHORIZED","PAYMENT.CANCELLED"],"target":"http://requestb.in/1dhjesw1","media":"WEBHOOK","token":"5877e87109cc4ef6ae9b1a181cf8a276","id":"NPR-1EICPJBCFS4J"}'
+    http_version: 
+  recorded_at: Mon, 25 Sep 2017 12:09:55 GMT
+recorded_with: VCR 2.9.3

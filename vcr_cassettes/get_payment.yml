@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/payments/PAY-CRUP19YU2VE1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 01 Sep 2017 17:39:05 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kUUE9eBwgXEWxNQxJZQVlXXRFwBUxBGyUhYh5DSlMWAxxUT1IBAg9VVwgCH1JKQQBRVQEBAQwGUQFVXVYAUQdASFBWDRUGZQ==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1207'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-CRUP19YU2VE1","status":"AUTHORIZED","delayCapture":false,"amount":{"total":500,"gross":500,"fees":76,"refunds":0,"liquid":424,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-W6DHWUOQLLF1","brand":"MASTERCARD","first6":"555566","last4":"8884","store":true,"holder":{"birthdate":"1988-12-30","birthDate":"1988-12-30","taxDocument":{"type":"CPF","number":"33333333333"},"fullname":"Jose
+        Portador da Silva"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":76}],"events":[{"type":"PAYMENT.AUTHORIZED","createdAt":"2015-06-14T21:13:53.000-03"},{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2015-06-14T21:13:50.000-03"},{"type":"PAYMENT.CREATED","createdAt":"2015-06-14T21:13:45.000-03"}],"receivers":[{"moipAccount":{"id":"MPA-CULBBYHD11","login":"integracao@labs.moip.com.br","fullname":"Moip
+        SandBox"},"type":"PRIMARY","amount":{"total":500,"fees":76,"refunds":0},"feePayor":true}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-CRUP19YU2VE1"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-DDT31SU6LXZO","title":"ORD-DDT31SU6LXZO"}},"updatedAt":"2015-06-14T21:13:53.000-03","createdAt":"2015-06-14T21:13:45.000-03"}'
+    http_version: 
+  recorded_at: Fri, 01 Sep 2017 17:39:05 GMT
+recorded_with: VCR 2.9.3

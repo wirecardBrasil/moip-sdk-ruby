@@ -7,7 +7,6 @@ module Moip2
         super(response)
         @client = client
       end
-
     end
   end
 end

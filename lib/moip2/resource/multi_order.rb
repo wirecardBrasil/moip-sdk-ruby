@@ -1,8 +1,6 @@
 module Moip2
-
   module Resource
     class MultiOrder < SimpleDelegator
-
       attr_reader :client, :multi_payment_api, :external_id
 
       def initialize(client, response)
@@ -15,11 +13,9 @@ module Moip2
         end
       end
 
-      def create_multi_payment(payment)
+      def create_multi_payment(_payment = nil)
         multi_payment_api.create
       end
-
     end
   end
-
 end
