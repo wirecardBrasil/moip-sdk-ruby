@@ -155,16 +155,10 @@ credit_card = api.customer.add_credit_card("CUSTOMER-ID",
 
 ### Deletar cartão de crédito
 
-> Retorna uma Exception do tipo `NotFoundError` caso não encontre o cartão de crédito para deletar
+> Retorna uma Exception do tipo `NotFoundError` caso não encontre o cartão de crédito para deletar.
 
 ```ruby
 api.customer.delete_credit_card!("CREDIT-CARD-ID")
-```
-
-> Retorna `false` caso não encontre o cartão de crédito para deletar
-
-```ruby
-api.customer.delete_credit_card("CREDIT-CARD-ID")
 ```
 
 ## Pedidos
