@@ -49,6 +49,8 @@
   - [Multipagamentos](#multipagamentos)
     - [Criação](#criação-5)
     - [Consulta](#consulta-5)
+    - [Capturar multipagamento pré-autorizado](#capturar-multipagamento-pré-autorizado)
+    - [Cancelar multipagamento pré-autorizado](#cancelar-multipagamento-pré-autorizado)
   - [Conta Moip](#conta-moip)
     - [Criação](#criação-6)
     - [Consulta](#consulta-6)
@@ -359,6 +361,15 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
 ### Consulta
 ```ruby
 multi_pag = api.multi_payment.show("MPY-V41BR451L")
+```
+
+### Capturar multipagamento pré-autorizado
+```ruby
+multi = api.multi_payment.capture("MPY-V41BR451L")
+```
+### Cancelar multipagamento pré-autorizado
+```ruby
+multi = api.multi_payment.void("MPY-V41BR451L")
 ```
 
 ## Conta Moip
