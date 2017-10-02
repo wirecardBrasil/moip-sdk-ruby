@@ -71,4 +71,19 @@ describe Moip2::MultiPaymentApi do
       end
     end
   end
+
+  describe "#void" do
+    let(:capture) do
+      VCR.use_cassette("void_multi_payment_sucess") do
+        multi_payment_api.void("MPY-4XRLP4YBLVFB")
+      end
+    end
+
+    it "updates the multipayment's statuses" do
+      expect(capture.status).to eq("CANCELLED")
+      expect(capture.payments).to satisfy do |payments|
+        payments.all? { |payment| payment.status == "CANCELLED" }
+      end
+    end
+  end
 end
