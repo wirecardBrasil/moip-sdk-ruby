@@ -21,5 +21,9 @@ module Moip2
     def capture(multi_payment_id)
       Resource::MultiPayment.new client.post("/v2/multipayments/#{multi_payment_id}/capture", {})
     end
+
+    def void(multi_payment_id)
+      Resource::MultiPayment.new client.post("/v2/multipayments/#{multi_payment_id}/void", {})
+    end
   end
 end
