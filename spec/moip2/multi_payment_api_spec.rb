@@ -8,8 +8,8 @@ describe Moip2::MultiPaymentApi do
         fundingInstrument: {
           method: "CREDIT_CARD",
           creditCard: {
-            expirationMonth: 05,
-            expirationYear: 18,
+            expirationMonth: "05",
+            expirationYear: "18",
             number: "4012001038443335",
             cvc: "123",
             holder: {
@@ -54,6 +54,21 @@ describe Moip2::MultiPaymentApi do
       expect(multi_payment.id).to eq "MPY-DSA3I67FOKES"
       expect(multi_payment.payments).to_not be_nil
       expect(multi_payment.status).to eq "AUTHORIZED"
+    end
+  end
+
+  describe "#capture" do
+    let(:capture) do
+      VCR.use_cassette("capture_multi_payment_sucess") do
+        multi_payment_api.capture("MPY-89Q4R26EKU9D")
+      end
+    end
+
+    it "updates the multipayment's statuses" do
+      expect(capture.status).to eq("AUTHORIZED")
+      expect(capture.payments).to satisfy do |payments|
+        payments.all? { |payment| payment.status == "AUTHORIZED" }
+      end
     end
   end
 end
