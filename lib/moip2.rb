@@ -20,6 +20,7 @@ require "moip2/resource/webhooks"
 require "moip2/resource/connect"
 require "moip2/resource/credit_card"
 require "moip2/resource/notification"
+require "moip2/resource/balances"
 
 require "moip2/response"
 require "moip2/client"
@@ -36,6 +37,7 @@ require "moip2/webhooks_api"
 require "moip2/accounts_api"
 require "moip2/connect_api"
 require "moip2/notifications_api"
+require "moip2/balances_api"
 
 require "moip2/exceptions/invalid_enviroment_error"
 
