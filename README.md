@@ -65,6 +65,8 @@
     -  [Consulta](#consulta-7)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
+  - [Saldo Moip](#saldo-moip)
+    -  [Consulta](#consulta-8)
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
@@ -480,6 +482,12 @@ api.notifications.delete("NOTIFICATION-ID")
 ### Listagem
 ```ruby
 api.notifications.find_all
+```
+
+## Saldo Moip
+### Consulta
+```ruby
+api.balances.show()
 ```
 
 ## Tratamento de Exceções
