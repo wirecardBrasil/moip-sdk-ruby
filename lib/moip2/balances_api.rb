@@ -3,6 +3,7 @@ module Moip2
     attr_reader :client
 
     def initialize(client)
+      client.opts[:headers]["Accept"] = "application/json;version=2.1"
       @client = client
     end
 

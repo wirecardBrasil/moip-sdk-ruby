@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/balances
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+      Accept:
+      - application/json;version=2.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 07 Oct 2017 12:23:27 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAQFXVddAQMQQhglfTYRGhgCHVUVUR9RA1RUAgBVVVcUAxxGBABTAVNSBglQBVtXVgQDBxpOXllYQVY4
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '152'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"unavailable":[{"amount":-108369299,"currency":"BRL"}],"future":[{"amount":64261430,"currency":"BRL"}],"current":[{"amount":9541688,"currency":"BRL"}]}'
+    http_version: 
+  recorded_at: Sat, 07 Oct 2017 12:23:27 GMT
+recorded_with: VCR 2.9.3
