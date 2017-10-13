@@ -23,6 +23,7 @@ require "moip2/resource/notification"
 
 require "moip2/response"
 require "moip2/client"
+require "moip2/connect_client"
 require "moip2/order_api"
 require "moip2/multi_order_api"
 require "moip2/payment_api"

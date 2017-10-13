@@ -7,7 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/gpa.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby)
 [![Test Coverage](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/coverage.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby/coverage)
 
-**Índice** 
+**Índice**
 
 - [Instalação](#instalação)
 - [Configurando a autenticação](#configurando-a-autenticação)
@@ -98,6 +98,13 @@ Após isso, é necessário instanciar um ponto de acesso a partir do qual você 
 api = Moip2::Api.new(client)
 ```
 
+Você pode customizar o client passando um hash de opções na inicialização. Essas opções serão passadas adiante para o client HTTParty, que aceita as opções descritas [na documentação](http://www.rubydoc.info/github/jnunemaker/httparty/HTTParty/ClassMethods).
+
+Por exemplo, para alterar o timeout das requisições para 5 segundos:
+```ruby
+client = Moip2::Client.new(:sandbox/:production, auth, timeout: 5)
+```
+
 ## Clientes
 ### Criação
 ```ruby
@@ -127,7 +134,7 @@ customer = api.customer.show("CUS-V41BR451L")
 
 ### Adicionar cartão de crédito
 ```ruby
-credit_card = api.customer.add_credit_card("CUSTOMER-ID", 
+credit_card = api.customer.add_credit_card("CUSTOMER-ID",
     {
       method: "CREDIT_CARD",
       creditCard: {
@@ -212,7 +219,7 @@ orders = api.order.find_all(q: "your_value")
 ## Pagamentos
 
 ### Criação
-#### Cartão de Crédito 
+#### Cartão de Crédito
 ##### Com Hash
 
 ```ruby
@@ -237,7 +244,7 @@ api.payment.create(order.id,
 )
 ```
 
-##### Com Dados do Cartão 
+##### Com Dados do Cartão
 > Esses método requer certificação PCI. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#criar-pagamento)
 
 ```ruby
@@ -345,7 +352,7 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
   {
     installmentCount: 1,
     fundingInstrument: {
-      # ... 
+      # ...
     }
   }
 )

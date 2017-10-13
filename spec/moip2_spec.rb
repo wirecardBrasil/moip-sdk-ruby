@@ -36,7 +36,7 @@ describe Moip2 do
       end
 
       it "raises an error" do
-        expect { moip }.to raise_error
+        expect { moip }.to raise_error("Auth is not set")
       end
     end
   end

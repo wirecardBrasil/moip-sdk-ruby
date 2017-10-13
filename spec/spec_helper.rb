@@ -7,8 +7,6 @@ SimpleCov.start
 
 RSpec.configure do |config|
 end
-ENV["sandbox_url"] = "https://sandbox.moip.com.br"
-ENV["connect_sandbox_url"] = "https://connect-sandbox.moip.com.br"
 
 VCR.configure do |c|
   c.cassette_library_dir = "vcr_cassettes"
@@ -36,18 +34,9 @@ def sandbox_client
 end
 
 def sandbox_oauth_client
-  Moip2::Client.new :sandbox, sandbox_oauth
+  Moip2::Client.new(:sandbox, sandbox_oauth)
 end
 
-def sanbox_client_with_header
-  Moip2::Client.new(:sandbox, sandbox_auth, headers: { "Moip-Account" => "MPA-UY765TYBL912" })
-end
-
-def sandbox_client_connect
-  Moip2::Client.new(
-    :sandbox,
-    sandbox_auth,
-    ENV["connect_sandbox_url"],
-    {},
-  )
+def sandbox_connect_client
+  Moip2::ConnectClient.new(:sandbox, sandbox_auth)
 end
