@@ -111,7 +111,6 @@ DEPENDENCIES
   codeclimate-test-reporter
   guard-rspec
   moip2!
-  pry
   rake
   rspec
   rubocop (= 0.49.1)
