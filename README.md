@@ -494,7 +494,7 @@ api.balances.show()
 =======
 ### Show all entries
 ```ruby
-  entry_api.index
+  entry_api.find_all
 ```
 ### Show one entry
 ```ruby
