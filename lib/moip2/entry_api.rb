@@ -14,7 +14,7 @@ module Moip2
       Resource::Entry.new client, client.get("#{base_path}/#{id}")
     end
 
-    def index
+    def find_all
       Resource::Entry.new client, client.get("#{base_path}")
     end
   end
