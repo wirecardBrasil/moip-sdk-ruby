@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/entries
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Oct 2017 15:23:30 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAMKRURaBxVDSncnbEsaFAQcA0kJTwFQC1RcAwRUVE8IHxICVgMCVwRRBVcHUFpUAgYIQBQEWVRHV24=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '11375'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '[{"external_id":"ENT-2JHP5A593QSW","reschedule":[],"scheduledFor":"2012-08-31T16:59:36.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":150,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":150,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145470,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-AQITTDNDKBU9","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-UF4E00XMFDL1","blocked":false,"settledAt":"2012-08-31T00:00:00.000Z","liquidAmount":0},{"external_id":"ENT-RSYUVS4C59PO","reschedule":[],"scheduledFor":"2012-09-07T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":83,"type":"TRANSACTION"}],"type":"MOIP_WALLET","grossAmount":1500,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145466,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-VCOEO2GV65DE","createdAt":"2014-04-16T16:16:12.000Z","description":"Conta
+        Moip - Pedido ORD-F4LJ3TF0ZGRN","blocked":false,"settledAt":"2012-09-07T00:00:00.000Z","liquidAmount":1417},{"external_id":"ENT-5F2HORLV5COX","reschedule":[],"scheduledFor":"2012-09-11T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":68,"type":"TRANSACTION"}],"type":"BOLETO","grossAmount":1000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145467,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-WL611OIEK23Y","createdAt":"2014-04-16T16:16:12.000Z","description":"Boleto
+        - Pedido ORD-WER11O3QNUFX","blocked":false,"settledAt":"2012-09-11T00:00:00.000Z","liquidAmount":932},{"external_id":"ENT-C76U13FPXV74","reschedule":[],"scheduledFor":"2012-09-11T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145468,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-7VQ8H93FSK3Y","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-9SJGSUE8473Y","blocked":false,"settledAt":"2012-09-11T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-Z5E7B7QPYYNV","reschedule":[],"scheduledFor":"2012-09-11T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145469,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-0JU3HME80YC1","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-301971ZSKQRB","blocked":false,"settledAt":"2012-09-11T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-ENWYDD1MWAD8","reschedule":[],"scheduledFor":"2012-09-12T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":113,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":1000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145472,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-9NJ1PNL2EHRU","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-XX447G10M3BM","blocked":false,"settledAt":"2012-09-12T00:00:00.000Z","liquidAmount":887},{"external_id":"ENT-M9BQBGKA4DNB","reschedule":[],"scheduledFor":"2012-09-14T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":409,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":5000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145473,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-5ESU4MQ6I71E","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-FFQNTJXLOR06","blocked":false,"settledAt":"2012-09-14T00:00:00.000Z","liquidAmount":4591},{"external_id":"ENT-5WXU9PLX0IH8","reschedule":[],"scheduledFor":"2012-09-15T02:32:21.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":910,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":8446,"moipAccountId":4477,"updatedAt":"2016-12-22T13:13:01.000Z","id":33291502,"installment":{"amount":1,"number":1},"references":[{"value":"rangri_dev
+        1029","type":"OWN_ID"},{"value":"ORD-YGY0BQW9CYBG","type":"ORDER"}],"eventId":"PAY-Z3L2N0ZMD1LP","createdAt":"2016-12-22T13:13:01.000Z","description":"Cartao
+        de credito - Pedido ORD-YGY0BQW9CYBG","blocked":false,"settledAt":"2012-09-15T02:32:21.000Z","liquidAmount":7536},{"external_id":"ENT-QN3GTPU5CQJU","reschedule":[],"scheduledFor":"2012-09-16T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":300,"type":"TRANSACTION"}],"type":"BANK_DEBIT","grossAmount":9000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145475,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-XIQIISI0BZYL","createdAt":"2014-04-16T16:16:12.000Z","description":"Debito
+        bancario - Pedido ORD-HF7PSUTLR1SA","blocked":false,"settledAt":"2012-09-16T00:00:00.000Z","liquidAmount":8700},{"external_id":"ENT-9YAE94JYVASS","reschedule":[],"scheduledFor":"2012-09-16T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":705,"type":"TRANSACTION"}],"type":"DEBIT_CARD","grossAmount":9000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145476,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-VG3YFWITYQAQ","createdAt":"2014-04-16T16:16:13.000Z","description":"Cartao
+        de debito - Pedido ORD-NTVQAUOZPFKC","blocked":false,"settledAt":"2012-09-16T00:00:00.000Z","liquidAmount":8295},{"external_id":"ENT-AS8XUISRFBFF","reschedule":[],"scheduledFor":"2012-09-16T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":995,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":9270,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145474,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-Z5SDX357Y7QQ","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-CW7XE0B85ZZF","blocked":false,"settledAt":"2012-09-16T00:00:00.000Z","liquidAmount":8275},{"external_id":"ENT-68UGZU9R7EU6","reschedule":[],"scheduledFor":"2012-09-16T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":927,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":12000,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145477,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-T0RUVC2MM3TM","createdAt":"2014-04-16T16:16:13.000Z","description":"Cartao
+        de credito - Pedido ORD-5OFOCCJ0WV59","blocked":false,"settledAt":"2012-09-16T00:00:00.000Z","liquidAmount":11073},{"external_id":"ENT-YPNQIEEFZNY4","reschedule":[],"scheduledFor":"2012-09-16T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":42,"type":"TRANSACTION"}],"type":"BOLETO","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145478,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-RODDG6O2MA4X","createdAt":"2014-04-16T16:16:13.000Z","description":"Boleto
+        - Pedido ORD-WHUYPEAIK0X9","blocked":false,"settledAt":"2012-09-16T00:00:00.000Z","liquidAmount":58},{"external_id":"ENT-OGT4CTUTUMFR","reschedule":[],"scheduledFor":"2012-09-17T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145479,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-XI75RK8T9GKT","createdAt":"2014-04-16T16:16:13.000Z","description":"Cartao
+        de credito - Pedido ORD-443TWU8RI106","blocked":false,"settledAt":"2012-09-17T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-14KM574GDXTH","reschedule":[],"scheduledFor":"2012-09-24T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":42,"type":"TRANSACTION"}],"type":"BANK_DEBIT","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145482,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-C8MHT5P3TS99","createdAt":"2014-04-16T16:16:13.000Z","description":"Debito
+        bancario - Pedido ORD-B3ZXH6A84O9T","blocked":false,"settledAt":"2012-09-24T00:00:00.000Z","liquidAmount":58},{"external_id":"ENT-HPMDTCSFBXJP","reschedule":[],"scheduledFor":"2012-09-29T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145483,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-EVFDAGZ2K549","createdAt":"2014-04-16T16:16:13.000Z","description":"Cartao
+        de credito - Pedido ORD-R1ZQTB02O0K2","blocked":false,"settledAt":"2012-09-29T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-M4UU1672IVIX","reschedule":[],"scheduledFor":"2012-10-02T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"DEBIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:14.000Z","id":145485,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-8Z0RPL4KKT7U","createdAt":"2014-04-16T16:16:14.000Z","description":"Cartao
+        de debito - Pedido ORD-DD0U0BJNEFHR","blocked":false,"settledAt":"2012-10-02T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-MKEAX7F7VYBT","reschedule":[],"scheduledFor":"2012-10-02T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:13.000Z","id":145484,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-HWWRUBKC3OST","createdAt":"2014-04-16T16:16:13.000Z","description":"Cartao
+        de credito - Pedido ORD-KSMY03Z63GD3","blocked":false,"settledAt":"2012-10-02T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-08N8MN5S36JV","reschedule":[],"scheduledFor":"2012-10-03T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:14.000Z","id":145486,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-YFAPUA20MGKW","createdAt":"2014-04-16T16:16:14.000Z","description":"Cartao
+        de credito - Pedido ORD-OOYP6IPXKCDQ","blocked":false,"settledAt":"2012-10-03T00:00:00.000Z","liquidAmount":54},{"external_id":"ENT-4IW47SJQ9NQC","reschedule":[],"scheduledFor":"2012-10-04T00:00:00.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":46,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":100,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:14.000Z","id":145488,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-KSF8I5EEZFF3","createdAt":"2014-04-16T16:16:14.000Z","description":"Cartao
+        de credito - Pedido ORD-5FOUMZVNPIVM","blocked":false,"settledAt":"2012-10-04T00:00:00.000Z","liquidAmount":54}]'
+    http_version: 
+  recorded_at: Tue, 17 Oct 2017 15:23:30 GMT
+recorded_with: VCR 2.9.3
