@@ -483,7 +483,6 @@ api.notifications.delete("NOTIFICATION-ID")
 ```ruby
 api.notifications.find_all
 ```
-<<<<<<< HEAD
 
 ## Saldo Moip
 ### Consulta
@@ -491,7 +490,6 @@ api.notifications.find_all
 api.balances.show()
 ```
 
-=======
 ### Show all entries
 ```ruby
   entry_api.find_all
@@ -500,7 +498,6 @@ api.balances.show()
 ```ruby
   entry_api.show(entry_id)
 ```
->>>>>>> add feature show and index to entry
 ## Tratamento de Exceções
 
 Caso algum recurso não seja encontrado uma exceção do tipo `NotFoundError` será lançada.
