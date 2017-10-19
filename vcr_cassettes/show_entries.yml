@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/entries/ENT-2JHP5A593QSW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Oct 2017 15:23:29 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAMKRURaBxU/TUsLXB8YEHN3Z0wbTQFPA05UGAdRUVoBAQNWVE4HHRUEVFIDAlAHUAEHAVtXDVtWEB8DWA1CBG4=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '564'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"external_id":"ENT-2JHP5A593QSW","reschedule":[],"scheduledFor":"2012-08-31T16:59:36.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[{"amount":150,"type":"TRANSACTION"}],"type":"CREDIT_CARD","grossAmount":150,"moipAccountId":4477,"updatedAt":"2014-04-16T16:16:12.000Z","id":145470,"installment":{"amount":1,"number":1},"references":[],"eventId":"PAY-AQITTDNDKBU9","createdAt":"2014-04-16T16:16:12.000Z","description":"Cartao
+        de credito - Pedido ORD-UF4E00XMFDL1","blocked":false,"settledAt":"2012-08-31T00:00:00.000Z","liquidAmount":0}'
+    http_version: 
+  recorded_at: Tue, 17 Oct 2017 15:23:29 GMT
+recorded_with: VCR 2.9.3

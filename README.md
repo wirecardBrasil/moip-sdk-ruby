@@ -7,7 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/gpa.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby)
 [![Test Coverage](https://codeclimate.com/github/moip/moip-sdk-ruby/badges/coverage.svg)](https://codeclimate.com/github/moip/moip-sdk-ruby/coverage)
 
-**Índice** 
+**Índice**
 
 - [Instalação](#instalação)
 - [Configurando a autenticação](#configurando-a-autenticação)
@@ -131,7 +131,7 @@ customer = api.customer.show("CUS-V41BR451L")
 
 ### Adicionar cartão de crédito
 ```ruby
-credit_card = api.customer.add_credit_card("CUSTOMER-ID", 
+credit_card = api.customer.add_credit_card("CUSTOMER-ID",
     {
       method: "CREDIT_CARD",
       creditCard: {
@@ -222,7 +222,7 @@ orders = api.order.find_all(q: "your_value")
 ## Pagamentos
 
 ### Criação
-#### Cartão de Crédito 
+#### Cartão de Crédito
 ##### Com Hash
 
 ```ruby
@@ -247,7 +247,7 @@ api.payment.create(order.id,
 )
 ```
 
-##### Com Dados do Cartão 
+##### Com Dados do Cartão
 > Esses método requer certificação PCI. [Consulte a documentação.](https://documentao-moip.readme.io/v2.0/reference#criar-pagamento)
 
 ```ruby
@@ -355,7 +355,7 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
   {
     installmentCount: 1,
     fundingInstrument: {
-      # ... 
+      # ...
     }
   }
 )
@@ -490,6 +490,14 @@ api.notifications.find_all
 api.balances.show()
 ```
 
+### Show all entries
+```ruby
+  entry_api.find_all
+```
+### Show one entry
+```ruby
+  entry_api.show(entry_id)
+```
 ## Tratamento de Exceções
 
 Caso algum recurso não seja encontrado uma exceção do tipo `NotFoundError` será lançada.
