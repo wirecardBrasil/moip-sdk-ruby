@@ -492,11 +492,11 @@ api.balances.show()
 
 ### Show all entries
 ```ruby
-  entry_api.find_all
+  api.entries.find_all
 ```
 ### Show one entry
 ```ruby
-  entry_api.show(entry_id)
+  api.entries.show(entry_id)
 ```
 ## Tratamento de Exceções
 
