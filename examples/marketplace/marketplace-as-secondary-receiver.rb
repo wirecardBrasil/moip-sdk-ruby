@@ -3,7 +3,7 @@
 # instead of reinstantiating them every time.
 gem "moip2"
 
-# Seller accessToken
+# Seller's access token
 auth = Moip2::Auth::OAuth.new("472690dc1a5d4993ac1ac0244333892c_v2")
 
 client = Moip2::Client.new(:sandbox, auth)
