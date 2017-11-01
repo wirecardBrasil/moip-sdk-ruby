@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/bankaccounts/BKA-F00B4R123456
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 01 Nov 2017 21:39:05 GMT
+      Server:
+      - Apache
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMOVUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAQFX11SAQUMF14WSz4XQ1ZTXQ5wBUxBGyYhenI1I0oaHwBKUU4HHwdTUgEABFZUT1IcQFkHAQAGAVVSCFMDVgBTUAIVTQACVEBVOQ==
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Content-Length:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 01 Nov 2017 21:39:05 GMT
+recorded_with: VCR 2.9.3
