@@ -4,12 +4,12 @@ module Moip2
 
     attr_reader :env, :auth, :uri
 
-    def initialize(env = :sandbox, auth = nil, host = get_base_uri(env), opts = {})
+    def initialize(env = :sandbox, auth = nil, opts = {})
       @env = env.to_sym
       @auth = auth
       @opts = opts
 
-      @uri = host
+      @uri = get_base_uri
       self.class.base_uri @uri
     end
 
@@ -62,18 +62,18 @@ module Moip2
       create_response resp
     end
 
+    def host
+      if production?
+        "api.moip.com.br"
+      else
+        "sandbox.moip.com.br"
+      end
+    end
+
     private
 
-    def get_base_uri(env)
-      return ENV["base_uri"] if ENV["base_uri"]
-
-      @env = env.to_sym
-
-      if production?
-        "https://api.moip.com.br"
-      else
-        "https://sandbox.moip.com.br"
-      end
+    def get_base_uri
+      "https://#{host}"
     end
 
     def create_response(resp)

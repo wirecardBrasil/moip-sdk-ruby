@@ -25,7 +25,7 @@ describe Moip2::CustomerApi do
     it {
       expect(
         customer._links.self.href,
-      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-B6LE6HLFFXKF"
+      ).to eq "https://sandbox.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"
     }
   end
 
@@ -110,7 +110,7 @@ describe Moip2::CustomerApi do
     it {
       expect(
         created_customer_with_funding_instrument._links.self.href,
-      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-E5CO735TBXTI"
+      ).to eq "https://sandbox.moip.com.br/v2/customers/CUS-E5CO735TBXTI"
     }
   end
 
@@ -161,7 +161,7 @@ describe Moip2::CustomerApi do
     it {
       expect(
         created_customer._links.self.href,
-      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-4GESZSOAH7HX"
+      ).to eq "https://sandbox.moip.com.br/v2/customers/CUS-4GESZSOAH7HX"
     }
   end
 

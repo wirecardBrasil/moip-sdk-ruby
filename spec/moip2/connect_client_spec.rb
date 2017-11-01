@@ -1,4 +1,4 @@
-describe Moip2::Client do
+describe Moip2::ConnectClient do
   let(:auth) do
     Moip2::Auth::Basic.new("TOKEN", "SECRET")
   end
@@ -20,7 +20,7 @@ describe Moip2::Client do
       described_class.new :sandbox, oauth
     end
 
-    it { expect(client.uri).to eq "https://sandbox.moip.com.br" }
+    it { expect(client.uri).to eq "https://connect-sandbox.moip.com.br" }
     it { expect(client.env).to eq :sandbox }
     it do
       expect(client.opts[:headers]["Authorization"]).
@@ -33,7 +33,7 @@ describe Moip2::Client do
       described_class.new :production, oauth
     end
 
-    it { expect(client.uri).to eq "https://api.moip.com.br" }
+    it { expect(client.uri).to eq "https://connect.moip.com.br" }
     it { expect(client.env).to eq :production }
     it do
       expect(client.opts[:headers]["Authorization"]).
@@ -46,7 +46,7 @@ describe Moip2::Client do
       described_class.new :sandbox, auth
     end
 
-    it { expect(client.uri).to eq "https://sandbox.moip.com.br" }
+    it { expect(client.uri).to eq "https://connect-sandbox.moip.com.br" }
     it { expect(client.env).to eq :sandbox }
     it { expect(client.opts[:headers]["Authorization"]).to eq "Basic VE9LRU46U0VDUkVU" }
   end
@@ -56,7 +56,7 @@ describe Moip2::Client do
       described_class.new :production, auth
     end
 
-    it { expect(client.uri).to eq "https://api.moip.com.br" }
+    it { expect(client.uri).to eq "https://connect.moip.com.br" }
     it { expect(client.env).to eq :production }
     it { expect(client.opts[:headers]["Authorization"]).to eq "Basic VE9LRU46U0VDUkVU" }
   end
