@@ -43,14 +43,14 @@ api = Moip2::Api.new(client)
 
 # Create a bank account
 bank_account = api.bank_accounts.create("MPA-14C9EE706C55",
-      bankNumber: "237",
-      agencyNumber: "12345",
-      agencyCheckNumber: "0",
-      accountNumber: "12345678",
-      accountCheckNumber: "7",
+      bank_number: "237",
+      agency_number: "12345",
+      agency_check_number: "0",
+      account_number: "12345678",
+      account_check_number: "7",
       type: "CHECKING",
       holder: {
-        taxDocument: {
+        tax_document: {
           type: "CPF",
           number: "164.664.426-32",
         },
@@ -65,14 +65,14 @@ api.bank_accounts.find_all("MPA-14C9EE706C55")
 
 # Update a bank account
 api.bank_accounts.update("BKA-DWTSK16UQI9N",
-      bankNumber: "237",
-      agencyNumber: "12345",
-      agencyCheckNumber: "0",
-      accountNumber: "87654323",
-      accountCheckNumber: "7",
+      bank_number: "237",
+      agency_number: "12345",
+      agency_check_number: "0",
+      account_number: "87654323",
+      account_check_number: "7",
       type: "CHECKING",
       holder: {
-        taxDocument: {
+        tax_document: {
           type: "CPF",
           number: "164.664.426-32",
         },
