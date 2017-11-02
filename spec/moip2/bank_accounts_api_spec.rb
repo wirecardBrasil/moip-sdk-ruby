@@ -5,14 +5,14 @@ describe Moip2::BankAccountsApi do
     context "when given an existent moip account" do
       let(:bank_account) do
         {
-          bankNumber: "237",
-          agencyNumber: "12345",
-          agencyCheckNumber: "0",
-          accountNumber: "12345678",
-          accountCheckNumber: "7",
+          bank_number: "237",
+          agency_number: "12345",
+          agency_check_number: "0",
+          account_number: "12345678",
+          account_check_number: "7",
           type: "CHECKING",
           holder: {
-            taxDocument: {
+            tax_document: {
               type: "CPF",
               number: "255.328.259-12",
             },
@@ -44,14 +44,14 @@ describe Moip2::BankAccountsApi do
     context "when given a nonexistent moip account" do
       let(:non_created_bank_account) do
         {
-          bankNumber: "237",
-          agencyNumber: "12345",
-          agencyCheckNumber: "0",
-          accountNumber: "12345678",
-          accountCheckNumber: "7",
+          bank_number: "237",
+          agency_number: "12345",
+          agency_check_number: "0",
+          account_number: "12345678",
+          account_check_number: "7",
           type: "CHECKING",
           holder: {
-            taxDocument: {
+            tax_document: {
               type: "CPF",
               number: "255.328.259-12",
             },
@@ -115,14 +115,14 @@ describe Moip2::BankAccountsApi do
   describe "#update" do
     let(:bank_account) do
       {
-        bankNumber: "237",
-        agencyNumber: "54321",
-        agencyCheckNumber: "0",
-        accountNumber: "12345678",
-        accountCheckNumber: "7",
+        bank_number: "237",
+        agency_number: "54321",
+        agency_check_number: "0",
+        account_number: "12345678",
+        account_check_number: "7",
         type: "CHECKING",
         holder: {
-          taxDocument: {
+          tax_document: {
             type: "CPF",
             number: "255.328.259-12",
           },
