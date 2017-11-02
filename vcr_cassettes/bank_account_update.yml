@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/bankaccounts/BKA-QQSVKMC06A6I
+    body:
+      encoding: UTF-8
+      string: '{"bankNumber":"237","agencyNumber":"54321","agencyCheckNumber":"0","accountNumber":"12345678","accountCheckNumber":"7","type":"CHECKING","holder":{"taxDocument":{"type":"CPF","number":"255.328.259-12"},"fullname":"Jose
+        Silva dos Santos"}}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Nov 2017 21:22:41 GMT
+      Server:
+      - Apache
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMOVUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAQFX11SAQUMF14WSz4XQ1ZTXQ5wBUxBGzIxYh5DSlMWAxxUT1MBAg9RVAIaAVFeT0AFBAEEAVlWVgEHCVYBVwFURhpRAAoQXW4=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '479'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"BKA-QQSVKMC06A6I","agencyNumber":"54321","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"thirdParty":false,"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"12345678","status":"NOT_VERIFIED","createdAt":"2017-11-01T19:20:16.000-02:00","accountCheckNumber":"7","_links":{"self":{"href":"https://sandbox.moip.com.br//accounts/BKA-QQSVKMC06A6I/bankaccounts"}},"bankName":"BANCO
+        BRADESCO S.A.","type":"CHECKING","agencyCheckNumber":"0","bankNumber":"237"}'
+    http_version: 
+  recorded_at: Wed, 01 Nov 2017 21:22:41 GMT
+recorded_with: VCR 2.9.3

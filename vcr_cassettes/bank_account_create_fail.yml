@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/accounts/MPA-F00B4R123456/bankaccounts
+    body:
+      encoding: UTF-8
+      string: '{"bankNumber":"237","agencyNumber":"12345","agencyCheckNumber":"0","accountNumber":"12345678","accountCheckNumber":"7","type":"CHECKING","holder":{"taxDocument":{"type":"CPF","number":"255.328.259-12"},"fullname":"Jose
+        Silva dos Santos"}}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Wed, 01 Nov 2017 21:57:03 GMT
+      Server:
+      - Apache
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMOVUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAcHUllGDBIQPh8ZWQFbV0FcRyxdHG1OUQMKXVYCBQxNXUQXQUpnfmQyTRMaA0xWT1ceVwtXAQpxHwdJC1IJTREBXFADBQMBXVIBBwRUBFQDREhXV18RAz4=
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Content-Length:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 01 Nov 2017 21:57:03 GMT
+recorded_with: VCR 2.9.3

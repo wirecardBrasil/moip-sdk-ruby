@@ -50,6 +50,10 @@ module Moip2
       Moip2::AccountsApi.new(client)
     end
 
+    def bank_accounts
+      Moip2::BankAccountsApi.new(client)
+    end
+
     def connect
       host = Moip2::ConnectApi.host(client.env)
       connect_client = Client.new(client.env, client.auth, host, client.opts)
