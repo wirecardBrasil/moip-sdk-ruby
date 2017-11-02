@@ -55,18 +55,24 @@
     - [Criação](#criação-6)
     - [Consulta](#consulta-6)
     - [Verifica se usuário já possui Conta Moip](#verifica-se-usuário-já-possui-conta-moip)
+  - [Conta Bancária](#conta-bancária)
+    - [Criação](#criação-7)
+    - [Consulta](#consulta-7)
+    - [Listagem](#listagem)
+    - [Atualizar conta bancária](#atualizar-conta-bancaria)
+    - [Deletar conta bancária](#deletar-conta-bancaria)
   - [OAuth (Moip Connect)](#oauth-(moip-connect))
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
     - [Atualizar Token OAuth](#atualizar-token-oauth)
     - [Obter Chave Pública](#obter-chave-pública)
   - [Preferências de Notificação](#preferências-de-notificação)
-    -  [Criação](#criação-7)
-    -  [Consulta](#consulta-7)
+    -  [Criação](#criação-8)
+    -  [Consulta](#consulta-8)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
   - [Saldo Moip](#saldo-moip)
-    -  [Consulta](#consulta-8)
+    -  [Consulta](#consulta-9)
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
@@ -424,6 +430,59 @@ account = api.accounts.show("MPA-12312312312")
 ### Verifica se usuário já possui Conta Moip
 ```ruby
 api.accounts.exists?("123.456.789.10")
+```
+
+## Conta bancária
+### Criação
+```ruby
+bank_account = api.bank_accounts.create("MPA-14C9EE706C55",
+      bankNumber: "237",
+      agencyNumber: "12345",
+      agencyCheckNumber: "0",
+      accountNumber: "12345678",
+      accountCheckNumber: "7",
+      type: "CHECKING",
+      holder: {
+        taxDocument: {
+          type: "CPF",
+          number: "164.664.426-32",
+        },
+        fullname: "Sales Machine da Silva",
+      })
+```
+
+### Consulta
+```ruby
+api.bank_accounts.show("BKA-DWTSK16UQI9N")
+```
+
+### Listagem
+```ruby
+api.bank_accounts.find_all("MPA-14C9EE706C55")
+```
+
+### Atualizar conta bancaria
+```ruby
+api.bank_accounts.update("BKA-DWTSK16UQI9N",
+      bankNumber: "237",
+      agencyNumber: "12345",
+      agencyCheckNumber: "0",
+      accountNumber: "87654323",
+      accountCheckNumber: "7",
+      type: "CHECKING",
+      holder: {
+        taxDocument: {
+          type: "CPF",
+          number: "164.664.426-32",
+        },
+        fullname: "Sales Machine da Silva",
+      })
+```
+
+### Deletar conta bancaria
+> Retorna uma Exception do tipo `NotFoundError` caso não encontre a conta bancária para deletar
+```ruby
+  api.bank_accounts.delete("BKA-DWTSK16UQI9N")
 ```
 
 ## OAuth (Moip Connect)
