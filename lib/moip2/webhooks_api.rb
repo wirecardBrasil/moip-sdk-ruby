@@ -10,8 +10,13 @@ module Moip2
       "/v2/webhooks"
     end
 
-    def show
+    def find_all
       Resource::Webhooks.new(client, client.get(base_path.to_s))
+    end
+
+    def show(resource_id)
+      show_webhook_path = "#{base_path}?resourceId=#{resource_id}"
+      Resource::Webhooks.new(client, client.get(show_webhook_path))
     end
   end
 end
