@@ -54,6 +54,10 @@ module Moip2
       Moip2::BankAccountsApi.new(client)
     end
 
+    def webhooks
+      Moip2::WebhooksApi.new(client)
+    end
+
     def connect
       host = Moip2::ConnectApi.host(client.env)
       connect_client = Client.new(client.env, client.auth, host, client.opts)
