@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
     "Caio Gama",
     "João Lucas Lucchetta",
     "Caio Gaspar",
+    "Jair Bressani Junior",
   ]
   spec.email = [
     "rodrigo.saito@moip.com.br",
@@ -20,6 +21,7 @@ Gem::Specification.new do |spec|
     "caio.gama@moip.com.br",
     "joao.lucchetta@moip.com.br",
     "caio.gaspar@moip.com.br",
+    "jair.bressani@moip.com.br",
   ]
   spec.summary       = "Ruby client for moip v2 api"
   spec.description   = "Ruby client for moip v2 api"
