@@ -71,8 +71,11 @@
     -  [Consulta](#consulta-8)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
+  - [Webhooks](#webhooks)
+    - [Consulta](#consulta-9)
+    - [Listagem](#listagem-2)
   - [Saldo Moip](#saldo-moip)
-    -  [Consulta](#consulta-9)
+    -  [Consulta](#consulta-10)
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
@@ -541,6 +544,20 @@ api.notifications.delete("NOTIFICATION-ID")
 ### Listagem
 ```ruby
 api.notifications.find_all
+```
+
+## Webhooks
+
+### Consulta
+> A consulta de webhooks é feita a partir de um recurso, sendo ele um PAY ou um ORD.
+
+```Ruby
+webhooks = api.webhooks.show("ORD-ZBU3EXCA12TY")
+```
+
+### Listagem
+```Ruby
+webhooks = api.webhooks.find_all
 ```
 
 ## Saldo Moip
