@@ -72,8 +72,10 @@
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
   - [Webhooks](#webhooks)
-    - [Consulta](#consulta-9)
-    - [Listagem](#listagem-2)
+    - [Todos Webhooks](#todos-webhooks)
+    - [Com Paginação](#com-paginação2)
+    - [Evento Específico](#evento-específico)
+    - [Recurso Específico](#recurso-específico)
   - [Saldo Moip](#saldo-moip)
     -  [Consulta](#consulta-10)
 - [Tratamento de Exceções](#tratamento-de-exceções)
@@ -547,18 +549,28 @@ api.notifications.find_all
 ```
 
 ## Webhooks
-
 ### Consulta
-> A consulta de webhooks é feita a partir de um recurso, sendo ele um PAY ou um ORD.
 
-```Ruby
-webhooks = api.webhooks.show("ORD-ZBU3EXCA12TY")
-```
-
-### Listagem
-```Ruby
+##### Todos Webhooks
+```ruby
 webhooks = api.webhooks.find_all
 ```
+
+##### Com Paginação
+```ruby
+webhooks = api.webhooks.find_all(limit: 10, offset: 50)
+```
+
+##### Consulta Evento
+```ruby
+webhooks = api.webhooks.find_all(event: "PAYMENT.WAITING")
+```
+
+##### Consulta Valor Específico
+```ruby
+webhooks = api.webhooks.find_all(resource_id: "PAY-REJJ9F12MF7R")
+```
+
 
 ## Saldo Moip
 ### Consulta
