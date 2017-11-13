@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://sandbox.moip.com.br/v2/webhooks
+    uri: https://sandbox.moip.com.br/v2/webhooks?resourceId=PAY-6B66XQW6CZHH
     body:
       encoding: US-ASCII
       string: ''
@@ -11,52 +11,28 @@ http_interactions:
       - application/json
       Authorization:
       - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx
       Date:
-      - Thu, 14 May 2015 13:53:22 GMT
+      - Mon, 13 Nov 2017 15:28:51 GMT
+      Server:
+      - Apache
       Content-Type:
       - application/json
       Content-Length:
-      - '3734'
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
-      X-Newrelic-App-Data:
-      - PxQFUlBXAQoTV1VbAwcGVEYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBEBU15cDQ0QQhglfTYRGhgCHVUVUR9TAVBQDwdXV08IHxJQBFIFUAcFUgIFAloAWlUIQGU=
-      Vary:
-      - Accept-Encoding
+      - '3544'
       X-Content-Type-Options:
       - nosniff
+      Vary:
+      - Origin
     body:
       encoding: UTF-8
-      string: '{"webhooks":[{"id":"EVE-DYPUJBZLJAPP","resourceId":"ORD-2M8Q09MMCCE2","event":"ORDER.PAID","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:09:06 PM"},{"id":"EVE-OLM7SXFQPFMH","resourceId":"PAY-XWNRC9MZTCO8","event":"PAYMENT.AUTHORIZED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:09:06 PM"},{"id":"EVE-UZ6T5LIUYOSK","resourceId":"PAY-BKMBBD0BDEZP","event":"PAYMENT.IN_ANALYSIS","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:09:02 PM"},{"id":"EVE-DBE86H574UEN","resourceId":"PAY-XWNRC9MZTCO8","event":"PAYMENT.IN_ANALYSIS","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:09:01 PM"},{"id":"EVE-C3PSMS9LZTSD","resourceId":"PAY-XWNRC9MZTCO8","event":"PAYMENT.WAITING","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:08:58 PM"},{"id":"EVE-KKBSIL2U3DZ2","resourceId":"PAY-BKMBBD0BDEZP","event":"PAYMENT.WAITING","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:08:58 PM"},{"id":"EVE-OOGZLD67C4GR","resourceId":"ORD-XLPPHQNZ5ZGH","event":"ORDER.CREATED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:08:51 PM"},{"id":"EVE-MAZ7BV8JR8TP","resourceId":"ORD-2M8Q09MMCCE2","event":"ORDER.CREATED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        13, 2015 7:08:50 PM"},{"id":"EVE-CM30SKZSXQK3","resourceId":"ORD-PCF4FW4B3PE9","event":"ORDER.PAID","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:09:01 PM"},{"id":"EVE-5C791OGOLBHF","resourceId":"ORD-65HG3W408X5K","event":"ORDER.PAID","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:09:01 PM"},{"id":"EVE-NBIW53UT95VL","resourceId":"PAY-M1A3GR2L5GF6","event":"PAYMENT.AUTHORIZED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:09:00 PM"},{"id":"EVE-PSRTDV9H62R4","resourceId":"PAY-RUSSO3TPNZ58","event":"PAYMENT.AUTHORIZED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:09:00 PM"},{"id":"EVE-CKNTF1IL5ARA","resourceId":"PAY-M1A3GR2L5GF6","event":"PAYMENT.IN_ANALYSIS","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:57 PM"},{"id":"EVE-UG6P1YFTGL2F","resourceId":"PAY-RUSSO3TPNZ58","event":"PAYMENT.IN_ANALYSIS","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:56 PM"},{"id":"EVE-6CVUB9TQLKKO","resourceId":"PAY-M1A3GR2L5GF6","event":"PAYMENT.WAITING","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:55 PM"},{"id":"EVE-AR52H0D3OIM3","resourceId":"PAY-RUSSO3TPNZ58","event":"PAYMENT.WAITING","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:54 PM"},{"id":"EVE-3JOZY9CJEALJ","resourceId":"ORD-65HG3W408X5K","event":"ORDER.CREATED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:49 PM"},{"id":"EVE-PJ2IJXF1A5UL","resourceId":"ORD-PCF4FW4B3PE9","event":"ORDER.CREATED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        12, 2015 7:08:48 PM"},{"id":"EVE-ZAR096ZLQ051","resourceId":"ORD-DKG99MYRX4Q1","event":"ORDER.PAID","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        11, 2015 7:09:02 PM"},{"id":"EVE-3ES924OCIWMO","resourceId":"PAY-Z8WI7ZQQNE20","event":"PAYMENT.AUTHORIZED","url":"http://www.100escolha.com/moip_suporte/","status":"CREATED","sentAt":"May
-        11, 2015 7:09:02 PM"}]}'
-    http_version: 
-  recorded_at: Thu, 14 May 2015 13:53:19 GMT
+      string: '{"webhooks":[{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"CREATED","id":"EVE-F61S51E8C9LI","sentAt":"2017-11-12T02:20:49.269Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-Z8UXHOVO8MKK","sentAt":"2017-11-12T02:20:49.090Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-HSCL3KGYFAZG","sentAt":"2017-11-12T02:20:48.591Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-TRC54JYDVEDW","sentAt":"2017-11-12T02:20:48.213Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"FAILED","id":"EVE-HE2F0OV6V4NW","sentAt":"2017-11-12T02:20:45.512Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/1dhjesw1","status":"FAILED","id":"EVE-RPKFMQ1EVGKZ","sentAt":"2017-11-12T02:20:45.171Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"https://moipapp-dbereis.herokuapp.com/webhook","status":"FAILED","id":"EVE-RURX96ZA77IO","sentAt":"2017-11-12T02:20:44.882Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"FAILED","id":"EVE-7JRGSPLFWABR","sentAt":"2017-11-12T02:20:44.833Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"FAILED","id":"EVE-XYGOR73K5G1L","sentAt":"2017-11-12T02:20:44.800Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"FAILED","id":"EVE-E67U3BC5BGW1","sentAt":"2017-11-12T02:20:44.699Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/1lr24my1","status":"FAILED","id":"EVE-8KUX0T8CJ6WY","sentAt":"2017-11-12T02:20:44.606Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"FAILED","id":"EVE-TXDACAKZN8TC","sentAt":"2017-11-12T02:20:44.589Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-6N4D7JD6YIJ0","sentAt":"2017-11-12T02:20:44.399Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-1VDYJ26PYXZ9","sentAt":"2017-11-12T02:20:44.267Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-NN4V4J586O0D","sentAt":"2017-11-12T02:20:44.265Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"https://requestb.in/1d3axec1","status":"FAILED","id":"EVE-J3KFCE1R96FV","sentAt":"2017-11-12T02:20:44.230Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/1lr24my1","status":"FAILED","id":"EVE-Q2I9C5GGB6Y0","sentAt":"2017-11-12T02:20:44.216Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/","status":"FAILED","id":"EVE-WGPSG7FF8J2R","sentAt":"2017-11-12T02:20:44.205Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/1lr24my1","status":"FAILED","id":"EVE-3OSTZI0ISN16","sentAt":"2017-11-12T02:20:44.064Z"},{"resourceId":"PAY-6B66XQW6CZHH","event":"PAYMENT.SETTLED","url":"http://requestb.in/1lr24my1","status":"FAILED","id":"EVE-DPNBLHXMQ4L5","sentAt":"2017-11-12T02:20:44.048Z"}]}'
+    http_version:
+  recorded_at: Mon, 13 Nov 2017 15:28:51 GMT
 recorded_with: VCR 2.9.3
