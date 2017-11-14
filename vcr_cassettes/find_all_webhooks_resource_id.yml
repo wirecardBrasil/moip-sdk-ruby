@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/webhooks?resourceId=PAY-REJJ9F12MF7R
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 13 Nov 2017 20:12:07 GMT
+      Server:
+      - Apache
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '3727'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"webhooks":[{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"CREATED","id":"EVE-Y3IHX8P55I6Z","sentAt":"2017-11-13T20:03:03.429Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://requestb.in/","status":"CREATED","id":"EVE-EGJVE34IAEB7","sentAt":"2017-11-13T20:03:03.409Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://requestb.in/1dhjesw1","status":"CREATED","id":"EVE-JLC485YHPXMS","sentAt":"2017-11-13T20:03:03.381Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://requestb.in/","status":"CREATED","id":"EVE-5B22VCN50HGB","sentAt":"2017-11-13T20:03:03.357Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://amigoverdepet.com/wc-api/moip-webhook/?token=3118b12edf3f9e354dd180df3b07ac9738abe44e","status":"CREATED","id":"EVE-8XPAHRLG1K5E","sentAt":"2017-11-13T20:03:03.332Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://requestb.in/","status":"CREATED","id":"EVE-QL1QES2FLEYJ","sentAt":"2017-11-13T20:02:59.541Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://38a01653.ngrok.io/webhook","status":"CREATED","id":"EVE-5W5647DDW31F","sentAt":"2017-11-13T20:02:59.500Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://38a01653.ngrok.io/webhook","status":"CREATED","id":"EVE-W0VN94HDM58C","sentAt":"2017-11-13T20:02:59.471Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://69b4588e.ngrok.io/webhook","status":"CREATED","id":"EVE-AV347DUDO7RV","sentAt":"2017-11-13T20:02:59.444Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://requestb.in/","status":"CREATED","id":"EVE-V48P9X7NG5Z3","sentAt":"2017-11-13T20:02:59.424Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://moip-test.herokuapp.com/moip/response","status":"CREATED","id":"EVE-1L34Q15J7EMU","sentAt":"2017-11-13T20:02:59.408Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://38a01653.ngrok.io/webhook","status":"CREATED","id":"EVE-57ZSBNOQ0FGB","sentAt":"2017-11-13T20:02:59.401Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://38a01653.ngrok.io/webhook","status":"CREATED","id":"EVE-WE3GE80DPILD","sentAt":"2017-11-13T20:02:59.366Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://moipapp-dbereis.herokuapp.com/webhook","status":"CREATED","id":"EVE-ZNVD6SB3QUYD","sentAt":"2017-11-13T20:02:59.336Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://moip-test.herokuapp.com/moip/response","status":"CREATED","id":"EVE-HZNK8FZ585WV","sentAt":"2017-11-13T20:02:59.301Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"CREATED","id":"EVE-HQUG8DA85WZW","sentAt":"2017-11-13T20:02:53.734Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"CREATED","id":"EVE-B1H5RTAADJFD","sentAt":"2017-11-13T20:02:53.724Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"CREATED","id":"EVE-YZU8ZMB1PQH1","sentAt":"2017-11-13T20:02:53.704Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"https://requestb.in/1d3axec1","status":"CREATED","id":"EVE-VCCM0I5SO79Q","sentAt":"2017-11-13T20:02:53.703Z"},{"resourceId":"PAY-REJJ9F12MF7R","event":"PAYMENT.WAITING","url":"http://loja.afipe.com.br/api/v1/notifyCheckout","status":"CREATED","id":"EVE-JKXO7HRXK521","sentAt":"2017-11-13T20:02:53.685Z"}]}'
+    http_version:
+  recorded_at: Mon, 13 Nov 2017 20:12:07 GMT
+recorded_with: VCR 2.9.3

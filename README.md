@@ -71,8 +71,13 @@
     -  [Consulta](#consulta-8)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
+  - [Webhooks](#webhooks)
+    - [Todos Webhooks](#todos-webhooks)
+    - [Com Paginação](#com-paginação2)
+    - [Evento Específico](#evento-específico)
+    - [Recurso Específico](#recurso-específico)
   - [Saldo Moip](#saldo-moip)
-    -  [Consulta](#consulta-9)
+    -  [Consulta](#consulta-10)
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
@@ -542,6 +547,30 @@ api.notifications.delete("NOTIFICATION-ID")
 ```ruby
 api.notifications.find_all
 ```
+
+## Webhooks
+### Consulta
+
+##### Todos Webhooks
+```ruby
+webhooks = api.webhooks.find_all
+```
+
+##### Com Paginação
+```ruby
+webhooks = api.webhooks.find_all(limit: 10, offset: 50)
+```
+
+##### Consulta Evento
+```ruby
+webhooks = api.webhooks.find_all(event: "PAYMENT.WAITING")
+```
+
+##### Consulta Valor Específico
+```ruby
+webhooks = api.webhooks.find_all(resource_id: "PAY-REJJ9F12MF7R")
+```
+
 
 ## Saldo Moip
 ### Consulta
