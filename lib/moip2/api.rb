@@ -14,6 +14,10 @@ module Moip2
       Moip2::PaymentApi.new(client)
     end
 
+    def transfer
+      Moip2::TransferApi.new(client)
+    end
+
     def balances
       Moip2::BalancesApi.new(client)
     end
