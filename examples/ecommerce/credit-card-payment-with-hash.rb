@@ -73,8 +73,8 @@ payment = api.payment.create(order.id,
       # where you use the customer credit_card data and your public key
       # to create the hash.
       # Read more about creating credit card hash here:
-      # https://dev.moip.com.br/v2.0/docs/criptografia-de-cartao
-      hash: "kJHoKZ2bIVFjEFPSQQxbpXL6t5VCMoGTB4eJ4GLHmUz8f8Ny/LSL20yqbn+bZQymydVJyo3lL2DMT0dsWMzimYILQH4vAF24VwM0hKxX7nVwqGpGCXwBwSJGCwR57lqDiI4RVhKTVJpu7FySfu+Hm9JWSk4fzPXQO/FRqIS5TJQWJSywjLmGwyYtTGsmHTSCwvPFg+0GcG/EkYjPesMc/ycxPixibrEId9Wz03QnLsHYzSBCnPqg8xq8WKYDX2x3dHV3GNsB4TEfVz4psynddDEpX/VhIk2e8cXQ0EoXKkWdJEJB4KFmqj39OhNevCBkF5ADvzFp73J0IxnjOf1AQA==",
+      # https://github.com/moip/moip-sdk-js
+      hash: "your-hash",
       holder: {
         fullname: "Integração Moip",
         birthdate: "1988-12-30",

@@ -3,7 +3,7 @@
 # instead of reinstantiating them every time.
 gem "moip2"
 
-auth = Moip2::Auth::OAuth.new("502f9ca0eccc451dbcf8c0b940110af1_v2")
+auth = Moip2::Auth::OAuth.new("oauth")
 
 client = Moip2::Client.new(:sandbox, auth)
 

@@ -5,7 +5,7 @@
 
 gem "moip2"
 
-auth = Moip2::Auth::OAuth.new("502f9ca0eccc451dbcf8c0b940110af1_v2")
+auth = Moip2::Auth::OAuth.new("oauth")
 
 client = Moip2::Client.new(:sandbox, auth)
 
@@ -20,9 +20,9 @@ api.connect.authorize_url("APP-DVLBF0ANBO1S", "https://meusite.com", "RECEIVE_FU
 
 # Generate acessToken:
 response = api.connect.authorize(
-  client_id: "APP-DVLBF0ANBO1S",
-  client_secret: "c804485ada664970884149a98816b44e",
-  code: "3530acb9bd3129d4cd8d4fa7cc4e861a7e96307c",
+  client_id: "your_id", # Ex.: APP-DVLBF0ANBO1S
+  client_secret: "your_secret",
+  code: "your_code",
   redirect_uri: "https://meusite.com",
   grant_type: "authorization_code",
 )

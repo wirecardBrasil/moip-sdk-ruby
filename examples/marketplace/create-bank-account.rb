@@ -6,7 +6,7 @@
 gem "moip2"
 
 # In order to create an bank account, you need to log in using the app oauth:
-auth = Moip2::Auth::OAuth.new("502f9ca0eccc451dbcf8c0b940110af1_v2")
+auth = Moip2::Auth::OAuth.new("oauth")
 
 client = Moip2::Client.new(:sandbox, auth)
 
@@ -21,9 +21,9 @@ api.connect.authorize_url("APP-DVLBF0ANBO1S", "https://meusite.com", "MANAGE_ACC
 
 # Generate acessToken:
 response = api.connect.authorize(
-  client_id: "APP-DVLBF0ANBO1S",
-  client_secret: "c804485ada664970884149a98816b44e",
-  code: "226484a2d081bf49ab82a50d38f8226faca6c9ba",
+  client_id: "your_id", # Ex.: APP-DVLBF0ANBO1S
+  client_secret: "your_secret",
+  code: "your_code",
   redirect_uri: "https://meusite.com",
   grant_type: "authorization_code",
 )
@@ -35,7 +35,7 @@ response[:access_token]
 response[:moip_account][:id]
 
 # Now log in using the new accessToken:
-auth = Moip2::Auth::OAuth.new("f231cd0328104a58ac1e30a44d51962a_v2")
+auth = Moip2::Auth::OAuth.new("accessToken")
 
 client = Moip2::Client.new(:sandbox, auth)
 
