@@ -6,7 +6,7 @@ module Moip2
       @client = client
     end
 
-    def create(order_id, transfer)
+    def create(transfer)
       Resource::Payment.new client.post("/v2/transfers", transfer)
     end
 
