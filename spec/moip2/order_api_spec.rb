@@ -76,7 +76,7 @@ describe Moip2::OrderApi do
       expect(created_order.customer._links).to_not be_nil
       expect(
         created_order.customer._links.self.href,
-      ).to eq "#{ENV['sandbox_url']}/v2/customers/CUS-B6LE6HLFFXKF"
+      ).to eq "https://sandbox.moip.com.br/v2/customers/CUS-B6LE6HLFFXKF"
     end
 
     it "returns an Order object" do
@@ -214,7 +214,7 @@ describe Moip2::OrderApi do
         end
       end
     end
-    
+
     context "when passing ownID search with `q`" do
       subject(:response) do
         VCR.use_cassette("find_all_orders_q_search") do

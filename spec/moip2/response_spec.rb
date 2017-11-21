@@ -15,9 +15,7 @@ describe Moip2::Response do
 
   describe "#success?" do
     let(:success_response) do
-      double("Success Response").tap do |success_response|
-        allow(success_response).to receive(:code).and_return(200)
-      end
+      double("Success Response", code: 200)
     end
 
     let(:response) { described_class.new(success_response, parsed_json) }
@@ -29,9 +27,7 @@ describe Moip2::Response do
 
   describe "#client_error?" do
     let(:error_response) do
-      double("Error Response").tap do |error_response|
-        allow(error_response).to receive(:code).and_return(400)
-      end
+      double("Error Response", code: 400)
     end
 
     let(:response) { described_class.new(error_response, {}) }
