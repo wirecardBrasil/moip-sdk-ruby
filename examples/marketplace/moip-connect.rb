@@ -29,6 +29,3 @@ response = api.connect.authorize(
 
 # Get accessToken:
 response[:access_token]
-
-# Get Moip Account id:
-response[:moip_account][:id]

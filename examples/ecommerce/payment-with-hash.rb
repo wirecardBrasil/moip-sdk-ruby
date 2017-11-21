@@ -3,8 +3,7 @@
 # instead of reinstantiating them every time.
 gem "moip2"
 
-# App accessToken
-auth = Moip2::Auth::OAuth.new("oauth")
+auth = Moip2::Auth::Basic.new("TOKEN", "SECRET")
 
 client = Moip2::Client.new(:sandbox, auth)
 
@@ -60,48 +59,6 @@ order = api.order.create(
   customer: {
     id: customer.id,
   },
-  receivers: [
-    {
-      moipAccount: {
-        id: "MPA-HBKKXIFCY1N3",
-      },
-      type: "SECONDARY",
-      amount: {
-        percentual: 50,
-      },
-    },
-  ],
-)
-
-# TIP: In order to create an order where the seller is the primary receiver,
-# the authentication must be made with seller's access token.
-
-# Creating an order where the secondary receiver is the fee payor.
-order = api.order.create(
-  own_id: "meu_id_de_order_#{SecureRandom.hex(10)}",
-  items: [
-    {
-      product: "Nome do produto",
-      quantity: 1,
-      detail: "Mais info...",
-      price: 1000,
-    },
-  ],
-  customer: {
-    id: customer.id,
-  },
-  receivers: [
-    {
-      moipAccount: {
-        id: "MPA-HBKKXIFCY1N3",
-      },
-      type: "SECONDARY",
-      amount: {
-        percentual: 50,
-      },
-      feePayor: true,
-    },
-  ],
 )
 
 # Now with the order ID in hands, you can start creating payments
@@ -133,6 +90,10 @@ payment = api.payment.create(order.id,
       },
     },
   })
+
+# Or a partial payment refunds, where the second parameter is
+# the value of the refunds:
+partial_payment_refund = api.refund.create(payment.id, amount: 2000)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.

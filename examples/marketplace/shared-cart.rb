@@ -174,33 +174,45 @@ multi_order = api.multi_order.create(
   ],
 )
 
-multi_payment = api.multi_payment.create(multi_order.id,
-  installment_count: 1,
-  escrow: {
-    description: "Teste escrow",
-  },
+# Now with the order ID in hands, you can start creating payments
+# It is common to use the `hash` method if you are using client-side
+# encryption for card data.
+multi_payment = api.multi_payment.create(
+  multi_order.id,
   funding_instrument: {
-    method: "CREDIT_CARD",
-    credit_card: {
-      expirationMonth: "02",
-      expirationYear: "20",
-      number: "5555666677778884",
-      cvc: "123",
-      holder: {
-        fullname: "Integração Moip",
-        birthdate: "1988-12-30",
-        taxDocument: {
-          type: "CPF",
-          number: "33333333333",
-        },
-        phone: {
-          countryCode: "55",
-          areaCode: "11",
-          number: "000000000",
-        },
+    method: "BOLETO",
+    boleto: {
+      expirationDate: "2020-01-01",
+      instructionLines: {
+        first: "First line of instructions",
+        second: "Second line of instructions",
+        third: "Third line of instructions",
       },
     },
-  })
+  },
+)
+
+# This is how you can create a boleto refund to a bank account:
+payment_refund = api.refund.create(
+  payment.id, refundingInstrument: {
+    method: "BANK_ACCOUNT",
+    bankAccount: {
+      bankNumber: "237",
+      agencyNumber: "12345",
+      agencyCheckNumber: "0",
+      accountNumber: "12345678",
+      accountCheckNumber: "7",
+      type: "CHECKING",
+      holder: {
+        taxDocument: {
+          type: "CPF",
+          number: "22222222222",
+        },
+        fullname: "Demo Moip",
+      },
+    },
+  }
+)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.
