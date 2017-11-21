@@ -49,20 +49,35 @@
   - [Multipagamentos](#multipagamentos)
     - [Criação](#criação-5)
     - [Consulta](#consulta-5)
+    - [Capturar multipagamento pré-autorizado](#capturar-multipagamento-pré-autorizado)
+    - [Cancelar multipagamento pré-autorizado](#cancelar-multipagamento-pré-autorizado)
   - [Conta Moip](#conta-moip)
     - [Criação](#criação-6)
     - [Consulta](#consulta-6)
     - [Verifica se usuário já possui Conta Moip](#verifica-se-usuário-já-possui-conta-moip)
+  - [Conta Bancária](#conta-bancária)
+    - [Criação](#criação-7)
+    - [Consulta](#consulta-7)
+    - [Listagem](#listagem)
+    - [Atualizar conta bancária](#atualizar-conta-bancaria)
+    - [Deletar conta bancária](#deletar-conta-bancaria)
   - [OAuth (Moip Connect)](#oauth-(moip-connect))
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
     - [Atualizar Token OAuth](#atualizar-token-oauth)
     - [Obter Chave Pública](#obter-chave-pública)
   - [Preferências de Notificação](#preferências-de-notificação)
-    -  [Criação](#criação-7)
-    -  [Consulta](#consulta-7)
+    -  [Criação](#criação-8)
+    -  [Consulta](#consulta-8)
     -  [Exclusão](#exclusão)
     -  [Listagem](#listagem)
+  - [Webhooks](#webhooks)
+    - [Todos Webhooks](#todos-webhooks)
+    - [Com Paginação](#com-paginação2)
+    - [Evento Específico](#evento-específico)
+    - [Recurso Específico](#recurso-específico)
+  - [Saldo Moip](#saldo-moip)
+    -  [Consulta](#consulta-10)
 - [Tratamento de Exceções](#tratamento-de-exceções)
 - [Documentação](#documentação)
 - [Licença](#licença)
@@ -362,6 +377,15 @@ multi_pag = api.multi_payment.create("MOR-V41BR451L",
 multi_pag = api.multi_payment.show("MPY-V41BR451L")
 ```
 
+### Capturar multipagamento pré-autorizado
+```ruby
+multi = api.multi_payment.capture("MPY-V41BR451L")
+```
+### Cancelar multipagamento pré-autorizado
+```ruby
+multi = api.multi_payment.void("MPY-V41BR451L")
+```
+
 ## Conta Moip
 ### Criação
 ```ruby
@@ -412,6 +436,59 @@ account = api.accounts.show("MPA-12312312312")
 ### Verifica se usuário já possui Conta Moip
 ```ruby
 api.accounts.exists?("123.456.789.10")
+```
+
+## Conta bancária
+### Criação
+```ruby
+bank_account = api.bank_accounts.create("MPA-14C9EE706C55",
+      bank_number: "237",
+      agency_number: "12345",
+      agency_check_number: "0",
+      account_number: "12345678",
+      account_check_number: "7",
+      type: "CHECKING",
+      holder: {
+        tax_document: {
+          type: "CPF",
+          number: "164.664.426-32",
+        },
+        fullname: "Sales Machine da Silva",
+      })
+```
+
+### Consulta
+```ruby
+api.bank_accounts.show("BKA-DWTSK16UQI9N")
+```
+
+### Listagem
+```ruby
+api.bank_accounts.find_all("MPA-14C9EE706C55")
+```
+
+### Atualizar conta bancaria
+```ruby
+api.bank_accounts.update("BKA-DWTSK16UQI9N",
+      bank_number: "237",
+      agency_number: "12345",
+      agency_check_number: "0",
+      account_number: "87654323",
+      account_check_number: "7",
+      type: "CHECKING",
+      holder: {
+        tax_document: {
+          type: "CPF",
+          number: "164.664.426-32",
+        },
+        fullname: "Sales Machine da Silva",
+      })
+```
+
+### Deletar conta bancaria
+> Retorna uma Exception do tipo `NotFoundError` caso não encontre a conta bancária para deletar
+```ruby
+  api.bank_accounts.delete("BKA-DWTSK16UQI9N")
 ```
 
 ## OAuth (Moip Connect)
@@ -472,6 +549,44 @@ api.notifications.delete("NOTIFICATION-ID")
 api.notifications.find_all
 ```
 
+## Webhooks
+### Consulta
+
+##### Todos Webhooks
+```ruby
+webhooks = api.webhooks.find_all
+```
+
+##### Com Paginação
+```ruby
+webhooks = api.webhooks.find_all(limit: 10, offset: 50)
+```
+
+##### Consulta Evento
+```ruby
+webhooks = api.webhooks.find_all(event: "PAYMENT.WAITING")
+```
+
+##### Consulta Valor Específico
+```ruby
+webhooks = api.webhooks.find_all(resource_id: "PAY-REJJ9F12MF7R")
+```
+
+
+## Saldo Moip
+### Consulta
+```ruby
+api.balances.show()
+```
+
+### Show all entries
+```ruby
+  api.entries.find_all
+```
+### Show one entry
+```ruby
+  api.entries.show(entry_id)
+```
 ## Tratamento de Exceções
 
 Caso algum recurso não seja encontrado uma exceção do tipo `NotFoundError` será lançada.

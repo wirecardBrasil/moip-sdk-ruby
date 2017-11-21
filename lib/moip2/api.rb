@@ -14,6 +14,14 @@ module Moip2
       Moip2::PaymentApi.new(client)
     end
 
+    def balances
+      Moip2::BalancesApi.new(client)
+    end
+
+    def entries
+      Moip2::EntryApi.new(client)
+    end
+
     def invoice
       Moip2::InvoiceApi.new client
     end
@@ -40,6 +48,14 @@ module Moip2
 
     def accounts
       Moip2::AccountsApi.new(client)
+    end
+
+    def bank_accounts
+      Moip2::BankAccountsApi.new(client)
+    end
+
+    def webhooks
+      Moip2::WebhooksApi.new(client)
     end
 
     def connect
