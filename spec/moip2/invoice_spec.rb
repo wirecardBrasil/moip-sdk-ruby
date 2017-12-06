@@ -145,15 +145,15 @@ describe Moip2::InvoiceApi do
   context "when passing filters" do
     subject(:response) do
       VCR.use_cassette("find_all_invoices_filters") do
-        invoice_api.find_all(filters: { status: { in: ["PAID", "WAITING"] } })
+        invoice_api.find_all(filters: { status: { in: ["SENT", "PAID"] } })
       end
     end
 
-    it "all invoices satisfy the filter constraint" do
-      expect(response.invoices).to satisfy do |invoices|
-        invoices.all? { |invoice| ["PAID", "WAITING"].include?(invoice.status) }
+   it "all orders satisfy the filter constraint" do
+        expect(response.invoices).to satisfy do |invoices|
+          invoices.all? { |invoice| ["SENT", "PAID"].include?(invoice.status) }
+        end
       end
-    end
 
   end
 
