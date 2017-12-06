@@ -26,11 +26,13 @@ module Moip2
       find_all(begin_date: begin_date, end_date: end_date)
     end
 
-    def find_all(email: nil, begin_date: nil, end_date: nil, limit: 20, offset: 0)
+    def find_all(email: nil, begin_date: nil, end_date: nil, limit: 20, offset: 0, q: nil, filters: nil)
+
+      encoded_filters = Moip2::Util::FiltersEncoder.encode(filters)
       Resource::Invoice.new(
         client,
         client.get("#{base_path}?email=#{email}&begin=#{begin_date}"\
-                   "&end=#{end_date}&limit=#{limit}&offset=#{offset}"),
+                   "&end=#{end_date}&limit=#{limit}&offset=#{offset}&q=#{q}&filters=#{encoded_filters}"),
       )
     end
   end
