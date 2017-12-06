@@ -149,12 +149,36 @@ describe Moip2::InvoiceApi do
       end
     end
 
-   it "all orders satisfy the filter constraint" do
-        expect(response.invoices).to satisfy do |invoices|
-          invoices.all? { |invoice| ["SENT", "PAID"].include?(invoice.status) }
+    it "all orders satisfy the filter constraint" do
+      expect(response.invoices).to satisfy do |invoices|
+        invoices.all? { |invoice| ["SENT", "PAID"].include?(invoice.status) }
+      end
+    end
+  end
+
+  context "when passing multiple filters" do
+      subject(:response) do
+        VCR.use_cassette("find_all_invoices_multi_filters") do
+          invoice_api.find_all(filters: {
+                               status: { in: ["PAID", "WAITING"] },
+                               amount: { bt: [9000, 12000] },
+                             })
         end
       end
 
-  end
+      it { expect(response._links).not_to be_nil }
+
+      it "all orders satisfy the status constraint" do
+        expect(response.invoices).to satisfy do |invoices|
+          invoices.all? { |invoice| ["PAID", "WAITING"].include?(invoice.status) }
+        end
+      end
+
+      it "all orders satisfy the amount constraint" do
+        expect(response.invoices).to satisfy do |invoices|
+          invoices.all? { |invoice| invoice.amount.total.between?(9000, 12000) }
+        end
+      end
+    end
 
 end
