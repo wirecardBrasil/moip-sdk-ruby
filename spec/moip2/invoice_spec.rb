@@ -111,4 +111,35 @@ describe Moip2::InvoiceApi do
       it { expect(result.invoices[1].account_id).to eq "MPA-MAROTO000000" }
     end
   end
+
+  describe "#find_all" do
+    context "when passing limit" do
+      subject(:response) do
+        VCR.use_cassette("list_invoices_limit") do
+          invoice_api.find_all(limit: 3)
+        end
+      end
+      it { expect(response).to_not be_nil }
+      it { expect(response.invoices.size).to eq(3) }
+      it { expect(response.invoices[0].id).to eq "INV-AF4D550CD9D1" }
+      it { expect(response.invoices[1].id).to eq "INV-BC7871A7EF46" }
+      it { expect(response.invoices[2].id).to eq "INV-AB6915F7AC98" }
+
+    end
+
+    context "when passing offset" do
+      subject(:response) do
+        VCR.use_cassette("list_invoices_limit_offset") do
+          invoice_api.find_all(limit: 10, offset: 4)
+        end
+      end
+      it { expect(response).to_not be_nil }
+      it { expect(response.invoices.size).to eq(10) }
+      it { expect(response._links.next.href).to eq("/invoices?limit=10\u0026offset=14") }
+      it { expect(response.invoices[0].id).to eq "INV-D2EC2F1D7D55" }
+      it { expect(response.invoices[1].id).to eq "INV-AF36FE78CFB6" }
+
+    end
+  end
+
 end
