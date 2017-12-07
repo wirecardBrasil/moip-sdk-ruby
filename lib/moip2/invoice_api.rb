@@ -29,10 +29,20 @@ module Moip2
     def find_all(email: nil, begin_date: nil, end_date: nil, limit: 20, offset: 0, q: nil, filters: nil)
 
       encoded_filters = Moip2::Util::FiltersEncoder.encode(filters)
+
+      # `URI.encode...` will accept nil params, but they will pollute the URI
+      params = {
+        limit: limit,
+        offset: offset,
+        q: q,
+        filters: encoded_filters,
+      }.reject { |_, value| value.nil? }
+
+      query_string = URI.encode_www_form(params)
+
       Resource::Invoice.new(
         client,
-        client.get("#{base_path}?email=#{email}&begin=#{begin_date}"\
-                   "&end=#{end_date}&limit=#{limit}&offset=#{offset}&q=#{q}&filters=#{encoded_filters}"),
+        client.get("#{base_path}?#{query_string}"),
       )
     end
   end
