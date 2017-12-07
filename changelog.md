@@ -6,6 +6,13 @@
 
 * **invoices**
   *  add filters to invoice find_all method ((d8588ea))
+
+<a name="v1.1.0"></a>
+## v1.1.0 (2017-11-14)
+
+
+#### Features
+
 *   Create method to generate OAuth token ((cc5dcad7))
 * **Accounts**
   *  added `create` method and Account resource ((a8ec5469))
