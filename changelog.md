@@ -4,6 +4,8 @@
 
 #### Features
 
+* **invoices**
+  *  add filters to invoice find_all method ((d8588ea))
 *   Create method to generate OAuth token ((cc5dcad7))
 * **Accounts**
   *  added `create` method and Account resource ((a8ec5469))
@@ -46,8 +48,6 @@
   *  added ability to handle non-json response payloads ((593966ad))
 * **webhooks**
   *  add webhooks endpoint ((f9247ceb))
-* **invoices**
-  *  add filters to invoice find_all method ((f9247ceb))
 
 #### Bug Fixes
 
