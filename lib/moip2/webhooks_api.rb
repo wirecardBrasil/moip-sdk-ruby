@@ -6,12 +6,7 @@ module Moip2
       @client = client
     end
 
-    def base_path
-      "/v2/webhooks"
-    end
-
     def find_all(limit: nil, offset: nil, resource_id: nil, event: nil)
-
       # `URI.encode...` will accept nil params, but they will pollute the URI
       params = {
         limit: limit,
@@ -27,6 +22,12 @@ module Moip2
       # We need to transform raw JSON in Webhooks objects
       response.webhooks.map! { |webhooks| Resource::Webhooks.new client, webhooks }
       Resource::Webhooks.new client, response
+    end
+
+    private
+
+    def base_path
+      "/v2/webhooks"
     end
   end
 end

@@ -1,5 +1,5 @@
 describe Moip2::ConnectApi do
-  let(:connect_api) { described_class.new sandbox_client_connect }
+  let(:connect_api) { described_class.new sandbox_connect_client }
 
   describe "#authorize_url" do
     let (:authorize_url) do
