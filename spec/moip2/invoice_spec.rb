@@ -149,7 +149,7 @@ describe Moip2::InvoiceApi do
       end
     end
 
-    it "all orders satisfy the filter constraint" do
+    it "all invoices satisfy the filter constraint" do
       expect(response.invoices).to satisfy do |invoices|
         invoices.all? { |invoice| ["SENT", "PAID"].include?(invoice.status) }
       end
