@@ -168,13 +168,13 @@ describe Moip2::InvoiceApi do
 
       it { expect(response._links).not_to be_nil }
 
-      it "all orders satisfy the status constraint" do
+      it "all invoices satisfy the status constraint" do
         expect(response.invoices).to satisfy do |invoices|
           invoices.all? { |invoice| ["PAID", "WAITING"].include?(invoice.status) }
         end
       end
 
-      it "all orders satisfy the amount constraint" do
+      it "all invoices satisfy the amount constraint" do
         expect(response.invoices).to satisfy do |invoices|
           invoices.all? { |invoice| invoice.amount.total.between?(9000, 12000) }
         end
