@@ -1,5 +1,5 @@
 <a name="v1.1.0"></a>
-## v1.1.0 (2017-11-14)
+## v1.2.0 (2017-12-7)
 
 
 #### Features
@@ -46,6 +46,8 @@
   *  added ability to handle non-json response payloads ((593966ad))
 * **webhooks**
   *  add webhooks endpoint ((f9247ceb))
+* **invoices**
+  *  add filters to invoice find_all method ((f9247ceb))
 
 #### Bug Fixes
 
