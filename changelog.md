@@ -1,3 +1,12 @@
+<a name="v1.2.0"></a>
+## v1.2.0 (2017-12-7)
+
+
+#### Features
+
+* **invoices**
+  *  add filters to invoice find_all method ((d8588ea))
+
 <a name="v1.1.0"></a>
 ## v1.1.0 (2017-11-14)
 
