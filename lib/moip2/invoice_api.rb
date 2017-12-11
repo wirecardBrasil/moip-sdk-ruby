@@ -32,6 +32,9 @@ module Moip2
 
       # `URI.encode...` will accept nil params, but they will pollute the URI
       params = {
+        email: email,
+        begin_date: begin_date,
+        end_date: end_date,
         limit: limit,
         offset: offset,
         q: q,
