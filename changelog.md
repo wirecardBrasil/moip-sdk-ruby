@@ -1,3 +1,13 @@
+<a name="v1.2.1"></a>
+## v1.2.1 (2017-12-11)
+
+
+#### Features
+
+* **invoices**
+  *  fix params on invoice list ((eb12108))
+  
+
 <a name="v1.2.0"></a>
 ## v1.2.0 (2017-12-7)
 
