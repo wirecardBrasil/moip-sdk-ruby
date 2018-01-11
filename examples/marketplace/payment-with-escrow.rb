@@ -3,45 +3,11 @@
 # instead of reinstantiating them every time.
 gem "moip2"
 
-# App accessToken
-auth = Moip2::Auth::OAuth.new("502f9ca0eccc451dbcf8c0b940110af1_v2")
+auth = Moip2::Auth::Basic.new("TOKEN", "SECRET")
 
 client = Moip2::Client.new(:sandbox, auth)
 
 api = Moip2::Api.new(client)
-
-# If you want to persist your customer data and save later, now is
-# the time to create it.
-# TIP: Don't forget to generate your `own_id` or use one you already have
-
-customer = api.customer.create(
-  ownId: "meu_cliente_id_#{SecureRandom.hex(10)}",
-  fullname: "Integração Moip",
-  email: "integracaomoip@moip.com.br",
-  taxDocument: {
-    type: "CPF",
-    number: "22222222222",
-  },
-  phone: {
-    countryCode: "55",
-    areaCode: "11",
-    number: "66778899",
-  },
-  shippingAddress: {
-    city: "Sao Paulo",
-    complement: "8",
-    district: "Itaim",
-    street: "Avenida Faria Lima",
-    streetNumber: "2927",
-    zipCode: "01234000",
-    state: "SP",
-    country: "BRA",
-  },
-)
-
-# TIP: Now you can access the Moip ID to save it to your database, if you want
-# Ex.:
-# Customer.find_by(id: 123).update!(moip_id: customer.id)
 
 # Here we build the order data. You'll get the data from your database
 # given your controller input, but here we simplify things with a hardcoded
@@ -58,57 +24,36 @@ order = api.order.create(
     },
   ],
   customer: {
-    id: customer.id,
-  },
-  receivers: [
-    {
-      moipAccount: {
-        id: "MPA-HBKKXIFCY1N3",
-      },
-      type: "SECONDARY",
-      amount: {
-        percentual: 50,
-      },
+    ownId: "meu_cliente_id_#{SecureRandom.hex(10)}",
+    fullname: "Integração Moip",
+    email: "integracaomoip@moip.com.br",
+    taxDocument: {
+      type: "CPF",
+      number: "22222222222",
     },
-  ],
+    phone: {
+      countryCode: "55",
+      areaCode: "11",
+      number: "66778899",
+    },
+    shippingAddress: {
+      city: "Sao Paulo",
+      complement: "8",
+      district: "Itaim",
+      street: "Avenida Faria Lima",
+      streetNumber: "2927",
+      zipCode: "01234000",
+      state: "SP",
+      country: "BRA",
+    },
+  },
 )
 
-# TIP: In order to create an order where the seller is the primary receiver,
-# the authentication must be made with seller's access token.
-
-# Creating an order where the secondary receiver is the fee payor.
-order = api.order.create(
-  own_id: "meu_id_de_order_#{SecureRandom.hex(10)}",
-  items: [
-    {
-      product: "Nome do produto",
-      quantity: 1,
-      detail: "Mais info...",
-      price: 1000,
-    },
-  ],
-  customer: {
-    id: customer.id,
-  },
-  receivers: [
-    {
-      moipAccount: {
-        id: "MPA-HBKKXIFCY1N3",
-      },
-      type: "SECONDARY",
-      amount: {
-        percentual: 50,
-      },
-      feePayor: true,
-    },
-  ],
-)
-
-# Now with the order ID in hands, you can start creating payments
-# It is common to use the `hash` method if you are using client-side
-# encryption for card data.
 payment = api.payment.create(order.id,
   installment_count: 1,
+  escrow: {
+    description: "Teste escrow",
+  },
   funding_instrument: {
     method: "CREDIT_CARD",
     credit_card: {
@@ -133,6 +78,9 @@ payment = api.payment.create(order.id,
       },
     },
   })
+
+# You can create a full payment refunds:
+full_payment_refund = api.refund.create(payment.id)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.

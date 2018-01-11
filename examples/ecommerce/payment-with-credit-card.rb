@@ -38,6 +38,31 @@ customer = api.customer.create(
   },
 )
 
+# Creating a credit card for a customer
+customer_credit_card = api.customer.add_credit_card(
+  customer.id,
+  method: "CREDIT_CARD",
+  creditCard: {
+    expirationMonth: "05",
+    expirationYear: "22",
+    number: "5555666677778884",
+    cvc: "123",
+    holder: {
+      fullname: "Jose Portador da Silva",
+      birthdate: "1988-12-30",
+      taxDocument: {
+        type: "CPF",
+        number: "33333333333",
+      },
+      phone: {
+        countryCode: "55",
+        areaCode: "11",
+        number: "66778899",
+      },
+    },
+  },
+)
+
 # TIP: Now you can access the Moip ID to save it to your database, if you want
 # Ex.:
 # Customer.find_by(id: 123).update!(moip_id: customer.id)
@@ -61,18 +86,13 @@ order = api.order.create(
   },
 )
 
-payment = api.payment.create(order.id,
+payment = api.payment.create(
+  order.id,
   installment_count: 1,
-  escrow: {
-    description: "Teste escrow",
-  },
   funding_instrument: {
     method: "CREDIT_CARD",
     credit_card: {
-      expirationMonth: "02",
-      expirationYear: "20",
-      number: "5555666677778884",
-      cvc: "123",
+      id: customer_credit_card.credit_card.id,
       holder: {
         fullname: "Integração Moip",
         birthdate: "1988-12-30",
@@ -87,20 +107,11 @@ payment = api.payment.create(order.id,
         },
       },
     },
-  })
+  },
+)
 
 # You can create a full payment refunds:
 full_payment_refund = api.refund.create(payment.id)
-
-# Or a partial payment refunds, where the second parameter is
-# the value of the refunds:
-partial_payment_refund = api.refund.create(payment.id, amount: 2000)
-
-# You can also create full order refund:
-full_order_refund = api.refund.create(order.id)
-
-# Or a partial order refund:
-partial_order_refund = api.refund.create(order.id, amount: 2000)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.

@@ -9,6 +9,35 @@ client = Moip2::Client.new(:sandbox, auth)
 
 api = Moip2::Api.new(client)
 
+# If you want to persist your customer data and save later, now is
+# the time to create it.
+# TIP: Don't forget to generate your `own_id` or use one you already have
+
+customer = api.customer.create(
+  ownId: "meu_cliente_id_#{SecureRandom.hex(10)}",
+  fullname: "Integração Moip",
+  email: "integracaomoip@moip.com.br",
+  taxDocument: {
+    type: "CPF",
+    number: "22222222222",
+  },
+  phone: {
+    countryCode: "55",
+    areaCode: "11",
+    number: "66778899",
+  },
+  shippingAddress: {
+    city: "Sao Paulo",
+    complement: "8",
+    district: "Itaim",
+    street: "Avenida Faria Lima",
+    streetNumber: "2927",
+    zipCode: "01234000",
+    state: "SP",
+    country: "BRA",
+  },
+)
+
 # Here we build the order data. You'll get the data from your database
 # given your controller input, but here we simplify things with a hardcoded
 # example
@@ -73,7 +102,7 @@ boleto = payment[:_links][:pay_boleto][:print_href]
 boleto_line_code = payment[:funding_instrument][:boleto][:line_code]
 
 # This is how you can create a boleto refund to a bank account:
-boleto_refund = api.refund.create(
+order_refund = api.refund.create(
   order.id, refundingInstrument: {
     method: "BANK_ACCOUNT",
     bankAccount: {

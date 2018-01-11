@@ -3,7 +3,7 @@
 # instead of reinstantiating them every time.
 gem "moip2"
 
-auth = Moip2::Auth::Basic.new("JKRRWGJWD0TISDEOPVKMUP7FWPQPKZGC", "ZUEZVC34E4YBHOAJETPJXBHVQBTSIVHTXBN9LTR8")
+auth = Moip2::Auth::Basic.new("TOKEN", "SECRET")
 
 client = Moip2::Client.new(:sandbox, auth)
 
@@ -73,8 +73,8 @@ payment = api.payment.create(order.id,
       # where you use the customer credit_card data and your public key
       # to create the hash.
       # Read more about creating credit card hash here:
-      # https://dev.moip.com.br/v2.0/docs/criptografia-de-cartao
-      hash: "kJHoKZ2bIVFjEFPSQQxbpXL6t5VCMoGTB4eJ4GLHmUz8f8Ny/LSL20yqbn+bZQymydVJyo3lL2DMT0dsWMzimYILQH4vAF24VwM0hKxX7nVwqGpGCXwBwSJGCwR57lqDiI4RVhKTVJpu7FySfu+Hm9JWSk4fzPXQO/FRqIS5TJQWJSywjLmGwyYtTGsmHTSCwvPFg+0GcG/EkYjPesMc/ycxPixibrEId9Wz03QnLsHYzSBCnPqg8xq8WKYDX2x3dHV3GNsB4TEfVz4psynddDEpX/VhIk2e8cXQ0EoXKkWdJEJB4KFmqj39OhNevCBkF5ADvzFp73J0IxnjOf1AQA==",
+      # https://github.com/moip/moip-sdk-js
+      hash: "your-hash",
       holder: {
         fullname: "Integração Moip",
         birthdate: "1988-12-30",
@@ -90,74 +90,10 @@ payment = api.payment.create(order.id,
       },
     },
   })
-
-# You can also use the card data, if you're PCI compliant.
-payment = api.payment.create(order.id,
-  installment_count: 1,
-  funding_instrument: {
-    method: "CREDIT_CARD",
-    credit_card: {
-      expirationMonth: "02",
-      expirationYear: "20",
-      number: "5555666677778884",
-      cvc: "123",
-      holder: {
-        fullname: "Integração Moip",
-        birthdate: "1988-12-30",
-        taxDocument: {
-          type: "CPF",
-          number: "33333333333",
-        },
-        phone: {
-          countryCode: "55",
-          areaCode: "11",
-          number: "000000000",
-        },
-      },
-    },
-  })
-
-# This is how you can create a payment with escrow:
-payment = api.payment.create(order.id,
-  installment_count: 1,
-  escrow: {
-    description: "Teste escrow",
-  },
-  funding_instrument: {
-    method: "CREDIT_CARD",
-    credit_card: {
-      expirationMonth: "02",
-      expirationYear: "20",
-      number: "5555666677778884",
-      cvc: "123",
-      holder: {
-        fullname: "Integração Moip",
-        birthdate: "1988-12-30",
-        taxDocument: {
-          type: "CPF",
-          number: "33333333333",
-        },
-        phone: {
-          countryCode: "55",
-          areaCode: "11",
-          number: "000000000",
-        },
-      },
-    },
-  })
-
-# You can create a full payment refunds:
-full_payment_refund = api.refund.create(payment.id)
 
 # Or a partial payment refunds, where the second parameter is
 # the value of the refunds:
 partial_payment_refund = api.refund.create(payment.id, amount: 2000)
-
-# You can also create full order refund:
-full_order_refund = api.refund.create(order.id)
-
-# Or a partial order refund:
-partial_order_refund = api.refund.create(order.id, amount: 2000)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.

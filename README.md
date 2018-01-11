@@ -113,6 +113,13 @@ Após isso, é necessário instanciar um ponto de acesso a partir do qual você 
 api = Moip2::Api.new(client)
 ```
 
+Você pode customizar o client passando um hash de opções na inicialização. Essas opções serão passadas adiante para o client HTTParty, que aceita as opções descritas [na documentação](http://www.rubydoc.info/github/jnunemaker/httparty/HTTParty/ClassMethods).
+
+Por exemplo, para alterar o timeout das requisições para 5 segundos:
+```ruby
+client = Moip2::Client.new(:sandbox/:production, auth, timeout: 5)
+```
+
 ## Clientes
 ### Criação
 ```ruby
@@ -170,16 +177,10 @@ credit_card = api.customer.add_credit_card("CUSTOMER-ID",
 
 ### Deletar cartão de crédito
 
-> Retorna uma Exception do tipo `NotFoundError` caso não encontre o cartão de crédito para deletar
+> Retorna uma Exception do tipo `NotFoundError` caso não encontre o cartão de crédito para deletar.
 
 ```ruby
 api.customer.delete_credit_card!("CREDIT-CARD-ID")
-```
-
-> Retorna `false` caso não encontre o cartão de crédito para deletar
-
-```ruby
-api.customer.delete_credit_card("CREDIT-CARD-ID")
 ```
 
 ## Pedidos

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moip2 (1.0.0)
+    moip2 (1.2.0)
       httparty
       recursive-open-struct
 
@@ -118,4 +118,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://sandbox.moip.com.br/v2/invoices?begin=2015-01-01&email=&end=2015-03-31&limit=20&offset=0
+    uri: https://sandbox.moip.com.br/v2/invoices?begin_date=2015-01-01&end_date=2015-03-31&limit=20&offset=0
     body:
       encoding: US-ASCII
       string: ''
@@ -38,6 +38,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"invoices":[{"id":"INV-635DC2BB9422","amount":9610,"accountId":"MPA-MAROTO000000","description":"Compradealgumascoisas","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}},{"id":"INV-635DC2BSHJ90","amount":9610,"accountId":"MPA-MAROTO000000","description":"compra marota","email":"caio.gama@moip.com.br","type":"CREDIT","status":"DELIVERED","checkoutPreferences":{"installmentCount":3,"suppressShippingAddress":true}}]}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 01 Apr 2015 18:32:26 GMT
 recorded_with: VCR 2.9.3

@@ -27,6 +27,7 @@ require "moip2/resource/bank_account"
 
 require "moip2/response"
 require "moip2/client"
+require "moip2/connect_client"
 require "moip2/order_api"
 require "moip2/entry_api"
 require "moip2/multi_order_api"
