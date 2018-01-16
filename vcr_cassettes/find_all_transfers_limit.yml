@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/transfers?limit=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.2.1 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Jan 2018 16:49:50 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMRERBKfydsERYeA0sJTQFPAlNSAA5QUVQOHwBIQ1cDCQIHU1MGUlZSWlAAAQBAFF5VXkAAZA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '5781'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"summary":{"amount":356172188,"count":31735},"transfers":[{"fee":0,"amount":500,"updatedAt":"2018-01-11T20:58:45.000Z","id":"TRA-4PGNZ7KOFN4G","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-M3B94YJ939F0","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2018-01-11T20:58:43.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-4PGNZ7KOFN4G"}}},{"fee":0,"amount":9000,"updatedAt":"2018-01-03T18:12:31.000Z","id":"TRA-8XKL7XDBS26C","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-EQW51MWMAO22","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"11111111","accountCheckNumber":"1","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"1","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2018-01-03T18:12:31.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-8XKL7XDBS26C"}}},{"fee":0,"amount":23232,"updatedAt":"2017-12-22T17:28:29.000Z","id":"TRA-WG7MJCRAILEH","transferInstrument":{"moipAccount":{"id":"MPA-0TCF1NJT9245","email":"zangief@labs.moip.com.br","login":"zangief@labs.moip.com.br","fullname":"Zangief
+        Kid"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"COMPLETED","description":"dasdsad","createdAt":"2017-12-22T17:28:29.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-WG7MJCRAILEH"}},"ownId":"11111"},{"fee":0,"amount":23232,"updatedAt":"2017-12-26T16:56:22.000Z","id":"TRA-VK0LSYIZ12D9","transferInstrument":{"moipAccount":{"id":"MPA-0TCF1NJT9245","email":"zangief@labs.moip.com.br","login":"zangief@labs.moip.com.br","fullname":"Zangief
+        Kid"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"REVERSED","description":"dasdsad","createdAt":"2017-12-22T16:36:07.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-VK0LSYIZ12D9"}},"ownId":"23232"},{"fee":0,"amount":2998,"updatedAt":"2017-11-30T17:18:10.000Z","id":"TRA-JDRLEM042FS4","transferInstrument":{"moipAccount":{"id":"MPA-A7BE77476EC1","email":"fernando.santos@brasilct.com","login":"MPA-A7BE77476EC1","fullname":"Aaaaa
+        Bbbbb"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"COMPLETED","createdAt":"2017-11-30T17:18:10.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-JDRLEM042FS4"}}},{"fee":0,"amount":2998,"updatedAt":"2017-11-30T13:33:04.000Z","id":"TRA-I691HR5KY4IU","transferInstrument":{"moipAccount":{"id":"MPA-AC58D50E90E5","email":"fernando.santos@gmail.com","login":"MPA-AC58D50E90E5","fullname":"Testandi
+        Oooooo"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"COMPLETED","createdAt":"2017-11-30T13:33:04.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-I691HR5KY4IU"}}},{"fee":0,"amount":500,"updatedAt":"2017-11-07T17:41:37.000Z","id":"TRA-A8K7B5WHRTGF","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-DM3ALKMHL2W3","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2017-11-07T17:41:36.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-A8K7B5WHRTGF"}}},{"fee":0,"amount":500,"updatedAt":"2017-11-01T11:18:19.000Z","id":"TRA-ZVLYJWEGTUNA","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-22IFEOPZJAJB","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2017-11-01T11:18:19.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-ZVLYJWEGTUNA"}}},{"fee":0,"amount":1000,"updatedAt":"2017-10-31T16:38:48.000Z","id":"TRA-YXA9ADVTQ18P","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-F52NFFUZDWLW","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2017-10-31T16:38:48.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-YXA9ADVTQ18P"}}},{"fee":0,"amount":1000,"updatedAt":"2017-10-31T16:36:12.000Z","id":"TRA-HBYV8MIN9PAJ","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-R1JFFA2LBPTW","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","createdAt":"2017-10-31T16:36:12.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-HBYV8MIN9PAJ"}}}],"_links":{"previous":{"href":"https://sandbox.moip.com.br/v2/transfers?offset=0&limit=10"},"next":{"href":"https://sandbox.moip.com.br/v2/transfers?offset=10&limit=10"}}}'
+    http_version: 
+  recorded_at: Fri, 12 Jan 2018 16:49:50 GMT
+recorded_with: VCR 2.9.3
