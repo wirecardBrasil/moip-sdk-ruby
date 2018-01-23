@@ -117,7 +117,7 @@ describe Moip2::TransferApi do
     context "when passing filters" do
       subject(:response) do
         VCR.use_cassette("find_all_transfers_filters") do
-          transfer_api.find_all(filters: { "transferInstrument.method": { in: ["BANK_ACCOUNT"] } })
+          transfer_api.find_all(filters: { "transferInstrument.method" => { in: ["BANK_ACCOUNT"] } })
         end
       end
 
