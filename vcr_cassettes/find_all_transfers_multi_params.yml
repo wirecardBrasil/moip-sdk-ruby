@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/transfers?limit=2&offset=2&status=REQUESTED
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.2.1 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Jan 2018 16:49:53 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMRERBKfydsERYeA0sJTQFPAlNXBQNUX1YUAxxGWVtWBA9VVwYAVVRVAQFRUxpOXllYQVY4
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1240'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"summary":{"amount":356172188,"count":31735},"transfers":[{"fee":0,"amount":23232,"updatedAt":"2017-12-22T17:28:29.000Z","id":"TRA-WG7MJCRAILEH","transferInstrument":{"moipAccount":{"id":"MPA-0TCF1NJT9245","email":"zangief@labs.moip.com.br","login":"zangief@labs.moip.com.br","fullname":"Zangief
+        Kid"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"COMPLETED","description":"dasdsad","createdAt":"2017-12-22T17:28:29.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-WG7MJCRAILEH"}},"ownId":"11111"},{"fee":0,"amount":23232,"updatedAt":"2017-12-26T16:56:22.000Z","id":"TRA-VK0LSYIZ12D9","transferInstrument":{"moipAccount":{"id":"MPA-0TCF1NJT9245","email":"zangief@labs.moip.com.br","login":"zangief@labs.moip.com.br","fullname":"Zangief
+        Kid"},"senderAccountId":"MPA-CULBBYHD11","method":"MOIP_ACCOUNT"},"status":"REVERSED","description":"dasdsad","createdAt":"2017-12-22T16:36:07.000Z","role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-VK0LSYIZ12D9"}},"ownId":"23232"}],"_links":{"previous":{"href":"https://sandbox.moip.com.br/v2/transfers?offset=0&limit=2"},"next":{"href":"https://sandbox.moip.com.br/v2/transfers?offset=4&limit=2"}}}'
+    http_version: 
+  recorded_at: Fri, 12 Jan 2018 16:49:53 GMT
+recorded_with: VCR 2.9.3

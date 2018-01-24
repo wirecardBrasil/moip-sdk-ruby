@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/transfers/TRA-INVALID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.2.1 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 11 Jan 2018 21:10:50 GMT
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMREWxNQwtcRRQadCBtSBNNA0xUGgdPVlMMCwRdWVcFHQdKRlQEVVJQB1ZRUgtbDF1XUFFHFQdQDUAHOQ==
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Content-Length:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Thu, 11 Jan 2018 21:10:51 GMT
+recorded_with: VCR 2.9.3
