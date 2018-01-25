@@ -68,6 +68,9 @@
     - [Consulta](#consulta-9)
     - [Listagem](#listagem-2)
     - [Reversão](#reversão)
+  - [Custódia](#custódia)
+    - [Pagamento com custódia](#pagamento-com-custódia)
+    - [Liberação de custódia](#liberação-de-custódia)
   - [OAuth (Moip Connect)](#oauth-(moip-connect))
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
@@ -552,6 +555,35 @@ transfers = api.transfer.find_all()
 ### Reversão
 ```ruby
 transfer = api.transfer.reverse("TRA-B0W5FD5FCADG")
+```
+## Custódia
+### Pagamento com custódia
+```ruby
+payment = api.payment.create(order.id,
+    {
+        installment_count: 1,
+        escrow: {
+          description: 'Custódia de pagamento'
+        },
+        funding_instrument: {
+            method: "CREDIT_CARD",
+            credit_card: {
+                expiration_month: 04,
+                expiration_year: 18,
+                number: "4002892240028922",
+                cvc: "123",
+                holder: {
+                    # ...
+                }
+            }
+        }
+    }
+)
+```
+
+### Liberação de custódia
+```ruby
+escrow = api.payment.release("ECW-JO3U4WIXD0CK")
 ```
 
 ## OAuth (Moip Connect)

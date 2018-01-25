@@ -24,6 +24,7 @@ require "moip2/resource/credit_card"
 require "moip2/resource/notification"
 require "moip2/resource/balances"
 require "moip2/resource/bank_account"
+require "moip2/resource/escrow"
 
 require "moip2/response"
 require "moip2/client"

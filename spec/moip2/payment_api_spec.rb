@@ -133,4 +133,18 @@ describe Moip2::PaymentApi do
     it { expect(cancelled_payment.funding_instrument).to_not be_nil }
     it { expect(cancelled_payment.installment_count).to eq 1 }
   end
+
+  describe "#release" do
+    let(:payment_api_oauth) { described_class.new(sandbox_oauth_client) }
+    let (:released_escrow) do
+      VCR.use_cassette("release_escrow") do
+        payment_api_oauth.release("ECW-JO3U4WIXD0CK")
+      end
+    end
+
+    it { expect(released_escrow.id).to eq "ECW-JO3U4WIXD0CK" }
+    it { expect(released_escrow.status).to eq "RELEASED" }
+    it { expect(released_escrow.description).to eq "Custódia de pagamento" }
+    it { expect(released_escrow.amount).to eq 2000 }
+  end
 end
