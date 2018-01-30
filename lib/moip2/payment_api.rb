@@ -21,5 +21,9 @@ module Moip2
     def void(payment_id)
       Resource::Payment.new client.post("/v2/payments/#{payment_id}/void", nil)
     end
+
+    def release(escrow_id)
+      Resource::Escrow.new client.post("/v2/escrows/#{escrow_id}/release", nil)
+    end
   end
 end
