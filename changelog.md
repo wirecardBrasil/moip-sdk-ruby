@@ -1,3 +1,23 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+
+<a name="v1.3.0"></a>
+# [](https://github.com/moip/moip-sdk-ruby/compare/v1.2.1...v1.3.0) (2018-02-19)
+
+
+#### Features
+
+* **Transfer**
+  * add transfers support ([4f89d76](https://github.com/moip/moip-sdk-ruby/commit/4f89d76))
+
+* **Escrow**
+  * add release escrow feature ([ef61c2d](https://github.com/moip/moip-sdk-ruby/commit/ef61c2d))
+
+
 <a name="v1.2.1"></a>
 ## v1.2.1 (2017-12-11)
 
@@ -6,7 +26,7 @@
 
 * **invoices**
   *  fix params on invoice list ((eb12108))
-  
+
 
 <a name="v1.2.0"></a>
 ## v1.2.0 (2017-12-7)
