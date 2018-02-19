@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moip2 (1.2.0)
+    moip2 (1.3.0)
       httparty
       recursive-open-struct
 
