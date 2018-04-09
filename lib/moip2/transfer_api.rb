@@ -15,22 +15,8 @@ module Moip2
     end
 
     def find_all(limit: nil, offset: nil, filters: nil, status: nil)
-      encoded_filters = Moip2::Util::FiltersEncoder.encode(filters)
-
-      # `URI.encode...` will accept nil params, but they will pollute the URI
-      params = {
-        limit: limit,
-        offset: offset,
-        filters: encoded_filters,
-        status: status,
-      }.reject { |_, value| value.nil? }
-      query_string = URI.encode_www_form(params)
-      path = "#{base_path}?#{query_string}"
-      response = client.get(path)
-
-      # We need to transform raw JSON in Order objects
-      response.transfers.map! { |transfer| Resource::Transfer.new transfer }
-      Resource::Transfer.new response
+      response = client.get(uri_encode(limit, offset, filters, status))
+      Resource::Transfer.new json_to_object(response)
     end
 
     def reverse(transfers_id)
@@ -41,6 +27,24 @@ module Moip2
 
     def base_path
       "/v2/transfers"
+    end
+
+    def uri_encode(limit, offset, filters, status)
+      encoded_filters = Moip2::Util::FiltersEncoder.encode(filters)
+
+      params = {
+        limit: limit,
+        offset: offset,
+        filters: encoded_filters,
+        status: status,
+      }.reject { |_, value| value.nil? }
+      query_string = URI.encode_www_form(params)
+      path = "#{base_path}?#{query_string}"
+    end
+
+    def json_to_object(json)
+      json.transfers.map! { |transfer| Resource::Transfer.new transfer }
+      json
     end
   end
 end
