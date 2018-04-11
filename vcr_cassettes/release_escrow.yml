@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/escrows/ECW-JO3U4WIXD0CK/release
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.2.1 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 25 Jan 2018 20:04:46 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kBQlVBDREQPh8ZUQZFZBtAVglcAEIEE0o0eWQ1T0EUAx5UTVIZAQJRVgYFC1NKV04SWgoBXQgABQFVXQJXV1ZUUxQbBwcPS1Zt
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '471'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"ECW-JO3U4WIXD0CK","status":"RELEASED","description":"Custódia
+        de pagamento","amount":2000,"createdAt":"2018-01-25T18:01:48.000-02","updatedAt":"2018-01-25T18:01:48.000-02","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/escrows/ECW-JO3U4WIXD0CK"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-IKJI72Q36F6A","title":"ORD-IKJI72Q36F6A"},"payment":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-2S7UQ4KTROU8","title":"PAY-2S7UQ4KTROU8"}}}'
+    http_version: 
+  recorded_at: Thu, 25 Jan 2018 20:04:46 GMT
+recorded_with: VCR 2.9.3

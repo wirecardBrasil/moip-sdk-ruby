@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/transfers/TRA-B0W5FD5FCADG/reverse
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - MoipRubySDK/1.2.1 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 11 Jan 2018 21:17:06 GMT
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMREWxNQwtcRWgdQQBPBEMSVkJMZngyMkoaHwBKUU4HHwdXVwIGAVNXT1YcQAxWXQsMUwsBDgBSVwRQBgAVTQACVEBVOQ==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '119'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"fee":0,"amount":1000,"id":"TRA-B0W5FD5FCADG","transferInstrument":{"moipAccount":{"id":"MPA-AE2OAL41CBB1","email":"iori@labs.moip.com.br","login":"iori@labs.moip.com.br","fullname":"Iori Yagami"},"method":"MOIP_ACCOUNT"},"status":"REVERSED","createdAt":"2015-10-15T16:18:41-0300","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-B0W5FD5FCADG"}}}'
+    http_version:
+  recorded_at: Thu, 11 Jan 2018 21:17:07 GMT
+recorded_with: VCR 2.9.3

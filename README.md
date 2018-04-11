@@ -61,6 +61,16 @@
     - [Listagem](#listagem)
     - [Atualizar conta bancária](#atualizar-conta-bancaria)
     - [Deletar conta bancária](#deletar-conta-bancaria)
+  - [Transferência](#transferência)
+    - [Criação](#criação-8)
+      -[Conta Bancária](#conta-bancária)
+      -[Conta Moip](#conta-moip-1)
+    - [Consulta](#consulta-9)
+    - [Listagem](#listagem-2)
+    - [Reversão](#reversão)
+  - [Custódia](#custódia)
+    - [Pagamento com custódia](#pagamento-com-custódia)
+    - [Liberação de custódia](#liberação-de-custódia)
   - [OAuth (Moip Connect)](#oauth-(moip-connect))
     - [Solicitar permissões de acesso ao usuário](#solicitar-permissões-de-acesso-ao-usuário)
     - [Gerar Token OAuth](#gerar-token-oauth)
@@ -490,6 +500,91 @@ api.bank_accounts.update("BKA-DWTSK16UQI9N",
 > Retorna uma Exception do tipo `NotFoundError` caso não encontre a conta bancária para deletar
 ```ruby
   api.bank_accounts.delete("BKA-DWTSK16UQI9N")
+```
+
+## Transferência
+### Criação
+#### Conta Bancária
+```ruby
+transfer = api.transfer.create(
+  amount: 500,
+  transferInstrument: {
+    method: "BANK_ACCOUNT",
+    bankAccount: {
+      type: "CHECKING",
+      bankNumber: "001",
+      agencyNumber: "1111",
+      agencyCheckNumber: "2",
+      accountNumber: "9999",
+      accountCheckNumber: "8",
+      holder: {
+        fullname: "Nome do Portador",
+        taxDocument: {
+          type: "CPF",
+          number: "22222222222",
+        },
+      },
+    },
+  },
+)
+```
+
+
+#### Conta Moip
+```ruby
+transfer = api.transfer.create(
+  amount: 500,
+  transferInstrument: {
+    method: "MOIP_ACCOUNT",
+    moipAccount: {
+      id: "MPA-B0D880F21EF1",
+    },
+  },
+)
+```
+
+### Consulta
+```ruby
+transfer = api.transfer.show("TRA-28HRLYNLMUFH")
+```
+
+### Listagem
+```ruby
+transfers = api.transfer.find_all()
+```
+
+### Reversão
+```ruby
+transfer = api.transfer.reverse("TRA-B0W5FD5FCADG")
+```
+## Custódia
+### Pagamento com custódia
+```ruby
+payment = api.payment.create(order.id,
+    {
+        installment_count: 1,
+        escrow: {
+          description: 'Custódia de pagamento'
+        },
+        funding_instrument: {
+            method: "CREDIT_CARD",
+            credit_card: {
+                expiration_month: 04,
+                expiration_year: 18,
+                number: "4002892240028922",
+                cvc: "123",
+                holder: {
+                    # ...
+                }
+            }
+        }
+    }
+)
+```
+
+### Liberação de custódia
+```ruby
+escrow = api.payment.release("ECW-JO3U4WIXD0CK")
 ```
 
 ## OAuth (Moip Connect)
