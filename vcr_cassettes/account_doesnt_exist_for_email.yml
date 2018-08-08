@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/accounts/exists?email=dev.moip.0123456789@labs.moip.com.br
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/0.1.5 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 22 Aug 2017 12:51:11 GMT
+      Server:
+      - nginx/1.6.3
+      Status:
+      - 400 Bad Request
+      Content-Type:
+      - application/json
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTVVBRBAkAX1MTGhEhCQ0WQg1UDl1KG3VBBEkEHiBjK14MdhEPTk4BHwUCAVhEWRIXHlNLCxUXERBKfydsERYeA0sJTQFPA1JWAwdRVlYPAQJUVVcPCA9SUB0bAk5EBlRTAFlTCFpXAwUGWAJXWRE/
+      Content-Length:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '400'
+    http_version: 
+  recorded_at: Tue, 22 Aug 2017 12:51:11 GMT
+recorded_with: VCR 2.9.3

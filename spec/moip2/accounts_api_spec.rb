@@ -144,8 +144,8 @@ describe Moip2::AccountsApi do
   describe "#exists" do
     describe "with a registered tax document" do
       let(:existence_check) do
-        VCR.use_cassette("account_exists") do
-          accounts_api.exists?("436.130.670-21")
+        VCR.use_cassette("account_exists_for_tax_document") do
+          accounts_api.exists?({tax_document: "436.130.670-21"})
         end
       end
 
@@ -154,8 +154,28 @@ describe Moip2::AccountsApi do
 
     describe "with a non registered tax document" do
       let(:existence_check) do
-        VCR.use_cassette("account_doesnt_exist") do
-          accounts_api.exists?("555.000.123-40")
+        VCR.use_cassette("account_doesnt_exist_for_tax_document") do
+          accounts_api.exists?({tax_document: "555.000.123-40"})
+        end
+      end
+
+      it { expect(existence_check).to be false }
+    end
+
+    describe "with a registered email" do
+      let(:existence_check) do
+        VCR.use_cassette("account_exists_for_email") do
+          accounts_api.exists?({email: "dev.moip.1503312536@labs.moip.com.br"})
+        end
+      end
+
+      it { expect(existence_check).to be true }
+    end
+
+    describe "with a non registered email" do
+      let(:existence_check) do
+        VCR.use_cassette("account_doesnt_exist_for_email") do
+          accounts_api.exists?({email: "dev.moip.0123456789@labs.moip.com.br"})
         end
       end
 
