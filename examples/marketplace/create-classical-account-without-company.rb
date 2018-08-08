@@ -7,7 +7,10 @@ client = Moip2::Client.new(:sandbox, auth)
 api = Moip2::Api.new(client)
 
 # Check if account exists
-api.accounts.exists?("978.443.610-85")
+api.accounts.exists?({tax_document: "978.443.610-85"})
+
+# or
+api.accounts.exists?({email: "dev.moip@labs.moip.com.br"})
 
 # Create account
 account = api.accounts.create(
