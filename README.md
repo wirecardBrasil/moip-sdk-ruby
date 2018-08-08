@@ -446,7 +446,12 @@ account = api.accounts.show("MPA-12312312312")
 
 ### Verifica se usuário já possui Conta Moip
 ```ruby
-api.accounts.exists?("123.456.789.10")
+api.accounts.exists?({tax_document: "123.456.789.10"})
+```
+
+### ou
+```ruby
+api.accounts.exists?({email: "dev.moip@labs.moip.com.br"})
 ```
 
 ## Conta bancária
@@ -707,4 +712,4 @@ end
 
 ## Comunidade Slack [![Slack](https://user-images.githubusercontent.com/4432322/37355972-ba0e9f32-26c3-11e8-93d3-39917eb24109.png)](https://slackin-cqtchmfquq.now.sh)
 
-Tem dúvidas? Fale com a gente no [Slack](https://slackin-cqtchmfquq.now.sh/)! 
+Tem dúvidas? Fale com a gente no [Slack](https://slackin-cqtchmfquq.now.sh/)!
