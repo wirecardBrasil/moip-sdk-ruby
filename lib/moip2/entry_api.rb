@@ -14,8 +14,8 @@ module Moip2
       Resource::Entry.new client, client.get("#{base_path}/#{id}")
     end
 
-    def find_all
-      Resource::Entry.new client, client.get("#{base_path}")
+    def find_all(params = {})
+      Resource::Entry.new client, client.get("#{base_path}?#{params.to_query}")
     end
   end
 end
