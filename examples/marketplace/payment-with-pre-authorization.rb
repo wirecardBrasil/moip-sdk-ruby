@@ -79,7 +79,7 @@ payment = api.payment.create(order.id,
   })
 
 # Capture pre authorized payment
-api.payment.catpure(payment.id)
+api.payment.capture(payment.id)
 
 # TIP: To get your application synchronized to Moip's platform,
 # you should have a route that handles Webhooks.
