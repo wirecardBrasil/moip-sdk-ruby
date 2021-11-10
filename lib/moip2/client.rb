@@ -64,7 +64,7 @@ module Moip2
 
     def host
       if production?
-        "api.moip.com.br"
+        "api-waf.moip.com.br"
       else
         "sandbox.moip.com.br"
       end
